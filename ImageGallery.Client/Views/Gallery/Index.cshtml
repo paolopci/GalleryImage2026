@@ -1,14 +1,20 @@
-﻿@model ImageGallery.Client.ViewModels.GalleryIndexViewModel
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+@model ImageGallery.Client.ViewModels.GalleryIndexViewModel
+
+@{
+    var imageGalleryApiRoot = Configuration["ImageGalleryAPIRoot"]?.TrimEnd('/') ?? string.Empty;
+}
 
 <div class="bottomMarginDefault">
 
 </div>
 <div class="container">
     <div class="row">
-        @foreach(var item in Model.Images){
+        @foreach (var item in Model.Images)
+        {
             <div class="pull-left col-md-4">
                 <div>
-                    <img src="@("https://localhost:7075/images/"+item.FileName)" />>
+                    <img src="@($"{imageGalleryApiRoot}/images/{item.FileName}")" />
                 </div>
                 <div>
                     <div class="h6 topMarginSmall">@item.Title</div>

@@ -1,4 +1,4 @@
-using ImageGallery.Model;
+using ImageGallery.API.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace ImageGallery.API.DbContext;
@@ -19,10 +19,13 @@ public class GalleryDbContext(DbContextOptions<GalleryDbContext> options) : Micr
             entity.HasKey(image => image.Id);
             entity.Property(image => image.Title)
                 .IsRequired()
-                .HasMaxLength(200);
+                .HasMaxLength(150);
             entity.Property(image => image.FileName)
                 .IsRequired()
-                .HasMaxLength(260);
+                .HasMaxLength(200);
+            entity.Property(image => image.OwnerId)
+                .IsRequired()
+                .HasMaxLength(50);
         });
     }
 
@@ -52,7 +55,8 @@ public class GalleryDbContext(DbContextOptions<GalleryDbContext> options) : Micr
             {
                 Id = Guid.NewGuid(),
                 FileName = fileName,
-                Title = Path.GetFileNameWithoutExtension(fileName)
+                Title = Path.GetFileNameWithoutExtension(fileName),
+                OwnerId = "seed"
             })
             .ToList();
 

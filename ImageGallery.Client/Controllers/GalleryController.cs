@@ -7,6 +7,7 @@ namespace ImageGallery.Client.Controllers
 {
     public class GalleryController : Controller
     {
+        private static readonly JsonSerializerOptions JsonSerializerOptions = new(JsonSerializerDefaults.Web);
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILogger<GalleryController> _logger;
 
@@ -28,7 +29,7 @@ namespace ImageGallery.Client.Controllers
 
             using (var responseStream = await response.Content.ReadAsStreamAsync())
             {
-                var images = await JsonSerializer.DeserializeAsync<List<Image>>(responseStream);
+                var images = await JsonSerializer.DeserializeAsync<List<Image>>(responseStream, JsonSerializerOptions);
                 return View(new GalleryIndexViewModel(images ?? new List<Image>()));
             }
         }
@@ -44,7 +45,7 @@ namespace ImageGallery.Client.Controllers
 
             using (var responseStream = await response.Content.ReadAsStreamAsync())
             {
-                var deserializedImage = await JsonSerializer.DeserializeAsync<Image>(responseStream);
+                var deserializedImage = await JsonSerializer.DeserializeAsync<Image>(responseStream, JsonSerializerOptions);
 
                 if (deserializedImage == null)
                 {

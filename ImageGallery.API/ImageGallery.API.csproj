@@ -19,6 +19,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ImageGallery.Model\ImageGallery.Model.csproj" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>
