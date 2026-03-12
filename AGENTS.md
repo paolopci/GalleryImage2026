@@ -83,10 +83,11 @@ Obiettivo: mantenere un flusso di lavoro chiaro, coerente e manutenibile per API
 
 ## 4. Struttura Del Progetto E Organizzazione Dei Moduli
 
-La soluzione è suddivisa in tre progetti .NET 10:
+La soluzione è suddivisa in quattro progetti .NET 10:
 
 - `ImageGallery.API/`: Web API ASP.NET Core (controller, avvio API, configurazione OpenAPI).
 - `ImageGallery.Client/`: front end MVC ASP.NET Core (`Controllers/`, `Views/`, asset statici in `wwwroot/`).
+- `ImageGallery.IdentityServer/`: server di identità OAuth2/OpenID Connect (Duende IdentityServer) per autenticazione e rilascio token.
 - `ImageGallery.Model/`: classi DTO/modello condivise usate dal client e dall'API.
 
 Usa `ImageGallery.slnx` dalla radice del repository per compilare tutti i progetti insieme.
@@ -99,7 +100,9 @@ Esegui i comandi dalla radice del repository:
 - `dotnet build ImageGallery.slnx -c Debug`: compila l'intera soluzione.
 - `dotnet run --project ImageGallery.API`: avvia localmente l'API.
 - `dotnet run --project ImageGallery.Client`: avvia localmente il client MVC.
+- `dotnet run --project ImageGallery.IdentityServer`: avvia localmente l'IdentityServer.
 - `dotnet watch run --project ImageGallery.API`: avvia l'API con hot reload durante lo sviluppo.
+- `dotnet watch run --project ImageGallery.IdentityServer`: avvia l'IdentityServer con hot reload durante lo sviluppo.
 - `dotnet test`: esegue i test (attualmente non è presente un progetto di test dedicato; aggiungine uno prima di fare affidamento sui quality gate della CI).
 
 ## 6. Stile Del Codice E Convenzioni Di Naming
