@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="ImageGallery.API/ImageGallery.API.csproj" />
   <Project Path="ImageGallery.Client/ImageGallery.Client.csproj" />
+  <Project Path="ImageGallery.IdentityServer/ImageGallery.IdentityServer.csproj" />
   <Project Path="ImageGallery.Model/ImageGallery.Model.csproj" />
 </Solution>
