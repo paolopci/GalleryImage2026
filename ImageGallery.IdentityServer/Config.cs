@@ -38,7 +38,10 @@ public static class Config
                 ClientSecrets =
                 {
                     new Secret("secret".Sha256())
-                }
+                },
+                // una volta loggato aggiungo una schermata di consenso
+                RequireConsent=true
+
             }
         };
 }

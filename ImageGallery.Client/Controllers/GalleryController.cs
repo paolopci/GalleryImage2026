@@ -1,10 +1,15 @@
-﻿using System.Text.Json;
+﻿using System.Text;
+using System.Text.Json;
 using ImageGallery.Client.ViewModels;
 using ImageGallery.Model;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace ImageGallery.Client.Controllers
 {
+    [Authorize]
     public class GalleryController : Controller
     {
         private static readonly JsonSerializerOptions JsonSerializerOptions = new(JsonSerializerDefaults.Web);
@@ -19,6 +24,9 @@ namespace ImageGallery.Client.Controllers
 
         public async Task<IActionResult> Index()
         {
+            // voglio ritornare il token salvato...
+            await LoginIdentityInformation();
+
             var httpClient = _httpClientFactory.CreateClient("APIClient");
             var request = new HttpRequestMessage(HttpMethod.Get, "/api/images/");
 
@@ -145,5 +153,24 @@ namespace ImageGallery.Client.Controllers
 
             return RedirectToAction("Index");
         }
+
+
+        // per ottenere un token salvato
+        public async Task LoginIdentityInformation()
+        {
+            // get the saved identity token
+            var identityToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.IdToken);
+
+            var userClaimsStringBuilder = new StringBuilder();
+            foreach (var claim in User.Claims)
+            {
+                userClaimsStringBuilder.AppendLine($"Claim type: {claim.Type} - Claim value: {claim.Value}");
+            }
+
+            // log token & claims
+            _logger.LogInformation($"Identity token & user claims: " + $"\n{identityToken}\n{userClaimsStringBuilder}");
+
+        }
     }
 }
+
