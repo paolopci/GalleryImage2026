@@ -50,6 +50,11 @@ builder.Services.AddAuthentication(options =>
           // options.SignedOutCallbackPath = new PathString("signout-callback");
           options.SaveTokens = true;
 
+          // Se true, dopo il login il middleware chiama lo UserInfo endpoint dell'IDP
+          // usando l'access token ricevuto, per recuperare claim aggiuntivi del profilo
+          // utente e aggiungerli all'identità autenticata locale.
+          options.GetClaimsFromUserInfoEndpoint = true;
+
       });
 
 
