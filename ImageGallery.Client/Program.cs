@@ -43,6 +43,11 @@ builder.Services.AddAuthentication(options =>
 
           // permette di salvare i token ricevuti dal file provider identità IDP 
           // per poterli usare in seguito.
+
+
+          // c'è un valore predefinito che è host:port/signout-callback-oidc
+          // quindi lo commento
+          // options.SignedOutCallbackPath = new PathString("signout-callback");
           options.SaveTokens = true;
 
       });

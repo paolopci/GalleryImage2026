@@ -48,6 +48,15 @@ public static class Config
                     // con la risposta OIDC gestita dal middleware signin-oidc.
                     "https://localhost:7065/signin-oidc"
                 },
+                // Endpoint di callback eseguito dopo il logout presso l'IDP.
+                // Il middleware signout-callback-oidc usa questo URI per completare
+                // il flusso di sign-out e reindirizzare correttamente l'utente.
+                PostLogoutRedirectUris =
+                {
+                    "https://localhost:7065/signout-callback-oidc"
+                },
+
+
                 AllowedScopes =
                 {
                     // Scope identitari che il client è autorizzato a richiedere.
