@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,48 @@ builder.Services.AddHttpClient("APIClient", client =>
     client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
 });
 
+// configure authentication per usare OpenIDConnect
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+}).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
+      .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
+      {
+          options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+          options.Authority = "https://localhost:5001";
+          options.ClientId = "imagegalleryclient";
+          options.ClientSecret = "secret";
+          options.ResponseType = "code";
+
+          // questi sono gli ambiti che voglio richiedere, non serve aggiungerli sono
+          // aggiunti dei default dal middleware
+          //  options.Scope.Add("openid");
+          //   options.Scope.Add("profile");
+
+          // redirect sul nostro host seguito dalla porta vedi 
+          // file Config.cs in ImageGallery.IdentityServer
+          //  -->   "https://localhost:7065/signin-oidc"
+          // anche questo è impostato di default dal middleware quindi lo commento
+          // options.CallbackPath = new PathString("signin-oidc");
+
+          // permette di salvare i token ricevuti dal file provider identità IDP 
+          // per poterli usare in seguito.
+
+
+          // c'è un valore predefinito che è host:port/signout-callback-oidc
+          // quindi lo commento
+          // options.SignedOutCallbackPath = new PathString("signout-callback");
+          options.SaveTokens = true;
+
+          // Se true, dopo il login il middleware chiama lo UserInfo endpoint dell'IDP
+          // usando l'access token ricevuto, per recuperare claim aggiuntivi del profilo
+          // utente e aggiungerli all'identità autenticata locale.
+          options.GetClaimsFromUserInfoEndpoint = true;
+
+      });
+
+
 var app = builder.Build();
 
 
@@ -29,6 +73,9 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+// aggiungo l'autenticazione OATH2 prima dell'autorizzazione
+// inserisci dopo UseRouting e prima dellìUseAuthorization
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
