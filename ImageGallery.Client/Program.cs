@@ -80,6 +80,11 @@ builder.Services.AddAuthentication(options =>
           options.ClaimActions.DeleteClaim("sid");
           options.ClaimActions.DeleteClaim("idp");
 
+          // Richiede i ruoli dell'utente all'IdentityServer e mappa il campo JSON "role"
+          // come claim locale, così il client può usarlo per autorizzazioni e controlli sui ruoli.
+          options.Scope.Add("roles");
+          options.ClaimActions.MapJsonKey("role", "role");
+
       });
 
 
