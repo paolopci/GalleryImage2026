@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.IdentityModel.JsonWebTokens;
@@ -75,6 +76,9 @@ builder.Services.AddAuthentication(options =>
           // usando l'access token ricevuto, per recuperare claim aggiuntivi del profilo
           // utente e aggiungerli all'identità autenticata locale.
           options.GetClaimsFromUserInfoEndpoint = true;
+          options.ClaimActions.Remove("aud");
+          options.ClaimActions.DeleteClaim("sid");
+          options.ClaimActions.DeleteClaim("idp");
 
       });
 
