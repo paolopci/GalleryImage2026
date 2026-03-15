@@ -14,7 +14,11 @@ public static class Config
         new IdentityResource[]
         {
             new IdentityResources.OpenId(),
-            new IdentityResources.Profile()
+            new IdentityResources.Profile(),
+
+            // Definisce una IdentityResource chiamata "roles" che espone il claim "role",
+            // così i client che richiedono questo scope possono ricevere i ruoli dell'utente autenticato.
+            new IdentityResource("roles", "Your role(s)", new []{"role"})
         };
 
     // Gli ApiScope descrivono i permessi delegati verso API protette.
@@ -64,6 +68,7 @@ public static class Config
                     // profile permette il rilascio di claim di profilo base.
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
+                    "roles"
                 },
                 ClientSecrets =
                 {

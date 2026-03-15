@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,26 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews()
                 .AddJsonOptions(configure => configure.JsonSerializerOptions.PropertyNamingPolicy = null);
+
+
+// Evita la rimappatura automatica dei claim JWT ai claim type Microsoft;
+// in questo modo i claim restano con i nomi originali del token (es. "sub", "role", "name").
+/*
+
+In pratica:
+
+* quando ASP.NET Core legge un token JWT, alcuni claim standard come sub, role, name possono 
+  essere rinominati automaticamente in URI lunghi come http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name;
+
+* con Clear() questa conversione viene azzerata;
+  i claim restano con i nomi originali presenti nel token, quindi è più semplice lavorare 
+  in modo coerente con OAuth2/OpenID Connect e con i claim standard JWT.
+  evita ambiguità tra nomi claim standard e nomi trasformati;
+  rende più prevedibile la lettura di User.Claims;
+  riduce problemi quando il client o l'IdentityServer si aspettano claim come sub, role, given_name, email.
+
+*/
+JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
 // create an HttpClient used for accessing the API
 builder.Services.AddHttpClient("APIClient", client =>
@@ -21,7 +43,10 @@ builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-}).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
+}).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
+{
+    options.AccessDeniedPath = "/Authentication/AccessDenied";
+})
       .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
       {
           options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -54,6 +79,20 @@ builder.Services.AddAuthentication(options =>
           // usando l'access token ricevuto, per recuperare claim aggiuntivi del profilo
           // utente e aggiungerli all'identità autenticata locale.
           options.GetClaimsFromUserInfoEndpoint = true;
+          options.ClaimActions.Remove("aud");
+          options.ClaimActions.DeleteClaim("sid");
+          options.ClaimActions.DeleteClaim("idp");
+
+          // Richiede i ruoli dell'utente all'IdentityServer e mappa il campo JSON "role"
+          // come claim locale, così il client può usarlo per autorizzazioni e controlli sui ruoli.
+          options.Scope.Add("roles");
+          options.ClaimActions.MapJsonKey("role", "role");
+
+          options.TokenValidationParameters = new()
+          {
+              NameClaimType = "given_name",
+              RoleClaimType = "role"
+          };
 
       });
 
