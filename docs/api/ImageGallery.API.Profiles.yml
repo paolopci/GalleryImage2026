@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.API.Profiles
+  commentId: N:ImageGallery.API.Profiles
+  id: ImageGallery.API.Profiles
+  children:
+  - ImageGallery.API.Profiles.ImageProfile
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.API.Profiles
+  nameWithType: ImageGallery.API.Profiles
+  fullName: ImageGallery.API.Profiles
+  type: Namespace
+  assemblies:
+  - ImageGallery.API
+references:
+- uid: ImageGallery.API.Profiles.ImageProfile
+  commentId: T:ImageGallery.API.Profiles.ImageProfile
+  href: ImageGallery.API.Profiles.ImageProfile.html
+  name: ImageProfile
+  nameWithType: ImageProfile
+  fullName: ImageGallery.API.Profiles.ImageProfile

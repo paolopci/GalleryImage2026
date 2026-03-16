@@ -1,0 +1,1163 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.API.Services.GalleryRepository
+  commentId: T:ImageGallery.API.Services.GalleryRepository
+  id: GalleryRepository
+  parent: ImageGallery.API.Services
+  children:
+  - ImageGallery.API.Services.GalleryRepository.#ctor(ImageGallery.API.DbContext.GalleryDbContext)
+  - ImageGallery.API.Services.GalleryRepository.AddImage(ImageGallery.API.Entities.Image)
+  - ImageGallery.API.Services.GalleryRepository.DeleteImage(ImageGallery.API.Entities.Image)
+  - ImageGallery.API.Services.GalleryRepository.GetImageAsync(System.Guid)
+  - ImageGallery.API.Services.GalleryRepository.GetImagesAsync
+  - ImageGallery.API.Services.GalleryRepository.ImageExistsAsync(System.Guid)
+  - ImageGallery.API.Services.GalleryRepository.IsImageOwnerAsync(System.Guid,System.String)
+  - ImageGallery.API.Services.GalleryRepository.SaveChangesAsync
+  - ImageGallery.API.Services.GalleryRepository.UpdateImage(ImageGallery.API.Entities.Image)
+  langs:
+  - csharp
+  - vb
+  name: GalleryRepository
+  nameWithType: GalleryRepository
+  fullName: ImageGallery.API.Services.GalleryRepository
+  type: Class
+  source:
+    remote:
+      path: ImageGallery.API/Services/GalleryRepository.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: GalleryRepository
+    path: ../ImageGallery.API/Services/GalleryRepository.cs
+    startLine: 6
+  assemblies:
+  - ImageGallery.API
+  namespace: ImageGallery.API.Services
+  syntax:
+    content: 'public class GalleryRepository : IGalleryRepository'
+    content.vb: Public Class GalleryRepository Implements IGalleryRepository
+  inheritance:
+  - System.Object
+  implements:
+  - ImageGallery.API.Services.IGalleryRepository
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ImageGallery.API.Services.GalleryRepository.#ctor(ImageGallery.API.DbContext.GalleryDbContext)
+  commentId: M:ImageGallery.API.Services.GalleryRepository.#ctor(ImageGallery.API.DbContext.GalleryDbContext)
+  id: '#ctor(ImageGallery.API.DbContext.GalleryDbContext)'
+  parent: ImageGallery.API.Services.GalleryRepository
+  langs:
+  - csharp
+  - vb
+  name: GalleryRepository(GalleryDbContext)
+  nameWithType: GalleryRepository.GalleryRepository(GalleryDbContext)
+  fullName: ImageGallery.API.Services.GalleryRepository.GalleryRepository(ImageGallery.API.DbContext.GalleryDbContext)
+  type: Constructor
+  source:
+    remote:
+      path: ImageGallery.API/Services/GalleryRepository.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: .ctor
+    path: ../ImageGallery.API/Services/GalleryRepository.cs
+    startLine: 10
+  assemblies:
+  - ImageGallery.API
+  namespace: ImageGallery.API.Services
+  syntax:
+    content: public GalleryRepository(GalleryDbContext galleryContext)
+    parameters:
+    - id: galleryContext
+      type: ImageGallery.API.DbContext.GalleryDbContext
+    content.vb: Public Sub New(galleryContext As GalleryDbContext)
+  overload: ImageGallery.API.Services.GalleryRepository.#ctor*
+  nameWithType.vb: GalleryRepository.New(GalleryDbContext)
+  fullName.vb: ImageGallery.API.Services.GalleryRepository.New(ImageGallery.API.DbContext.GalleryDbContext)
+  name.vb: New(GalleryDbContext)
+- uid: ImageGallery.API.Services.GalleryRepository.ImageExistsAsync(System.Guid)
+  commentId: M:ImageGallery.API.Services.GalleryRepository.ImageExistsAsync(System.Guid)
+  id: ImageExistsAsync(System.Guid)
+  parent: ImageGallery.API.Services.GalleryRepository
+  langs:
+  - csharp
+  - vb
+  name: ImageExistsAsync(Guid)
+  nameWithType: GalleryRepository.ImageExistsAsync(Guid)
+  fullName: ImageGallery.API.Services.GalleryRepository.ImageExistsAsync(System.Guid)
+  type: Method
+  source:
+    remote:
+      path: ImageGallery.API/Services/GalleryRepository.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: ImageExistsAsync
+    path: ../ImageGallery.API/Services/GalleryRepository.cs
+    startLine: 16
+  assemblies:
+  - ImageGallery.API
+  namespace: ImageGallery.API.Services
+  example: []
+  syntax:
+    content: public Task<bool> ImageExistsAsync(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Function ImageExistsAsync(id As Guid) As Task(Of Boolean)
+  overload: ImageGallery.API.Services.GalleryRepository.ImageExistsAsync*
+  implements:
+  - ImageGallery.API.Services.IGalleryRepository.ImageExistsAsync(System.Guid)
+- uid: ImageGallery.API.Services.GalleryRepository.GetImageAsync(System.Guid)
+  commentId: M:ImageGallery.API.Services.GalleryRepository.GetImageAsync(System.Guid)
+  id: GetImageAsync(System.Guid)
+  parent: ImageGallery.API.Services.GalleryRepository
+  langs:
+  - csharp
+  - vb
+  name: GetImageAsync(Guid)
+  nameWithType: GalleryRepository.GetImageAsync(Guid)
+  fullName: ImageGallery.API.Services.GalleryRepository.GetImageAsync(System.Guid)
+  type: Method
+  source:
+    remote:
+      path: ImageGallery.API/Services/GalleryRepository.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: GetImageAsync
+    path: ../ImageGallery.API/Services/GalleryRepository.cs
+    startLine: 21
+  assemblies:
+  - ImageGallery.API
+  namespace: ImageGallery.API.Services
+  example: []
+  syntax:
+    content: public Task<Image?> GetImageAsync(Guid id)
+    parameters:
+    - id: id
+      type: System.Guid
+    return:
+      type: System.Threading.Tasks.Task{ImageGallery.API.Entities.Image}
+    content.vb: Public Function GetImageAsync(id As Guid) As Task(Of Image)
+  overload: ImageGallery.API.Services.GalleryRepository.GetImageAsync*
+  implements:
+  - ImageGallery.API.Services.IGalleryRepository.GetImageAsync(System.Guid)
+- uid: ImageGallery.API.Services.GalleryRepository.GetImagesAsync
+  commentId: M:ImageGallery.API.Services.GalleryRepository.GetImagesAsync
+  id: GetImagesAsync
+  parent: ImageGallery.API.Services.GalleryRepository
+  langs:
+  - csharp
+  - vb
+  name: GetImagesAsync()
+  nameWithType: GalleryRepository.GetImagesAsync()
+  fullName: ImageGallery.API.Services.GalleryRepository.GetImagesAsync()
+  type: Method
+  source:
+    remote:
+      path: ImageGallery.API/Services/GalleryRepository.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: GetImagesAsync
+    path: ../ImageGallery.API/Services/GalleryRepository.cs
+    startLine: 26
+  assemblies:
+  - ImageGallery.API
+  namespace: ImageGallery.API.Services
+  example: []
+  syntax:
+    content: public Task<IEnumerable<Image>> GetImagesAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ImageGallery.API.Entities.Image}}
+    content.vb: Public Function GetImagesAsync() As Task(Of IEnumerable(Of Image))
+  overload: ImageGallery.API.Services.GalleryRepository.GetImagesAsync*
+  implements:
+  - ImageGallery.API.Services.IGalleryRepository.GetImagesAsync
+- uid: ImageGallery.API.Services.GalleryRepository.IsImageOwnerAsync(System.Guid,System.String)
+  commentId: M:ImageGallery.API.Services.GalleryRepository.IsImageOwnerAsync(System.Guid,System.String)
+  id: IsImageOwnerAsync(System.Guid,System.String)
+  parent: ImageGallery.API.Services.GalleryRepository
+  langs:
+  - csharp
+  - vb
+  name: IsImageOwnerAsync(Guid, string)
+  nameWithType: GalleryRepository.IsImageOwnerAsync(Guid, string)
+  fullName: ImageGallery.API.Services.GalleryRepository.IsImageOwnerAsync(System.Guid, string)
+  type: Method
+  source:
+    remote:
+      path: ImageGallery.API/Services/GalleryRepository.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: IsImageOwnerAsync
+    path: ../ImageGallery.API/Services/GalleryRepository.cs
+    startLine: 32
+  assemblies:
+  - ImageGallery.API
+  namespace: ImageGallery.API.Services
+  example: []
+  syntax:
+    content: public Task<bool> IsImageOwnerAsync(Guid id, string ownerId)
+    parameters:
+    - id: id
+      type: System.Guid
+    - id: ownerId
+      type: System.String
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Function IsImageOwnerAsync(id As Guid, ownerId As String) As Task(Of Boolean)
+  overload: ImageGallery.API.Services.GalleryRepository.IsImageOwnerAsync*
+  implements:
+  - ImageGallery.API.Services.IGalleryRepository.IsImageOwnerAsync(System.Guid,System.String)
+  nameWithType.vb: GalleryRepository.IsImageOwnerAsync(Guid, String)
+  fullName.vb: ImageGallery.API.Services.GalleryRepository.IsImageOwnerAsync(System.Guid, String)
+  name.vb: IsImageOwnerAsync(Guid, String)
+- uid: ImageGallery.API.Services.GalleryRepository.AddImage(ImageGallery.API.Entities.Image)
+  commentId: M:ImageGallery.API.Services.GalleryRepository.AddImage(ImageGallery.API.Entities.Image)
+  id: AddImage(ImageGallery.API.Entities.Image)
+  parent: ImageGallery.API.Services.GalleryRepository
+  langs:
+  - csharp
+  - vb
+  name: AddImage(Image)
+  nameWithType: GalleryRepository.AddImage(Image)
+  fullName: ImageGallery.API.Services.GalleryRepository.AddImage(ImageGallery.API.Entities.Image)
+  type: Method
+  source:
+    remote:
+      path: ImageGallery.API/Services/GalleryRepository.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: AddImage
+    path: ../ImageGallery.API/Services/GalleryRepository.cs
+    startLine: 38
+  assemblies:
+  - ImageGallery.API
+  namespace: ImageGallery.API.Services
+  example: []
+  syntax:
+    content: public void AddImage(Image image)
+    parameters:
+    - id: image
+      type: ImageGallery.API.Entities.Image
+    content.vb: Public Sub AddImage(image As Image)
+  overload: ImageGallery.API.Services.GalleryRepository.AddImage*
+  implements:
+  - ImageGallery.API.Services.IGalleryRepository.AddImage(ImageGallery.API.Entities.Image)
+- uid: ImageGallery.API.Services.GalleryRepository.UpdateImage(ImageGallery.API.Entities.Image)
+  commentId: M:ImageGallery.API.Services.GalleryRepository.UpdateImage(ImageGallery.API.Entities.Image)
+  id: UpdateImage(ImageGallery.API.Entities.Image)
+  parent: ImageGallery.API.Services.GalleryRepository
+  langs:
+  - csharp
+  - vb
+  name: UpdateImage(Image)
+  nameWithType: GalleryRepository.UpdateImage(Image)
+  fullName: ImageGallery.API.Services.GalleryRepository.UpdateImage(ImageGallery.API.Entities.Image)
+  type: Method
+  source:
+    remote:
+      path: ImageGallery.API/Services/GalleryRepository.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: UpdateImage
+    path: ../ImageGallery.API/Services/GalleryRepository.cs
+    startLine: 43
+  assemblies:
+  - ImageGallery.API
+  namespace: ImageGallery.API.Services
+  example: []
+  syntax:
+    content: public void UpdateImage(Image image)
+    parameters:
+    - id: image
+      type: ImageGallery.API.Entities.Image
+    content.vb: Public Sub UpdateImage(image As Image)
+  overload: ImageGallery.API.Services.GalleryRepository.UpdateImage*
+  implements:
+  - ImageGallery.API.Services.IGalleryRepository.UpdateImage(ImageGallery.API.Entities.Image)
+- uid: ImageGallery.API.Services.GalleryRepository.DeleteImage(ImageGallery.API.Entities.Image)
+  commentId: M:ImageGallery.API.Services.GalleryRepository.DeleteImage(ImageGallery.API.Entities.Image)
+  id: DeleteImage(ImageGallery.API.Entities.Image)
+  parent: ImageGallery.API.Services.GalleryRepository
+  langs:
+  - csharp
+  - vb
+  name: DeleteImage(Image)
+  nameWithType: GalleryRepository.DeleteImage(Image)
+  fullName: ImageGallery.API.Services.GalleryRepository.DeleteImage(ImageGallery.API.Entities.Image)
+  type: Method
+  source:
+    remote:
+      path: ImageGallery.API/Services/GalleryRepository.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: DeleteImage
+    path: ../ImageGallery.API/Services/GalleryRepository.cs
+    startLine: 48
+  assemblies:
+  - ImageGallery.API
+  namespace: ImageGallery.API.Services
+  example: []
+  syntax:
+    content: public void DeleteImage(Image image)
+    parameters:
+    - id: image
+      type: ImageGallery.API.Entities.Image
+    content.vb: Public Sub DeleteImage(image As Image)
+  overload: ImageGallery.API.Services.GalleryRepository.DeleteImage*
+  implements:
+  - ImageGallery.API.Services.IGalleryRepository.DeleteImage(ImageGallery.API.Entities.Image)
+- uid: ImageGallery.API.Services.GalleryRepository.SaveChangesAsync
+  commentId: M:ImageGallery.API.Services.GalleryRepository.SaveChangesAsync
+  id: SaveChangesAsync
+  parent: ImageGallery.API.Services.GalleryRepository
+  langs:
+  - csharp
+  - vb
+  name: SaveChangesAsync()
+  nameWithType: GalleryRepository.SaveChangesAsync()
+  fullName: ImageGallery.API.Services.GalleryRepository.SaveChangesAsync()
+  type: Method
+  source:
+    remote:
+      path: ImageGallery.API/Services/GalleryRepository.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: SaveChangesAsync
+    path: ../ImageGallery.API/Services/GalleryRepository.cs
+    startLine: 57
+  assemblies:
+  - ImageGallery.API
+  namespace: ImageGallery.API.Services
+  example: []
+  syntax:
+    content: public Task<bool> SaveChangesAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Function SaveChangesAsync() As Task(Of Boolean)
+  overload: ImageGallery.API.Services.GalleryRepository.SaveChangesAsync*
+  implements:
+  - ImageGallery.API.Services.IGalleryRepository.SaveChangesAsync
+references:
+- uid: ImageGallery.API.Services
+  commentId: N:ImageGallery.API.Services
+  href: ImageGallery.html
+  name: ImageGallery.API.Services
+  nameWithType: ImageGallery.API.Services
+  fullName: ImageGallery.API.Services
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.API
+    name: API
+    href: ImageGallery.API.html
+  - name: .
+  - uid: ImageGallery.API.Services
+    name: Services
+    href: ImageGallery.API.Services.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.API
+    name: API
+    href: ImageGallery.API.html
+  - name: .
+  - uid: ImageGallery.API.Services
+    name: Services
+    href: ImageGallery.API.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ImageGallery.API.Services.IGalleryRepository
+  commentId: T:ImageGallery.API.Services.IGalleryRepository
+  parent: ImageGallery.API.Services
+  href: ImageGallery.API.Services.IGalleryRepository.html
+  name: IGalleryRepository
+  nameWithType: IGalleryRepository
+  fullName: ImageGallery.API.Services.IGalleryRepository
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ImageGallery.API.Services.GalleryRepository.#ctor*
+  commentId: Overload:ImageGallery.API.Services.GalleryRepository.#ctor
+  href: ImageGallery.API.Services.GalleryRepository.html#ImageGallery_API_Services_GalleryRepository__ctor_ImageGallery_API_DbContext_GalleryDbContext_
+  name: GalleryRepository
+  nameWithType: GalleryRepository.GalleryRepository
+  fullName: ImageGallery.API.Services.GalleryRepository.GalleryRepository
+  nameWithType.vb: GalleryRepository.New
+  fullName.vb: ImageGallery.API.Services.GalleryRepository.New
+  name.vb: New
+- uid: ImageGallery.API.DbContext.GalleryDbContext
+  commentId: T:ImageGallery.API.DbContext.GalleryDbContext
+  parent: ImageGallery.API.DbContext
+  href: ImageGallery.API.DbContext.GalleryDbContext.html
+  name: GalleryDbContext
+  nameWithType: GalleryDbContext
+  fullName: ImageGallery.API.DbContext.GalleryDbContext
+- uid: ImageGallery.API.DbContext
+  commentId: N:ImageGallery.API.DbContext
+  href: ImageGallery.html
+  name: ImageGallery.API.DbContext
+  nameWithType: ImageGallery.API.DbContext
+  fullName: ImageGallery.API.DbContext
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.API
+    name: API
+    href: ImageGallery.API.html
+  - name: .
+  - uid: ImageGallery.API.DbContext
+    name: DbContext
+    href: ImageGallery.API.DbContext.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.API
+    name: API
+    href: ImageGallery.API.html
+  - name: .
+  - uid: ImageGallery.API.DbContext
+    name: DbContext
+    href: ImageGallery.API.DbContext.html
+- uid: ImageGallery.API.Services.GalleryRepository.ImageExistsAsync*
+  commentId: Overload:ImageGallery.API.Services.GalleryRepository.ImageExistsAsync
+  href: ImageGallery.API.Services.GalleryRepository.html#ImageGallery_API_Services_GalleryRepository_ImageExistsAsync_System_Guid_
+  name: ImageExistsAsync
+  nameWithType: GalleryRepository.ImageExistsAsync
+  fullName: ImageGallery.API.Services.GalleryRepository.ImageExistsAsync
+- uid: ImageGallery.API.Services.IGalleryRepository.ImageExistsAsync(System.Guid)
+  commentId: M:ImageGallery.API.Services.IGalleryRepository.ImageExistsAsync(System.Guid)
+  parent: ImageGallery.API.Services.IGalleryRepository
+  isExternal: true
+  href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_ImageExistsAsync_System_Guid_
+  name: ImageExistsAsync(Guid)
+  nameWithType: IGalleryRepository.ImageExistsAsync(Guid)
+  fullName: ImageGallery.API.Services.IGalleryRepository.ImageExistsAsync(System.Guid)
+  spec.csharp:
+  - uid: ImageGallery.API.Services.IGalleryRepository.ImageExistsAsync(System.Guid)
+    name: ImageExistsAsync
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_ImageExistsAsync_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: ImageGallery.API.Services.IGalleryRepository.ImageExistsAsync(System.Guid)
+    name: ImageExistsAsync
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_ImageExistsAsync_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: ImageGallery.API.Services.GalleryRepository.GetImageAsync*
+  commentId: Overload:ImageGallery.API.Services.GalleryRepository.GetImageAsync
+  href: ImageGallery.API.Services.GalleryRepository.html#ImageGallery_API_Services_GalleryRepository_GetImageAsync_System_Guid_
+  name: GetImageAsync
+  nameWithType: GalleryRepository.GetImageAsync
+  fullName: ImageGallery.API.Services.GalleryRepository.GetImageAsync
+- uid: ImageGallery.API.Services.IGalleryRepository.GetImageAsync(System.Guid)
+  commentId: M:ImageGallery.API.Services.IGalleryRepository.GetImageAsync(System.Guid)
+  parent: ImageGallery.API.Services.IGalleryRepository
+  isExternal: true
+  href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_GetImageAsync_System_Guid_
+  name: GetImageAsync(Guid)
+  nameWithType: IGalleryRepository.GetImageAsync(Guid)
+  fullName: ImageGallery.API.Services.IGalleryRepository.GetImageAsync(System.Guid)
+  spec.csharp:
+  - uid: ImageGallery.API.Services.IGalleryRepository.GetImageAsync(System.Guid)
+    name: GetImageAsync
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_GetImageAsync_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+  spec.vb:
+  - uid: ImageGallery.API.Services.IGalleryRepository.GetImageAsync(System.Guid)
+    name: GetImageAsync
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_GetImageAsync_System_Guid_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: )
+- uid: System.Threading.Tasks.Task{ImageGallery.API.Entities.Image}
+  commentId: T:System.Threading.Tasks.Task{ImageGallery.API.Entities.Image}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Image>
+  nameWithType: Task<Image>
+  fullName: System.Threading.Tasks.Task<ImageGallery.API.Entities.Image>
+  nameWithType.vb: Task(Of Image)
+  fullName.vb: System.Threading.Tasks.Task(Of ImageGallery.API.Entities.Image)
+  name.vb: Task(Of Image)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ImageGallery.API.Entities.Image
+    name: Image
+    href: ImageGallery.API.Entities.Image.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ImageGallery.API.Entities.Image
+    name: Image
+    href: ImageGallery.API.Entities.Image.html
+  - name: )
+- uid: ImageGallery.API.Services.GalleryRepository.GetImagesAsync*
+  commentId: Overload:ImageGallery.API.Services.GalleryRepository.GetImagesAsync
+  href: ImageGallery.API.Services.GalleryRepository.html#ImageGallery_API_Services_GalleryRepository_GetImagesAsync
+  name: GetImagesAsync
+  nameWithType: GalleryRepository.GetImagesAsync
+  fullName: ImageGallery.API.Services.GalleryRepository.GetImagesAsync
+- uid: ImageGallery.API.Services.IGalleryRepository.GetImagesAsync
+  commentId: M:ImageGallery.API.Services.IGalleryRepository.GetImagesAsync
+  parent: ImageGallery.API.Services.IGalleryRepository
+  href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_GetImagesAsync
+  name: GetImagesAsync()
+  nameWithType: IGalleryRepository.GetImagesAsync()
+  fullName: ImageGallery.API.Services.IGalleryRepository.GetImagesAsync()
+  spec.csharp:
+  - uid: ImageGallery.API.Services.IGalleryRepository.GetImagesAsync
+    name: GetImagesAsync
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_GetImagesAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ImageGallery.API.Services.IGalleryRepository.GetImagesAsync
+    name: GetImagesAsync
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_GetImagesAsync
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ImageGallery.API.Entities.Image}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ImageGallery.API.Entities.Image}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IEnumerable<Image>>
+  nameWithType: Task<IEnumerable<Image>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<ImageGallery.API.Entities.Image>>
+  nameWithType.vb: Task(Of IEnumerable(Of Image))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IEnumerable(Of ImageGallery.API.Entities.Image))
+  name.vb: Task(Of IEnumerable(Of Image))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ImageGallery.API.Entities.Image
+    name: Image
+    href: ImageGallery.API.Entities.Image.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ImageGallery.API.Entities.Image
+    name: Image
+    href: ImageGallery.API.Entities.Image.html
+  - name: )
+  - name: )
+- uid: ImageGallery.API.Services.GalleryRepository.IsImageOwnerAsync*
+  commentId: Overload:ImageGallery.API.Services.GalleryRepository.IsImageOwnerAsync
+  href: ImageGallery.API.Services.GalleryRepository.html#ImageGallery_API_Services_GalleryRepository_IsImageOwnerAsync_System_Guid_System_String_
+  name: IsImageOwnerAsync
+  nameWithType: GalleryRepository.IsImageOwnerAsync
+  fullName: ImageGallery.API.Services.GalleryRepository.IsImageOwnerAsync
+- uid: ImageGallery.API.Services.IGalleryRepository.IsImageOwnerAsync(System.Guid,System.String)
+  commentId: M:ImageGallery.API.Services.IGalleryRepository.IsImageOwnerAsync(System.Guid,System.String)
+  parent: ImageGallery.API.Services.IGalleryRepository
+  isExternal: true
+  href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_IsImageOwnerAsync_System_Guid_System_String_
+  name: IsImageOwnerAsync(Guid, string)
+  nameWithType: IGalleryRepository.IsImageOwnerAsync(Guid, string)
+  fullName: ImageGallery.API.Services.IGalleryRepository.IsImageOwnerAsync(System.Guid, string)
+  nameWithType.vb: IGalleryRepository.IsImageOwnerAsync(Guid, String)
+  fullName.vb: ImageGallery.API.Services.IGalleryRepository.IsImageOwnerAsync(System.Guid, String)
+  name.vb: IsImageOwnerAsync(Guid, String)
+  spec.csharp:
+  - uid: ImageGallery.API.Services.IGalleryRepository.IsImageOwnerAsync(System.Guid,System.String)
+    name: IsImageOwnerAsync
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_IsImageOwnerAsync_System_Guid_System_String_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: ImageGallery.API.Services.IGalleryRepository.IsImageOwnerAsync(System.Guid,System.String)
+    name: IsImageOwnerAsync
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_IsImageOwnerAsync_System_Guid_System_String_
+  - name: (
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ImageGallery.API.Services.GalleryRepository.AddImage*
+  commentId: Overload:ImageGallery.API.Services.GalleryRepository.AddImage
+  href: ImageGallery.API.Services.GalleryRepository.html#ImageGallery_API_Services_GalleryRepository_AddImage_ImageGallery_API_Entities_Image_
+  name: AddImage
+  nameWithType: GalleryRepository.AddImage
+  fullName: ImageGallery.API.Services.GalleryRepository.AddImage
+- uid: ImageGallery.API.Services.IGalleryRepository.AddImage(ImageGallery.API.Entities.Image)
+  commentId: M:ImageGallery.API.Services.IGalleryRepository.AddImage(ImageGallery.API.Entities.Image)
+  parent: ImageGallery.API.Services.IGalleryRepository
+  href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_AddImage_ImageGallery_API_Entities_Image_
+  name: AddImage(Image)
+  nameWithType: IGalleryRepository.AddImage(Image)
+  fullName: ImageGallery.API.Services.IGalleryRepository.AddImage(ImageGallery.API.Entities.Image)
+  spec.csharp:
+  - uid: ImageGallery.API.Services.IGalleryRepository.AddImage(ImageGallery.API.Entities.Image)
+    name: AddImage
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_AddImage_ImageGallery_API_Entities_Image_
+  - name: (
+  - uid: ImageGallery.API.Entities.Image
+    name: Image
+    href: ImageGallery.API.Entities.Image.html
+  - name: )
+  spec.vb:
+  - uid: ImageGallery.API.Services.IGalleryRepository.AddImage(ImageGallery.API.Entities.Image)
+    name: AddImage
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_AddImage_ImageGallery_API_Entities_Image_
+  - name: (
+  - uid: ImageGallery.API.Entities.Image
+    name: Image
+    href: ImageGallery.API.Entities.Image.html
+  - name: )
+- uid: ImageGallery.API.Entities.Image
+  commentId: T:ImageGallery.API.Entities.Image
+  parent: ImageGallery.API.Entities
+  href: ImageGallery.API.Entities.Image.html
+  name: Image
+  nameWithType: Image
+  fullName: ImageGallery.API.Entities.Image
+- uid: ImageGallery.API.Entities
+  commentId: N:ImageGallery.API.Entities
+  href: ImageGallery.html
+  name: ImageGallery.API.Entities
+  nameWithType: ImageGallery.API.Entities
+  fullName: ImageGallery.API.Entities
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.API
+    name: API
+    href: ImageGallery.API.html
+  - name: .
+  - uid: ImageGallery.API.Entities
+    name: Entities
+    href: ImageGallery.API.Entities.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.API
+    name: API
+    href: ImageGallery.API.html
+  - name: .
+  - uid: ImageGallery.API.Entities
+    name: Entities
+    href: ImageGallery.API.Entities.html
+- uid: ImageGallery.API.Services.GalleryRepository.UpdateImage*
+  commentId: Overload:ImageGallery.API.Services.GalleryRepository.UpdateImage
+  href: ImageGallery.API.Services.GalleryRepository.html#ImageGallery_API_Services_GalleryRepository_UpdateImage_ImageGallery_API_Entities_Image_
+  name: UpdateImage
+  nameWithType: GalleryRepository.UpdateImage
+  fullName: ImageGallery.API.Services.GalleryRepository.UpdateImage
+- uid: ImageGallery.API.Services.IGalleryRepository.UpdateImage(ImageGallery.API.Entities.Image)
+  commentId: M:ImageGallery.API.Services.IGalleryRepository.UpdateImage(ImageGallery.API.Entities.Image)
+  parent: ImageGallery.API.Services.IGalleryRepository
+  href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_UpdateImage_ImageGallery_API_Entities_Image_
+  name: UpdateImage(Image)
+  nameWithType: IGalleryRepository.UpdateImage(Image)
+  fullName: ImageGallery.API.Services.IGalleryRepository.UpdateImage(ImageGallery.API.Entities.Image)
+  spec.csharp:
+  - uid: ImageGallery.API.Services.IGalleryRepository.UpdateImage(ImageGallery.API.Entities.Image)
+    name: UpdateImage
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_UpdateImage_ImageGallery_API_Entities_Image_
+  - name: (
+  - uid: ImageGallery.API.Entities.Image
+    name: Image
+    href: ImageGallery.API.Entities.Image.html
+  - name: )
+  spec.vb:
+  - uid: ImageGallery.API.Services.IGalleryRepository.UpdateImage(ImageGallery.API.Entities.Image)
+    name: UpdateImage
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_UpdateImage_ImageGallery_API_Entities_Image_
+  - name: (
+  - uid: ImageGallery.API.Entities.Image
+    name: Image
+    href: ImageGallery.API.Entities.Image.html
+  - name: )
+- uid: ImageGallery.API.Services.GalleryRepository.DeleteImage*
+  commentId: Overload:ImageGallery.API.Services.GalleryRepository.DeleteImage
+  href: ImageGallery.API.Services.GalleryRepository.html#ImageGallery_API_Services_GalleryRepository_DeleteImage_ImageGallery_API_Entities_Image_
+  name: DeleteImage
+  nameWithType: GalleryRepository.DeleteImage
+  fullName: ImageGallery.API.Services.GalleryRepository.DeleteImage
+- uid: ImageGallery.API.Services.IGalleryRepository.DeleteImage(ImageGallery.API.Entities.Image)
+  commentId: M:ImageGallery.API.Services.IGalleryRepository.DeleteImage(ImageGallery.API.Entities.Image)
+  parent: ImageGallery.API.Services.IGalleryRepository
+  href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_DeleteImage_ImageGallery_API_Entities_Image_
+  name: DeleteImage(Image)
+  nameWithType: IGalleryRepository.DeleteImage(Image)
+  fullName: ImageGallery.API.Services.IGalleryRepository.DeleteImage(ImageGallery.API.Entities.Image)
+  spec.csharp:
+  - uid: ImageGallery.API.Services.IGalleryRepository.DeleteImage(ImageGallery.API.Entities.Image)
+    name: DeleteImage
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_DeleteImage_ImageGallery_API_Entities_Image_
+  - name: (
+  - uid: ImageGallery.API.Entities.Image
+    name: Image
+    href: ImageGallery.API.Entities.Image.html
+  - name: )
+  spec.vb:
+  - uid: ImageGallery.API.Services.IGalleryRepository.DeleteImage(ImageGallery.API.Entities.Image)
+    name: DeleteImage
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_DeleteImage_ImageGallery_API_Entities_Image_
+  - name: (
+  - uid: ImageGallery.API.Entities.Image
+    name: Image
+    href: ImageGallery.API.Entities.Image.html
+  - name: )
+- uid: ImageGallery.API.Services.GalleryRepository.SaveChangesAsync*
+  commentId: Overload:ImageGallery.API.Services.GalleryRepository.SaveChangesAsync
+  href: ImageGallery.API.Services.GalleryRepository.html#ImageGallery_API_Services_GalleryRepository_SaveChangesAsync
+  name: SaveChangesAsync
+  nameWithType: GalleryRepository.SaveChangesAsync
+  fullName: ImageGallery.API.Services.GalleryRepository.SaveChangesAsync
+- uid: ImageGallery.API.Services.IGalleryRepository.SaveChangesAsync
+  commentId: M:ImageGallery.API.Services.IGalleryRepository.SaveChangesAsync
+  parent: ImageGallery.API.Services.IGalleryRepository
+  href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_SaveChangesAsync
+  name: SaveChangesAsync()
+  nameWithType: IGalleryRepository.SaveChangesAsync()
+  fullName: ImageGallery.API.Services.IGalleryRepository.SaveChangesAsync()
+  spec.csharp:
+  - uid: ImageGallery.API.Services.IGalleryRepository.SaveChangesAsync
+    name: SaveChangesAsync
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_SaveChangesAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ImageGallery.API.Services.IGalleryRepository.SaveChangesAsync
+    name: SaveChangesAsync
+    href: ImageGallery.API.Services.IGalleryRepository.html#ImageGallery_API_Services_IGalleryRepository_SaveChangesAsync
+  - name: (
+  - name: )

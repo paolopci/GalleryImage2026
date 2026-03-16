@@ -1,0 +1,406 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.Model.ImageForUpdate
+  commentId: T:ImageGallery.Model.ImageForUpdate
+  id: ImageForUpdate
+  parent: ImageGallery.Model
+  children:
+  - ImageGallery.Model.ImageForUpdate.#ctor(System.String)
+  - ImageGallery.Model.ImageForUpdate.Title
+  langs:
+  - csharp
+  - vb
+  name: ImageForUpdate
+  nameWithType: ImageForUpdate
+  fullName: ImageGallery.Model.ImageForUpdate
+  type: Class
+  source:
+    remote:
+      path: ImageGallery.Model/ImageForUpdate.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: ImageForUpdate
+    path: ../ImageGallery.Model/ImageForUpdate.cs
+    startLine: 7
+  assemblies:
+  - ImageGallery.Model
+  namespace: ImageGallery.Model
+  syntax:
+    content: public class ImageForUpdate
+    content.vb: Public Class ImageForUpdate
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ImageGallery.Model.ImageForUpdate.Title
+  commentId: P:ImageGallery.Model.ImageForUpdate.Title
+  id: Title
+  parent: ImageGallery.Model.ImageForUpdate
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: ImageForUpdate.Title
+  fullName: ImageGallery.Model.ImageForUpdate.Title
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.Model/ImageForUpdate.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: Title
+    path: ../ImageGallery.Model/ImageForUpdate.cs
+    startLine: 9
+  assemblies:
+  - ImageGallery.Model
+  namespace: ImageGallery.Model
+  syntax:
+    content: >-
+      [Required]
+
+      [MaxLength(150)]
+
+      public string Title { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      <MaxLength(150)>
+
+      Public Property Title As String
+  overload: ImageGallery.Model.ImageForUpdate.Title*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.MaxLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.MaxLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 150
+- uid: ImageGallery.Model.ImageForUpdate.#ctor(System.String)
+  commentId: M:ImageGallery.Model.ImageForUpdate.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: ImageGallery.Model.ImageForUpdate
+  langs:
+  - csharp
+  - vb
+  name: ImageForUpdate(string)
+  nameWithType: ImageForUpdate.ImageForUpdate(string)
+  fullName: ImageGallery.Model.ImageForUpdate.ImageForUpdate(string)
+  type: Constructor
+  source:
+    remote:
+      path: ImageGallery.Model/ImageForUpdate.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: .ctor
+    path: ../ImageGallery.Model/ImageForUpdate.cs
+    startLine: 13
+  assemblies:
+  - ImageGallery.Model
+  namespace: ImageGallery.Model
+  syntax:
+    content: public ImageForUpdate(string title)
+    parameters:
+    - id: title
+      type: System.String
+    content.vb: Public Sub New(title As String)
+  overload: ImageGallery.Model.ImageForUpdate.#ctor*
+  nameWithType.vb: ImageForUpdate.New(String)
+  fullName.vb: ImageGallery.Model.ImageForUpdate.New(String)
+  name.vb: New(String)
+references:
+- uid: ImageGallery.Model
+  commentId: N:ImageGallery.Model
+  href: ImageGallery.html
+  name: ImageGallery.Model
+  nameWithType: ImageGallery.Model
+  fullName: ImageGallery.Model
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.Model
+    name: Model
+    href: ImageGallery.Model.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.Model
+    name: Model
+    href: ImageGallery.Model.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ImageGallery.Model.ImageForUpdate.Title*
+  commentId: Overload:ImageGallery.Model.ImageForUpdate.Title
+  href: ImageGallery.Model.ImageForUpdate.html#ImageGallery_Model_ImageForUpdate_Title
+  name: Title
+  nameWithType: ImageForUpdate.Title
+  fullName: ImageGallery.Model.ImageForUpdate.Title
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ImageGallery.Model.ImageForUpdate.#ctor*
+  commentId: Overload:ImageGallery.Model.ImageForUpdate.#ctor
+  href: ImageGallery.Model.ImageForUpdate.html#ImageGallery_Model_ImageForUpdate__ctor_System_String_
+  name: ImageForUpdate
+  nameWithType: ImageForUpdate.ImageForUpdate
+  fullName: ImageGallery.Model.ImageForUpdate.ImageForUpdate
+  nameWithType.vb: ImageForUpdate.New
+  fullName.vb: ImageGallery.Model.ImageForUpdate.New
+  name.vb: New

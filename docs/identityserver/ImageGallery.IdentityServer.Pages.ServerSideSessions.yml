@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.ServerSideSessions
+  commentId: N:ImageGallery.IdentityServer.Pages.ServerSideSessions
+  id: ImageGallery.IdentityServer.Pages.ServerSideSessions
+  children:
+  - ImageGallery.IdentityServer.Pages.ServerSideSessions.IndexModel
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer.Pages.ServerSideSessions
+  nameWithType: ImageGallery.IdentityServer.Pages.ServerSideSessions
+  fullName: ImageGallery.IdentityServer.Pages.ServerSideSessions
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Pages.ServerSideSessions.IndexModel
+  commentId: T:ImageGallery.IdentityServer.Pages.ServerSideSessions.IndexModel
+  href: ImageGallery.IdentityServer.Pages.ServerSideSessions.IndexModel.html
+  name: IndexModel
+  nameWithType: IndexModel
+  fullName: ImageGallery.IdentityServer.Pages.ServerSideSessions.IndexModel

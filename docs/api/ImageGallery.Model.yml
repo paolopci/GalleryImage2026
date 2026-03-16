@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.Model
+  commentId: N:ImageGallery.Model
+  id: ImageGallery.Model
+  children:
+  - ImageGallery.Model.Image
+  - ImageGallery.Model.ImageForCreation
+  - ImageGallery.Model.ImageForUpdate
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.Model
+  nameWithType: ImageGallery.Model
+  fullName: ImageGallery.Model
+  type: Namespace
+  assemblies:
+  - ImageGallery.Model
+references:
+- uid: ImageGallery.Model.Image
+  commentId: T:ImageGallery.Model.Image
+  href: ImageGallery.Model.Image.html
+  name: Image
+  nameWithType: Image
+  fullName: ImageGallery.Model.Image
+- uid: ImageGallery.Model.ImageForCreation
+  commentId: T:ImageGallery.Model.ImageForCreation
+  parent: ImageGallery.Model
+  href: ImageGallery.Model.ImageForCreation.html
+  name: ImageForCreation
+  nameWithType: ImageForCreation
+  fullName: ImageGallery.Model.ImageForCreation
+- uid: ImageGallery.Model.ImageForUpdate
+  commentId: T:ImageGallery.Model.ImageForUpdate
+  parent: ImageGallery.Model
+  href: ImageGallery.Model.ImageForUpdate.html
+  name: ImageForUpdate
+  nameWithType: ImageForUpdate
+  fullName: ImageGallery.Model.ImageForUpdate
+- uid: ImageGallery.Model
+  commentId: N:ImageGallery.Model
+  href: ImageGallery.html
+  name: ImageGallery.Model
+  nameWithType: ImageGallery.Model
+  fullName: ImageGallery.Model
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.Model
+    name: Model
+    href: ImageGallery.Model.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.Model
+    name: Model
+    href: ImageGallery.Model.html

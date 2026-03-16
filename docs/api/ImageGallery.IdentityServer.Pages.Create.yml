@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Create
+  commentId: N:ImageGallery.IdentityServer.Pages.Create
+  id: ImageGallery.IdentityServer.Pages.Create
+  children:
+  - ImageGallery.IdentityServer.Pages.Create.Index
+  - ImageGallery.IdentityServer.Pages.Create.InputModel
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer.Pages.Create
+  nameWithType: ImageGallery.IdentityServer.Pages.Create
+  fullName: ImageGallery.IdentityServer.Pages.Create
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Pages.Create.Index
+  commentId: T:ImageGallery.IdentityServer.Pages.Create.Index
+  href: ImageGallery.IdentityServer.Pages.Create.Index.html
+  name: Index
+  nameWithType: Index
+  fullName: ImageGallery.IdentityServer.Pages.Create.Index
+- uid: ImageGallery.IdentityServer.Pages.Create.InputModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Create.InputModel
+  parent: ImageGallery.IdentityServer.Pages.Create
+  href: ImageGallery.IdentityServer.Pages.Create.InputModel.html
+  name: InputModel
+  nameWithType: InputModel
+  fullName: ImageGallery.IdentityServer.Pages.Create.InputModel
+- uid: ImageGallery.IdentityServer.Pages.Create
+  commentId: N:ImageGallery.IdentityServer.Pages.Create
+  href: ImageGallery.html
+  name: ImageGallery.IdentityServer.Pages.Create
+  nameWithType: ImageGallery.IdentityServer.Pages.Create
+  fullName: ImageGallery.IdentityServer.Pages.Create
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Create
+    name: Create
+    href: ImageGallery.IdentityServer.Pages.Create.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Create
+    name: Create
+    href: ImageGallery.IdentityServer.Pages.Create.html

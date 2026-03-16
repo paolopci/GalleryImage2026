@@ -1,0 +1,83 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Logout
+  commentId: N:ImageGallery.IdentityServer.Pages.Logout
+  id: ImageGallery.IdentityServer.Pages.Logout
+  children:
+  - ImageGallery.IdentityServer.Pages.Logout.Index
+  - ImageGallery.IdentityServer.Pages.Logout.LoggedOut
+  - ImageGallery.IdentityServer.Pages.Logout.LoggedOutViewModel
+  - ImageGallery.IdentityServer.Pages.Logout.LogoutOptions
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer.Pages.Logout
+  nameWithType: ImageGallery.IdentityServer.Pages.Logout
+  fullName: ImageGallery.IdentityServer.Pages.Logout
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Pages.Logout.Index
+  commentId: T:ImageGallery.IdentityServer.Pages.Logout.Index
+  href: ImageGallery.IdentityServer.Pages.Logout.Index.html
+  name: Index
+  nameWithType: Index
+  fullName: ImageGallery.IdentityServer.Pages.Logout.Index
+- uid: ImageGallery.IdentityServer.Pages.Logout.LoggedOut
+  commentId: T:ImageGallery.IdentityServer.Pages.Logout.LoggedOut
+  href: ImageGallery.IdentityServer.Pages.Logout.LoggedOut.html
+  name: LoggedOut
+  nameWithType: LoggedOut
+  fullName: ImageGallery.IdentityServer.Pages.Logout.LoggedOut
+- uid: ImageGallery.IdentityServer.Pages.Logout.LoggedOutViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Logout.LoggedOutViewModel
+  parent: ImageGallery.IdentityServer.Pages.Logout
+  href: ImageGallery.IdentityServer.Pages.Logout.LoggedOutViewModel.html
+  name: LoggedOutViewModel
+  nameWithType: LoggedOutViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Logout.LoggedOutViewModel
+- uid: ImageGallery.IdentityServer.Pages.Logout.LogoutOptions
+  commentId: T:ImageGallery.IdentityServer.Pages.Logout.LogoutOptions
+  href: ImageGallery.IdentityServer.Pages.Logout.LogoutOptions.html
+  name: LogoutOptions
+  nameWithType: LogoutOptions
+  fullName: ImageGallery.IdentityServer.Pages.Logout.LogoutOptions
+- uid: ImageGallery.IdentityServer.Pages.Logout
+  commentId: N:ImageGallery.IdentityServer.Pages.Logout
+  href: ImageGallery.html
+  name: ImageGallery.IdentityServer.Pages.Logout
+  nameWithType: ImageGallery.IdentityServer.Pages.Logout
+  fullName: ImageGallery.IdentityServer.Pages.Logout
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Logout
+    name: Logout
+    href: ImageGallery.IdentityServer.Pages.Logout.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Logout
+    name: Logout
+    href: ImageGallery.IdentityServer.Pages.Logout.html

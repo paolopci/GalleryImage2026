@@ -1,0 +1,98 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Device
+  commentId: N:ImageGallery.IdentityServer.Pages.Device
+  id: ImageGallery.IdentityServer.Pages.Device
+  children:
+  - ImageGallery.IdentityServer.Pages.Device.DeviceOptions
+  - ImageGallery.IdentityServer.Pages.Device.Index
+  - ImageGallery.IdentityServer.Pages.Device.InputModel
+  - ImageGallery.IdentityServer.Pages.Device.ScopeViewModel
+  - ImageGallery.IdentityServer.Pages.Device.SuccessModel
+  - ImageGallery.IdentityServer.Pages.Device.ViewModel
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer.Pages.Device
+  nameWithType: ImageGallery.IdentityServer.Pages.Device
+  fullName: ImageGallery.IdentityServer.Pages.Device
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Pages.Device.DeviceOptions
+  commentId: T:ImageGallery.IdentityServer.Pages.Device.DeviceOptions
+  href: ImageGallery.IdentityServer.Pages.Device.DeviceOptions.html
+  name: DeviceOptions
+  nameWithType: DeviceOptions
+  fullName: ImageGallery.IdentityServer.Pages.Device.DeviceOptions
+- uid: ImageGallery.IdentityServer.Pages.Device.Index
+  commentId: T:ImageGallery.IdentityServer.Pages.Device.Index
+  href: ImageGallery.IdentityServer.Pages.Device.Index.html
+  name: Index
+  nameWithType: Index
+  fullName: ImageGallery.IdentityServer.Pages.Device.Index
+- uid: ImageGallery.IdentityServer.Pages.Device.InputModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Device.InputModel
+  parent: ImageGallery.IdentityServer.Pages.Device
+  href: ImageGallery.IdentityServer.Pages.Device.InputModel.html
+  name: InputModel
+  nameWithType: InputModel
+  fullName: ImageGallery.IdentityServer.Pages.Device.InputModel
+- uid: ImageGallery.IdentityServer.Pages.Device.SuccessModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Device.SuccessModel
+  href: ImageGallery.IdentityServer.Pages.Device.SuccessModel.html
+  name: SuccessModel
+  nameWithType: SuccessModel
+  fullName: ImageGallery.IdentityServer.Pages.Device.SuccessModel
+- uid: ImageGallery.IdentityServer.Pages.Device.ViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Device.ViewModel
+  parent: ImageGallery.IdentityServer.Pages.Device
+  href: ImageGallery.IdentityServer.Pages.Device.ViewModel.html
+  name: ViewModel
+  nameWithType: ViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Device.ViewModel
+- uid: ImageGallery.IdentityServer.Pages.Device.ScopeViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Device.ScopeViewModel
+  href: ImageGallery.IdentityServer.Pages.Device.ScopeViewModel.html
+  name: ScopeViewModel
+  nameWithType: ScopeViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Device.ScopeViewModel
+- uid: ImageGallery.IdentityServer.Pages.Device
+  commentId: N:ImageGallery.IdentityServer.Pages.Device
+  href: ImageGallery.html
+  name: ImageGallery.IdentityServer.Pages.Device
+  nameWithType: ImageGallery.IdentityServer.Pages.Device
+  fullName: ImageGallery.IdentityServer.Pages.Device
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Device
+    name: Device
+    href: ImageGallery.IdentityServer.Pages.Device.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Device
+    name: Device
+    href: ImageGallery.IdentityServer.Pages.Device.html

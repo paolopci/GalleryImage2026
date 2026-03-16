@@ -1,0 +1,90 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "..",
+          "files": [
+             "ImageGallery.API/ImageGallery.API.csproj"
+          ]
+        }
+      ],
+      "dest": "api"
+    },
+    {
+      "src": [
+        {
+          "src": "..",
+          "files": [
+             "ImageGallery.Client/ImageGallery.Client.csproj"
+          ]
+        }
+      ],
+      "dest": "client"
+    },
+    {
+      "src": [
+        {
+          "src": "..",
+          "files": [
+             "ImageGallery.IdentityServer/ImageGallery.IdentityServer.csproj"
+          ]
+        }
+      ],
+      "dest": "identityserver"
+    },
+    {
+      "src": [
+        {
+          "src": "..",
+          "files": [
+             "ImageGallery.Model/ImageGallery.Model.csproj"
+          ]
+        }
+      ],
+      "dest": "model"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+           "index.md",
+           "toc.yml",
+           "docs/**.md",
+           "docs/**/toc.yml",
+           "api/**.yml",
+           "api/toc.yml",
+           "client/**.yml",
+           "client/toc.yml",
+           "identityserver/**.yml",
+           "identityserver/toc.yml",
+           "model/**.yml",
+           "model/toc.yml"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "",
+      "_appTitle": "",
+      "_enableSearch": true,
+      "pdf": true
+    }
+  }
+}

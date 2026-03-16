@@ -1,0 +1,2743 @@
+{
+  "source_base_path": "D:/test/OAuth2/ImageGallery/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.Controllers.ImagesController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.Controllers.ImagesController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.Controllers.ImagesController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.Controllers.WeatherForecastController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.Controllers.WeatherForecastController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.Controllers.WeatherForecastController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.Controllers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.Controllers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.DbContext.GalleryDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.DbContext.GalleryDbContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.DbContext.GalleryDbContext",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.DbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.DbContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.DbContext",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.Entities.Image.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.Entities.Image.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.Entities.Image",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.Entities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.Entities.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.Entities",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.Migrations.InitialCreate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.Migrations.InitialCreate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.Migrations.InitialCreate",
+      "Summary": "<p sourcefile=\"api/ImageGallery.API.Migrations.InitialCreate.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.Migrations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.Migrations.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.Migrations",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.Profiles.ImageProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.Profiles.ImageProfile.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.Profiles.ImageProfile",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.Profiles.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.Profiles.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.Profiles",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.Services.GalleryRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.Services.GalleryRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.Services.GalleryRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.Services.IGalleryRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.Services.IGalleryRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.Services.IGalleryRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.Services.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.Services",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.WeatherForecast.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.WeatherForecast.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API.WeatherForecast",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.API.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.API.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.API",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Client.Controllers.AuthenticationController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Client.Controllers.AuthenticationController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.Controllers.AuthenticationController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Client.Controllers.GalleryController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Client.Controllers.GalleryController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.Controllers.GalleryController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Client.Controllers.HomeController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Client.Controllers.HomeController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.Controllers.HomeController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Client.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Client.Controllers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.Controllers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Client.Models.ErrorViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Client.Models.ErrorViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.Models.ErrorViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Client.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Client.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Client.ViewModels.AddImageViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Client.ViewModels.AddImageViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.ViewModels.AddImageViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Client.ViewModels.EditImageViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Client.ViewModels.EditImageViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.ViewModels.EditImageViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Client.ViewModels.ErrorViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Client.ViewModels.ErrorViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.ViewModels.ErrorViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Client.ViewModels.GalleryIndexViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Client.ViewModels.GalleryIndexViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.ViewModels.GalleryIndexViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Client.ViewModels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Client.ViewModels.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.ViewModels",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Config.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Config.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Config",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Account.AccessDeniedModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Account.AccessDeniedModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Account.AccessDeniedModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Account.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Account.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Account",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.AllModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.AllModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.AllModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.Consent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.Consent.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.Consent",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.ConsentOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.ConsentOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.ConsentOptions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.IndexModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.IndexModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.IndexModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.InputModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.InputModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.InputModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.ResourceViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.ResourceViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.ResourceViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.ScopeViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.ScopeViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.ScopeViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.ViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.ViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Ciba.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Consent.ConsentOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Consent.ConsentOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Consent.ConsentOptions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Consent.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Consent.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Consent.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Consent.InputModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Consent.InputModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Consent.InputModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Consent.ResourceViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Consent.ResourceViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Consent.ResourceViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Consent.ScopeViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Consent.ScopeViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Consent.ScopeViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Consent.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Consent.ViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Consent.ViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Consent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Consent.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Consent",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Create.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Create.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Create.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Create.InputModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Create.InputModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Create.InputModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Create.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Create.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Create",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Device.DeviceOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Device.DeviceOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Device.DeviceOptions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Device.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Device.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Device.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Device.InputModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Device.InputModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Device.InputModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Device.ScopeViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Device.ScopeViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Device.ScopeViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Device.SuccessModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Device.SuccessModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Device.SuccessModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Device.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Device.ViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Device.ViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Device.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Device.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Device",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Diagnostics.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Diagnostics.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Diagnostics.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Diagnostics.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Diagnostics.ViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Diagnostics.ViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Diagnostics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Diagnostics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Diagnostics",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Error.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Error.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Error.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Error.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Error.ViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Error.ViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Error.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Error.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Error",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.ExternalLogin.Callback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.ExternalLogin.Callback.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.ExternalLogin.Callback",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.ExternalLogin.Challenge.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.ExternalLogin.Challenge.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.ExternalLogin.Challenge",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.ExternalLogin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.ExternalLogin.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.ExternalLogin",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Grants.GrantViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Grants.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Grants.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Grants.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Grants.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Grants.ViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Grants.ViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Grants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Grants.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Grants",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Home.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Home.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Home.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Home.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Home.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Home",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Login.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Login.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Login.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Login.InputModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Login.InputModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Login.InputModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Login.LoginOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Login.LoginOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Login.LoginOptions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Login.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Login.ViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Login.ViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Login.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Login.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Login",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Logout.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Logout.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Logout.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Logout.LoggedOut.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Logout.LoggedOut.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Logout.LoggedOut",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Logout.LoggedOutViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Logout.LoggedOutViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Logout.LoggedOutViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Logout.LogoutOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Logout.LogoutOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Logout.LogoutOptions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Logout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Logout.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Logout",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Redirect.IndexModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Redirect.IndexModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Redirect.IndexModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Redirect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Redirect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Redirect",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.SecurityHeadersAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.SecurityHeadersAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.SecurityHeadersAttribute",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.ServerSideSessions.IndexModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.ServerSideSessions.IndexModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.ServerSideSessions.IndexModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.ServerSideSessions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.ServerSideSessions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.ServerSideSessions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters",
+      "Summary": "<p sourcefile=\"api/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.yml\" sourcestartlinenumber=\"1\">Name of Counters</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues",
+      "Summary": "<p sourcefile=\"api/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues.yml\" sourcestartlinenumber=\"1\">Values of tags</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags",
+      "Summary": "<p sourcefile=\"api/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.yml\" sourcestartlinenumber=\"1\">Name of tags</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Telemetry.Metrics",
+      "Summary": "<p sourcefile=\"api/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.yml\" sourcestartlinenumber=\"1\">Metrics configuration</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.Telemetry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.Telemetry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Telemetry",
+      "Summary": "<p sourcefile=\"api/ImageGallery.IdentityServer.Pages.Telemetry.yml\" sourcestartlinenumber=\"1\">Telemetry helpers for the UI</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.Pages.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.Pages.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.TestUsers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.TestUsers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.TestUsers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.IdentityServer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.IdentityServer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Model.Image.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Model.Image.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Model.Image",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Model.ImageForCreation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Model.ImageForCreation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Model.ImageForCreation",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Model.ImageForUpdate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Model.ImageForUpdate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Model.ImageForUpdate",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ImageGallery.Model.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ImageGallery.Model.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Model",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "client/ImageGallery.Client.Controllers.AuthenticationController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/ImageGallery.Client.Controllers.AuthenticationController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.Controllers.AuthenticationController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "client/ImageGallery.Client.Controllers.GalleryController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/ImageGallery.Client.Controllers.GalleryController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.Controllers.GalleryController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "client/ImageGallery.Client.Controllers.HomeController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/ImageGallery.Client.Controllers.HomeController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.Controllers.HomeController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "client/ImageGallery.Client.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/ImageGallery.Client.Controllers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.Controllers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "client/ImageGallery.Client.Models.ErrorViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/ImageGallery.Client.Models.ErrorViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.Models.ErrorViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "client/ImageGallery.Client.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/ImageGallery.Client.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "client/ImageGallery.Client.ViewModels.AddImageViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/ImageGallery.Client.ViewModels.AddImageViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.ViewModels.AddImageViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "client/ImageGallery.Client.ViewModels.EditImageViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/ImageGallery.Client.ViewModels.EditImageViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.ViewModels.EditImageViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "client/ImageGallery.Client.ViewModels.ErrorViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/ImageGallery.Client.ViewModels.ErrorViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.ViewModels.ErrorViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "client/ImageGallery.Client.ViewModels.GalleryIndexViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/ImageGallery.Client.ViewModels.GalleryIndexViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.ViewModels.GalleryIndexViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "client/ImageGallery.Client.ViewModels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/ImageGallery.Client.ViewModels.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Client.ViewModels",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "client/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "client/toc.html"
+        },
+        ".json": {
+          "relative_path": "client/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/api-overview.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/api-overview.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/client-overview.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/client-overview.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/identityserver-overview.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/identityserver-overview.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/model-overview.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/model-overview.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Config.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Config.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Config",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Account.AccessDeniedModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Account.AccessDeniedModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Account.AccessDeniedModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Account.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Account.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Account",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.AllModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.AllModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.AllModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.Consent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.Consent.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.Consent",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.ConsentOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.ConsentOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.ConsentOptions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.IndexModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.IndexModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.IndexModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.InputModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.InputModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.InputModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.ResourceViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.ResourceViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.ResourceViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.ScopeViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.ScopeViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.ScopeViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.ViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba.ViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Ciba.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Ciba",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Consent.ConsentOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Consent.ConsentOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Consent.ConsentOptions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Consent.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Consent.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Consent.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Consent.InputModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Consent.InputModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Consent.InputModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Consent.ResourceViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Consent.ResourceViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Consent.ResourceViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Consent.ScopeViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Consent.ScopeViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Consent.ScopeViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Consent.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Consent.ViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Consent.ViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Consent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Consent.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Consent",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Create.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Create.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Create.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Create.InputModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Create.InputModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Create.InputModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Create.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Create.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Create",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Device.DeviceOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Device.DeviceOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Device.DeviceOptions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Device.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Device.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Device.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Device.InputModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Device.InputModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Device.InputModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Device.ScopeViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Device.ScopeViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Device.ScopeViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Device.SuccessModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Device.SuccessModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Device.SuccessModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Device.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Device.ViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Device.ViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Device.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Device.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Device",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Diagnostics.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Diagnostics.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Diagnostics.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Diagnostics.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Diagnostics.ViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Diagnostics.ViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Diagnostics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Diagnostics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Diagnostics",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Error.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Error.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Error.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Error.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Error.ViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Error.ViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Error.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Error.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Error",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.ExternalLogin.Callback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.ExternalLogin.Callback.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.ExternalLogin.Callback",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.ExternalLogin.Challenge.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.ExternalLogin.Challenge.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.ExternalLogin.Challenge",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.ExternalLogin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.ExternalLogin.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.ExternalLogin",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Grants.GrantViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Grants.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Grants.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Grants.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Grants.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Grants.ViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Grants.ViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Grants.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Grants.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Grants",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Home.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Home.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Home.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Home.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Home.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Home",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Login.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Login.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Login.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Login.InputModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Login.InputModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Login.InputModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Login.LoginOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Login.LoginOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Login.LoginOptions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Login.ViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Login.ViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Login.ViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Login.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Login.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Login",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Logout.Index.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Logout.Index.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Logout.Index",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Logout.LoggedOut.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Logout.LoggedOut.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Logout.LoggedOut",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Logout.LoggedOutViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Logout.LoggedOutViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Logout.LoggedOutViewModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Logout.LogoutOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Logout.LogoutOptions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Logout.LogoutOptions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Logout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Logout.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Logout",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Redirect.IndexModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Redirect.IndexModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Redirect.IndexModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Redirect.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Redirect.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Redirect",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.SecurityHeadersAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.SecurityHeadersAttribute.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.SecurityHeadersAttribute",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.ServerSideSessions.IndexModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.ServerSideSessions.IndexModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.ServerSideSessions.IndexModel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.ServerSideSessions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.ServerSideSessions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.ServerSideSessions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters",
+      "Summary": "<p sourcefile=\"identityserver/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.yml\" sourcestartlinenumber=\"1\">Name of Counters</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues",
+      "Summary": "<p sourcefile=\"identityserver/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues.yml\" sourcestartlinenumber=\"1\">Values of tags</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags",
+      "Summary": "<p sourcefile=\"identityserver/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.yml\" sourcestartlinenumber=\"1\">Name of tags</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Telemetry.Metrics",
+      "Summary": "<p sourcefile=\"identityserver/ImageGallery.IdentityServer.Pages.Telemetry.Metrics.yml\" sourcestartlinenumber=\"1\">Metrics configuration</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Telemetry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.Telemetry.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages.Telemetry",
+      "Summary": "<p sourcefile=\"identityserver/ImageGallery.IdentityServer.Pages.Telemetry.yml\" sourcestartlinenumber=\"1\">Telemetry helpers for the UI</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.Pages.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.Pages.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.Pages",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.TestUsers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.TestUsers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer.TestUsers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "identityserver/ImageGallery.IdentityServer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/ImageGallery.IdentityServer.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.IdentityServer",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "identityserver/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "identityserver/toc.html"
+        },
+        ".json": {
+          "relative_path": "identityserver/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "model/ImageGallery.Model.Image.yml",
+      "output": {
+        ".html": {
+          "relative_path": "model/ImageGallery.Model.Image.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Model.Image",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "model/ImageGallery.Model.ImageForCreation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "model/ImageGallery.Model.ImageForCreation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Model.ImageForCreation",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "model/ImageGallery.Model.ImageForUpdate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "model/ImageGallery.Model.ImageForUpdate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Model.ImageForUpdate",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "model/ImageGallery.Model.yml",
+      "output": {
+        ".html": {
+          "relative_path": "model/ImageGallery.Model.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ImageGallery.Model",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "model/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "model/toc.html"
+        },
+        ".json": {
+          "relative_path": "model/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

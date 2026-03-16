@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.Client.Controllers
+  commentId: N:ImageGallery.Client.Controllers
+  id: ImageGallery.Client.Controllers
+  children:
+  - ImageGallery.Client.Controllers.AuthenticationController
+  - ImageGallery.Client.Controllers.GalleryController
+  - ImageGallery.Client.Controllers.HomeController
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.Client.Controllers
+  nameWithType: ImageGallery.Client.Controllers
+  fullName: ImageGallery.Client.Controllers
+  type: Namespace
+  assemblies:
+  - ImageGallery.Client
+references:
+- uid: ImageGallery.Client.Controllers.AuthenticationController
+  commentId: T:ImageGallery.Client.Controllers.AuthenticationController
+  href: ImageGallery.Client.Controllers.AuthenticationController.html
+  name: AuthenticationController
+  nameWithType: AuthenticationController
+  fullName: ImageGallery.Client.Controllers.AuthenticationController
+- uid: ImageGallery.Client.Controllers.GalleryController
+  commentId: T:ImageGallery.Client.Controllers.GalleryController
+  href: ImageGallery.Client.Controllers.GalleryController.html
+  name: GalleryController
+  nameWithType: GalleryController
+  fullName: ImageGallery.Client.Controllers.GalleryController
+- uid: ImageGallery.Client.Controllers.HomeController
+  commentId: T:ImageGallery.Client.Controllers.HomeController
+  href: ImageGallery.Client.Controllers.HomeController.html
+  name: HomeController
+  nameWithType: HomeController
+  fullName: ImageGallery.Client.Controllers.HomeController

@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Account
+  commentId: N:ImageGallery.IdentityServer.Pages.Account
+  id: ImageGallery.IdentityServer.Pages.Account
+  children:
+  - ImageGallery.IdentityServer.Pages.Account.AccessDeniedModel
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer.Pages.Account
+  nameWithType: ImageGallery.IdentityServer.Pages.Account
+  fullName: ImageGallery.IdentityServer.Pages.Account
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Pages.Account.AccessDeniedModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Account.AccessDeniedModel
+  href: ImageGallery.IdentityServer.Pages.Account.AccessDeniedModel.html
+  name: AccessDeniedModel
+  nameWithType: AccessDeniedModel
+  fullName: ImageGallery.IdentityServer.Pages.Account.AccessDeniedModel

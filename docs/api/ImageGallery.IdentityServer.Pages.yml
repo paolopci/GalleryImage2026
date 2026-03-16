@@ -1,0 +1,153 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages
+  commentId: N:ImageGallery.IdentityServer.Pages
+  id: ImageGallery.IdentityServer.Pages
+  children:
+  - ImageGallery.IdentityServer.Pages.Extensions
+  - ImageGallery.IdentityServer.Pages.SecurityHeadersAttribute
+  - ImageGallery.IdentityServer.Pages.Telemetry
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer.Pages
+  nameWithType: ImageGallery.IdentityServer.Pages
+  fullName: ImageGallery.IdentityServer.Pages
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Pages.Extensions
+  commentId: T:ImageGallery.IdentityServer.Pages.Extensions
+  href: ImageGallery.IdentityServer.Pages.Extensions.html
+  name: Extensions
+  nameWithType: Extensions
+  fullName: ImageGallery.IdentityServer.Pages.Extensions
+- uid: ImageGallery.IdentityServer.Pages.SecurityHeadersAttribute
+  commentId: T:ImageGallery.IdentityServer.Pages.SecurityHeadersAttribute
+  href: ImageGallery.IdentityServer.Pages.SecurityHeadersAttribute.html
+  name: SecurityHeadersAttribute
+  nameWithType: SecurityHeadersAttribute
+  fullName: ImageGallery.IdentityServer.Pages.SecurityHeadersAttribute
+- uid: ImageGallery.IdentityServer.Pages.Telemetry
+  commentId: T:ImageGallery.IdentityServer.Pages.Telemetry
+  href: ImageGallery.IdentityServer.Pages.Telemetry.html
+  name: Telemetry
+  nameWithType: Telemetry
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+  commentId: T:ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+  href: ImageGallery.IdentityServer.Pages.Telemetry.html
+  name: Telemetry.Metrics
+  nameWithType: Telemetry.Metrics
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+  spec.csharp:
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry
+    name: Telemetry
+    href: ImageGallery.IdentityServer.Pages.Telemetry.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+    name: Metrics
+    href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html
+  spec.vb:
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry
+    name: Telemetry
+    href: ImageGallery.IdentityServer.Pages.Telemetry.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+    name: Metrics
+    href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters
+  commentId: T:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters
+  href: ImageGallery.IdentityServer.Pages.Telemetry.html
+  name: Telemetry.Metrics.Counters
+  nameWithType: Telemetry.Metrics.Counters
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters
+  spec.csharp:
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry
+    name: Telemetry
+    href: ImageGallery.IdentityServer.Pages.Telemetry.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+    name: Metrics
+    href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters
+    name: Counters
+    href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.html
+  spec.vb:
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry
+    name: Telemetry
+    href: ImageGallery.IdentityServer.Pages.Telemetry.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+    name: Metrics
+    href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters
+    name: Counters
+    href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.html
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+  commentId: T:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+  href: ImageGallery.IdentityServer.Pages.Telemetry.html
+  name: Telemetry.Metrics.Tags
+  nameWithType: Telemetry.Metrics.Tags
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+  spec.csharp:
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry
+    name: Telemetry
+    href: ImageGallery.IdentityServer.Pages.Telemetry.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+    name: Metrics
+    href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+    name: Tags
+    href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.html
+  spec.vb:
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry
+    name: Telemetry
+    href: ImageGallery.IdentityServer.Pages.Telemetry.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+    name: Metrics
+    href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+    name: Tags
+    href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.html
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues
+  commentId: T:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues
+  href: ImageGallery.IdentityServer.Pages.Telemetry.html
+  name: Telemetry.Metrics.TagValues
+  nameWithType: Telemetry.Metrics.TagValues
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues
+  spec.csharp:
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry
+    name: Telemetry
+    href: ImageGallery.IdentityServer.Pages.Telemetry.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+    name: Metrics
+    href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues
+    name: TagValues
+    href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues.html
+  spec.vb:
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry
+    name: Telemetry
+    href: ImageGallery.IdentityServer.Pages.Telemetry.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+    name: Metrics
+    href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues
+    name: TagValues
+    href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues.html

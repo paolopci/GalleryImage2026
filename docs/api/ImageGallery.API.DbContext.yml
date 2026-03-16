@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.API.DbContext
+  commentId: N:ImageGallery.API.DbContext
+  id: ImageGallery.API.DbContext
+  children:
+  - ImageGallery.API.DbContext.GalleryDbContext
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.API.DbContext
+  nameWithType: ImageGallery.API.DbContext
+  fullName: ImageGallery.API.DbContext
+  type: Namespace
+  assemblies:
+  - ImageGallery.API
+references:
+- uid: ImageGallery.API.DbContext.GalleryDbContext
+  commentId: T:ImageGallery.API.DbContext.GalleryDbContext
+  parent: ImageGallery.API.DbContext
+  href: ImageGallery.API.DbContext.GalleryDbContext.html
+  name: GalleryDbContext
+  nameWithType: GalleryDbContext
+  fullName: ImageGallery.API.DbContext.GalleryDbContext
+- uid: ImageGallery.API.DbContext
+  commentId: N:ImageGallery.API.DbContext
+  href: ImageGallery.html
+  name: ImageGallery.API.DbContext
+  nameWithType: ImageGallery.API.DbContext
+  fullName: ImageGallery.API.DbContext
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.API
+    name: API
+    href: ImageGallery.API.html
+  - name: .
+  - uid: ImageGallery.API.DbContext
+    name: DbContext
+    href: ImageGallery.API.DbContext.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.API
+    name: API
+    href: ImageGallery.API.html
+  - name: .
+  - uid: ImageGallery.API.DbContext
+    name: DbContext
+    href: ImageGallery.API.DbContext.html

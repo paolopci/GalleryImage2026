@@ -5,6 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>57178575-3dbf-4cc5-8021-e22f7f85bf62</UserSecretsId>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,7 +24,6 @@
     <ProjectReference Include="..\ImageGallery.Model\ImageGallery.Model.csproj" />
 
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Entities\" />
     <Folder Include="Services\" />

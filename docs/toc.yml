@@ -1,0 +1,10 @@
+- name: Docs
+  href: docs/
+- name: API
+  href: api/
+- name: Client
+  href: client/
+- name: IdentityServer
+  href: identityserver/
+- name: Model
+  href: model/

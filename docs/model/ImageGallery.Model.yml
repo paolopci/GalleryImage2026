@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.Model
+  commentId: N:ImageGallery.Model
+  id: ImageGallery.Model
+  children:
+  - ImageGallery.Model.Image
+  - ImageGallery.Model.ImageForCreation
+  - ImageGallery.Model.ImageForUpdate
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.Model
+  nameWithType: ImageGallery.Model
+  fullName: ImageGallery.Model
+  type: Namespace
+  assemblies:
+  - ImageGallery.Model
+references:
+- uid: ImageGallery.Model.Image
+  commentId: T:ImageGallery.Model.Image
+  href: ImageGallery.Model.Image.html
+  name: Image
+  nameWithType: Image
+  fullName: ImageGallery.Model.Image
+- uid: ImageGallery.Model.ImageForCreation
+  commentId: T:ImageGallery.Model.ImageForCreation
+  href: ImageGallery.Model.ImageForCreation.html
+  name: ImageForCreation
+  nameWithType: ImageForCreation
+  fullName: ImageGallery.Model.ImageForCreation
+- uid: ImageGallery.Model.ImageForUpdate
+  commentId: T:ImageGallery.Model.ImageForUpdate
+  href: ImageGallery.Model.ImageForUpdate.html
+  name: ImageForUpdate
+  nameWithType: ImageForUpdate
+  fullName: ImageGallery.Model.ImageForUpdate

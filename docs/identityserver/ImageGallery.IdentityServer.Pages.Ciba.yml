@@ -1,0 +1,112 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Ciba
+  commentId: N:ImageGallery.IdentityServer.Pages.Ciba
+  id: ImageGallery.IdentityServer.Pages.Ciba
+  children:
+  - ImageGallery.IdentityServer.Pages.Ciba.AllModel
+  - ImageGallery.IdentityServer.Pages.Ciba.Consent
+  - ImageGallery.IdentityServer.Pages.Ciba.ConsentOptions
+  - ImageGallery.IdentityServer.Pages.Ciba.IndexModel
+  - ImageGallery.IdentityServer.Pages.Ciba.InputModel
+  - ImageGallery.IdentityServer.Pages.Ciba.ResourceViewModel
+  - ImageGallery.IdentityServer.Pages.Ciba.ScopeViewModel
+  - ImageGallery.IdentityServer.Pages.Ciba.ViewModel
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer.Pages.Ciba
+  nameWithType: ImageGallery.IdentityServer.Pages.Ciba
+  fullName: ImageGallery.IdentityServer.Pages.Ciba
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Pages.Ciba.AllModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Ciba.AllModel
+  href: ImageGallery.IdentityServer.Pages.Ciba.AllModel.html
+  name: AllModel
+  nameWithType: AllModel
+  fullName: ImageGallery.IdentityServer.Pages.Ciba.AllModel
+- uid: ImageGallery.IdentityServer.Pages.Ciba.Consent
+  commentId: T:ImageGallery.IdentityServer.Pages.Ciba.Consent
+  href: ImageGallery.IdentityServer.Pages.Ciba.Consent.html
+  name: Consent
+  nameWithType: Consent
+  fullName: ImageGallery.IdentityServer.Pages.Ciba.Consent
+- uid: ImageGallery.IdentityServer.Pages.Ciba.ConsentOptions
+  commentId: T:ImageGallery.IdentityServer.Pages.Ciba.ConsentOptions
+  href: ImageGallery.IdentityServer.Pages.Ciba.ConsentOptions.html
+  name: ConsentOptions
+  nameWithType: ConsentOptions
+  fullName: ImageGallery.IdentityServer.Pages.Ciba.ConsentOptions
+- uid: ImageGallery.IdentityServer.Pages.Ciba.IndexModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Ciba.IndexModel
+  href: ImageGallery.IdentityServer.Pages.Ciba.IndexModel.html
+  name: IndexModel
+  nameWithType: IndexModel
+  fullName: ImageGallery.IdentityServer.Pages.Ciba.IndexModel
+- uid: ImageGallery.IdentityServer.Pages.Ciba.InputModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Ciba.InputModel
+  parent: ImageGallery.IdentityServer.Pages.Ciba
+  href: ImageGallery.IdentityServer.Pages.Ciba.InputModel.html
+  name: InputModel
+  nameWithType: InputModel
+  fullName: ImageGallery.IdentityServer.Pages.Ciba.InputModel
+- uid: ImageGallery.IdentityServer.Pages.Ciba.ViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Ciba.ViewModel
+  parent: ImageGallery.IdentityServer.Pages.Ciba
+  href: ImageGallery.IdentityServer.Pages.Ciba.ViewModel.html
+  name: ViewModel
+  nameWithType: ViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Ciba.ViewModel
+- uid: ImageGallery.IdentityServer.Pages.Ciba.ScopeViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Ciba.ScopeViewModel
+  href: ImageGallery.IdentityServer.Pages.Ciba.ScopeViewModel.html
+  name: ScopeViewModel
+  nameWithType: ScopeViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Ciba.ScopeViewModel
+- uid: ImageGallery.IdentityServer.Pages.Ciba.ResourceViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Ciba.ResourceViewModel
+  href: ImageGallery.IdentityServer.Pages.Ciba.ResourceViewModel.html
+  name: ResourceViewModel
+  nameWithType: ResourceViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Ciba.ResourceViewModel
+- uid: ImageGallery.IdentityServer.Pages.Ciba
+  commentId: N:ImageGallery.IdentityServer.Pages.Ciba
+  href: ImageGallery.html
+  name: ImageGallery.IdentityServer.Pages.Ciba
+  nameWithType: ImageGallery.IdentityServer.Pages.Ciba
+  fullName: ImageGallery.IdentityServer.Pages.Ciba
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Ciba
+    name: Ciba
+    href: ImageGallery.IdentityServer.Pages.Ciba.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Ciba
+    name: Ciba
+    href: ImageGallery.IdentityServer.Pages.Ciba.html
