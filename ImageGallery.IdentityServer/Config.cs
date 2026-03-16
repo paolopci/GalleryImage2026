@@ -27,7 +27,10 @@ public static class Config
     public static IEnumerable<ApiScope> ApiScopes =>
         new ApiScope[]
         {
-            new ApiScope("imagegalleryapi", "Image Gallery API")
+            // Questo scope rappresenta un permesso applicativo più esplicito:
+            // il client che lo richiede ottiene accesso completo alle operazioni
+            // esposte dall'API Image Gallery.
+            new ApiScope("imagegalleryapi.fullaccess","Image Gallery API Full Access")
         };
 
     // Gli ApiResources rappresentano le API protette esposte dall'IdentityServer.
@@ -38,7 +41,7 @@ public static class Config
         {
             new ApiResource("imagegalleryapi", "Image Gallery API")
             {
-                Scopes = { "imagegalleryapi" }
+                Scopes = { "imagegalleryapi.fullaccess" }
             }
         };
 
@@ -53,6 +56,8 @@ public static class Config
             new Client()
             {
                 ClientName="Image Gallery",
+                // Manteniamo lo stesso ClientId usato dal client MVC,
+                // così l'IdentityServer riconosce correttamente il chiamante.
                 ClientId="imagegalleryclient",
 
                 // Authorization Code Flow:
@@ -83,7 +88,7 @@ public static class Config
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
                     "roles",
-                    "imagegalleryapi"
+                    "imagegalleryapi.fullaccess"
                 },
                 ClientSecrets =
                 {

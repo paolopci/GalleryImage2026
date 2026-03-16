@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Text.Json;
+using System.Net.Http.Headers;
 using ImageGallery.Client.ViewModels;
 using ImageGallery.Model;
 using Microsoft.AspNetCore.Authentication;
@@ -28,6 +29,7 @@ namespace ImageGallery.Client.Controllers
             await LoginIdentityInformation();
 
             var httpClient = _httpClientFactory.CreateClient("APIClient");
+            await AddBearerTokenAsync(httpClient);
             var request = new HttpRequestMessage(HttpMethod.Get, "/api/images/");
 
             var response = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead)
@@ -45,6 +47,7 @@ namespace ImageGallery.Client.Controllers
         public async Task<IActionResult> EditImage(Guid id)
         {
             var httpClient = _httpClientFactory.CreateClient("APIClient");
+            await AddBearerTokenAsync(httpClient);
             var request = new HttpRequestMessage(HttpMethod.Get, $"/api/images/{id}");
 
             var response = await httpClient.SendAsync(request, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
@@ -86,6 +89,7 @@ namespace ImageGallery.Client.Controllers
             var serializeImageForUpdate = JsonSerializer.Serialize(imageForUpdate);
 
             var httpClient = _httpClientFactory.CreateClient("APIClient");
+            await AddBearerTokenAsync(httpClient);
             var request = new HttpRequestMessage(HttpMethod.Put, $"/api/images/{editImageViewModel.Id}")
             {
                 Content = new StringContent(
@@ -137,6 +141,7 @@ namespace ImageGallery.Client.Controllers
             var serializedImageForCreation = JsonSerializer.Serialize(imageForCreation);
 
             var httpClient = _httpClientFactory.CreateClient("APIClient");
+            await AddBearerTokenAsync(httpClient);
 
             var request = new HttpRequestMessage(
                 HttpMethod.Post,
@@ -172,6 +177,21 @@ namespace ImageGallery.Client.Controllers
             // log token & claims
             _logger.LogInformation($"Identity token & user claims: " + $"\n{identityToken}\n{userClaimsStringBuilder}");
 
+        }
+
+        private async Task AddBearerTokenAsync(HttpClient httpClient)
+        {
+            // Recupera l'access token salvato dopo il login OIDC
+            // e lo invia come Bearer token verso la Web API protetta.
+            var accessToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.AccessToken);
+
+            if (string.IsNullOrWhiteSpace(accessToken))
+            {
+                throw new InvalidOperationException("Access token non disponibile per la chiamata alla API.");
+            }
+
+            httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", accessToken);
         }
     }
 }

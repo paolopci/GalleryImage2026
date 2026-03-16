@@ -17,6 +17,8 @@ Il workflow operativo condiviso è definito in [`_shared/workflow-operativo.md`]
 
 Questo repository adotta integralmente quel modulo come riferimento vincolante per lettura iniziale, checklist, scelte `1/2`, validazioni, uso tool e autorizzazione delle skill.
 
+Regola esplicita di avvio: alla prima interazione su questo progetto bisogna leggere sempre `AGENTS.md` come prima azione, prima di analisi, piano, uso tool o modifiche.
+
 ## 4. Struttura Del Progetto E Organizzazione Dei Moduli
 
 La soluzione è suddivisa in quattro progetti .NET 10:
@@ -79,5 +81,7 @@ Questo repository le adotta come baseline minima per gestione segreti, configura
 ## 10. Flusso Di Collaborazione
 
 Il criterio generale di collaborazione condiviso è definito in [`_shared/flusso-collaborazione.md`](_shared/flusso-collaborazione.md).
+
+Per tutte le modifiche relative a OAuth2, OpenID Connect, token, claim, scope, client, API protette e configurazioni IdentityServer, mantenere aggiornato progressivamente il file `READ_ME.md` in root, documentando i passaggi già eseguiti, l'impatto tecnico e i prossimi allineamenti da fare.
 
 In caso di sovrapposizione o dubbio interpretativo tra questo file e i moduli condivisi, prevalgono il workflow operativo e i riferimenti esplicitamente richiamati in `AGENTS.md`.
