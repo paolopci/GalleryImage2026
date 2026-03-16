@@ -1,130 +1,83 @@
 # Linee Guida Del Repository
 
-## 1. Task e Obiettivo
+## 1. Scopo e Ambito
 
-Queste linee guida definiscono il comportamento atteso dell'agente nel repository `GalleryImage2026` (workspace locale: `ImageGallery`).
+Queste linee guida definiscono regole operative, stile collaborativo e criteri di qualità per il repository GitHub `GalleryImage2026` (workspace locale: `ImageGallery`).
+Obiettivo: mantenere un flusso di lavoro chiaro, coerente e manutenibile per API ASP.NET Core + OAuth2 OpenIdConnect.
 
-Obiettivi:
-- mantenere un flusso di lavoro chiaro, coerente e manutenibile;
-- supportare sviluppo, analisi e revisione su API ASP.NET Core, client MVC e autenticazione OAuth2/OpenID Connect;
-- produrre risposte, piani e verifiche coerenti con il contesto del repository.
+## 2. Regole di Collaborazione
 
-Criteri di successo:
-- leggere sempre il contesto obbligatorio prima di agire;
-- distinguere fatti osservati, raccomandazioni e blocchi;
-- non eseguire attività operative senza rispettare il workflow richiesto;
-- validare sempre l'esito dopo uso di tool o modifiche.
+Le regole di collaborazione condivise sono definite in [`_shared/regole-collaborazione.md`](_shared/regole-collaborazione.md).
 
-## 2. Context Files Da Leggere
+Questo repository adotta integralmente quel modulo come riferimento per lingua, tono e ruolo atteso.
 
-Prima di qualsiasi attività sul repository, leggere sempre:
-- `AGENTS.md`
+## 3. Workflow Operativo
 
-Per task specifici, leggere anche i file di contesto direttamente pertinenti alla richiesta.
+Il workflow operativo condiviso è definito in [`_shared/workflow-operativo.md`](_shared/workflow-operativo.md).
 
-Se un file citato non è disponibile:
-- non assumerne il contenuto;
-- esplicitare il blocco;
-- basare l'analisi solo su ciò che è effettivamente accessibile.
+Questo repository adotta integralmente quel modulo come riferimento vincolante per lettura iniziale, checklist, scelte `1/2`, validazioni, uso tool e autorizzazione delle skill.
 
-## 3. Reference e Standard
-
-Standard di collaborazione:
-- lingua della chat: italiano;
-- tono: tecnico, diretto e professionale;
-- emoji: consentite con moderazione;
-- ruolo atteso: sviluppatore senior .NET Core 8/9 e ASP.NET Core 10 MVC, con esperienza in Clean Architecture, Identity, JWT, OAuth2 e OpenID Connect.
-
-Standard di qualità:
-- distinguere sempre fatti osservati da raccomandazioni;
-- evitare inferenze su file o contenuti non accessibili;
-- mantenere il piano e i deliverable in italiano;
-- validare ogni modifica o uso di tool in 1-2 frasi.
-
-Moduli condivisi vincolanti:
-- `shared/workflow-step-item.md`
-- `shared/workflow-skill-authorization.md`
-- `shared/security-baseline.md`
-
-## 4. Success Brief
-
-Una buona risposta deve:
-- essere coerente con il contesto del repository;
-- essere sintetica per default, più dettagliata solo quando serve;
-- rendere chiaro cosa è stato verificato davvero;
-- segnalare subito vincoli, blocchi o contenuti mancanti;
-- proporre output applicabili e manutenibili.
-
-Da evitare:
-- supposizioni non verificate;
-- esecuzione preventiva;
-- ripetizioni inutili;
-- confusione tra regole permanenti e decisioni specifiche del task corrente.
-
-## 5. Contesto Progetto
+## 4. Struttura Del Progetto E Organizzazione Dei Moduli
 
 La soluzione è suddivisa in quattro progetti .NET 10:
-- `ImageGallery.API/`: Web API ASP.NET Core;
-- `ImageGallery.Client/`: front end MVC ASP.NET Core;
-- `ImageGallery.IdentityServer/`: server OAuth2/OpenID Connect con Duende IdentityServer;
-- `ImageGallery.Model/`: DTO e modelli condivisi.
+
+- `ImageGallery.API/`: Web API ASP.NET Core (controller, avvio API, configurazione OpenAPI).
+- `ImageGallery.Client/`: front end MVC ASP.NET Core (`Controllers/`, `Views/`, asset statici in `wwwroot/`).
+- `ImageGallery.IdentityServer/`: server di identità OAuth2/OpenID Connect (Duende IdentityServer) per autenticazione e rilascio token.
+- `ImageGallery.Model/`: classi DTO/modello condivise usate dal client e dall'API.
 
 Usa `ImageGallery.slnx` dalla radice del repository per compilare tutti i progetti insieme.
 
-## 6. Comandi Di Build, Test E Sviluppo
+## 5. Comandi Di Build, Test E Sviluppo
 
-Eseguire dalla radice del repository:
-- `dotnet restore ImageGallery.slnx`
-- `dotnet build ImageGallery.slnx -c Debug`
-- `dotnet run --project ImageGallery.API`
-- `dotnet run --project ImageGallery.Client`
-- `dotnet run --project ImageGallery.IdentityServer`
-- `dotnet watch run --project ImageGallery.API`
-- `dotnet watch run --project ImageGallery.IdentityServer`
-- `dotnet test`
+Esegui i comandi dalla radice del repository:
 
-Nota:
-- al momento non è presente un progetto test dedicato; aggiungerlo prima di fare affidamento sui quality gate della CI.
+- `dotnet restore ImageGallery.slnx`: ripristina i pacchetti NuGet per tutti i progetti.
+- `dotnet build ImageGallery.slnx -c Debug`: compila l'intera soluzione.
+- `dotnet run --project ImageGallery.API`: avvia localmente l'API.
+- `dotnet run --project ImageGallery.Client`: avvia localmente il client MVC.
+- `dotnet run --project ImageGallery.IdentityServer`: avvia localmente l'IdentityServer.
+- `dotnet watch run --project ImageGallery.API`: avvia l'API con hot reload durante lo sviluppo.
+- `dotnet watch run --project ImageGallery.IdentityServer`: avvia l'IdentityServer con hot reload durante lo sviluppo.
+- `dotnet test`: esegue i test (attualmente non è presente un progetto di test dedicato; aggiungine uno prima di fare affidamento sui quality gate della CI).
 
-## 7. Convenzioni Tecniche
+## 6. Stile Del Codice E Convenzioni Di Naming
 
-- usare convenzioni standard C# con indentazione di 4 spazi;
-- preferire file-scoped namespace quando possibile;
-- mantenere `Nullable` e `ImplicitUsings` abilitati;
-- usare `PascalCase` per classi, metodi e proprietà pubbliche;
-- usare `camelCase` per variabili locali e parametri;
-- i controller devono terminare con `Controller`;
-- preferire un solo tipo pubblico per file, con nome file coerente.
+- Segui le convenzioni standard di C# con indentazione di 4 spazi e file-scoped namespace quando possibile.
+- Mantieni `Nullable` e `ImplicitUsings` abilitati (già configurati in tutti i file `.csproj`).
+- Convenzioni di naming:
+  - `PascalCase` per classi, metodi e proprietà pubbliche.
+  - `camelCase` per variabili locali e parametri.
+  - Le classi controller terminano con `Controller` (ad esempio, `GalleryController`).
+  - Preferisci un solo tipo pubblico per file, con nome file corrispondente al nome del tipo.
 
-## 8. Test, Commit e Pull Request
+## 7. Linee Guida Per I Test
 
-Test:
-- aggiungere test automatici in un progetto dedicato, preferibilmente `ImageGallery.Tests` con xUnit;
-- rispecchiare namespace e cartelle di produzione nei test;
-- usare nomi test descrittivi del comportamento;
-- eseguire `dotnet test` prima di aprire una pull request.
+- Aggiungi test automatici in un progetto dedicato (consigliato: `ImageGallery.Tests` con xUnit).
+- Rispecchia namespace e cartelle di produzione nei test (ad esempio, `Controllers/GalleryControllerTests.cs`).
+- I nomi dei test devono descrivere il comportamento, ad esempio `GetGallery_ReturnsOk_WhenImagesExist`.
+- Esegui `dotnet test` prima di aprire una pull request.
 
-Commit:
-- formato consigliato: `type(scope): short summary`;
-- mantenere i commit focalizzati e compilabili.
+## 8. Linee Guida Per Commit E Pull Request
 
-Pull request:
-- includere riepilogo chiaro delle modifiche e della motivazione;
-- includere ID dell'issue o task collegato;
-- includere evidenza dei test;
-- includere screenshot per modifiche UI in `ImageGallery.Client`.
+La cronologia Git non è disponibile in questa snapshot del workspace, quindi non è stato possibile ricavare un pattern di commit consolidato. Usa questa base:
 
-## 9. Regole Di Precedenza e Fallback
+- Formato commit: `type(scope): short summary` (esempio: `feat(api): add image upload endpoint`).
+- Mantieni i commit focalizzati e compilabili.
+- Le PR devono includere:
+  - riepilogo chiaro delle modifiche e della motivazione,
+  - ID dell'issue/task collegato,
+  - evidenza dei test (output di `dotnet build`, `dotnet test`),
+  - screenshot per modifiche UI in `ImageGallery.Client`.
 
-Ordine di precedenza:
-1. file di contesto effettivamente letti e disponibili;
-2. regole locali di questo repository;
-3. moduli condivisi richiamati da questo documento;
-4. richieste specifiche del task, se compatibili con i vincoli sopra.
+## 9. Suggerimenti Su Sicurezza E Configurazione
 
-In caso di conflitto o ambiguità:
-- esplicitare il punto bloccante;
-- non assumere contenuti mancanti;
-- chiedere chiarimento prima di procedere con attività operative.
+Le regole condivise di sicurezza e configurazione sono definite in [`_shared/sicurezza-configurazione.md`](_shared/sicurezza-configurazione.md).
 
-Se workflow o sicurezza sono estratti in moduli condivisi, tali moduli restano vincolanti quanto questo file.
+Questo repository le adotta come baseline minima per gestione segreti, configurazione sensibile, validazione input ed error handling.
+
+## 10. Flusso Di Collaborazione
+
+Il criterio generale di collaborazione condiviso è definito in [`_shared/flusso-collaborazione.md`](_shared/flusso-collaborazione.md).
+
+In caso di sovrapposizione o dubbio interpretativo tra questo file e i moduli condivisi, prevalgono il workflow operativo e i riferimenti esplicitamente richiamati in `AGENTS.md`.
