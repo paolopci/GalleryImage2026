@@ -67,6 +67,7 @@ public class ImagesController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "PayingUser")]
     public async Task<ActionResult<Image>> CreateImage([FromBody] ImageForCreation imageForCreation)
     {
         var ownerId = GetOwnerId();
