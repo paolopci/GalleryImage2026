@@ -42,7 +42,7 @@ public static class Config
         new ApiResource("imagegalleryapi", "Image Gallery API")
         {
             Scopes = { "imagegalleryapi.fullaccess" },
-            UserClaims = { "given_name" }
+            UserClaims = { "given_name" , "role"}
         }
     };
 
