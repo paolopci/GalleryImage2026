@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ImageGallery.API.Controllers;
 
+// Tutte le azioni richiedono un access token con scope
+// "imagegalleryapi.fullaccess", definito nella policy configurata nell'API.
 [Authorize(Policy = "ImageGalleryApiFullAccess")]
 //[Authorize]
 [ApiController]
@@ -33,6 +35,7 @@ public class ImagesController : ControllerBase
     public async Task<ActionResult<IEnumerable<Image>>> GetImages()
     {
         var imagesFromRepo = await _galleryRepository.GetImagesAsync();
+        // Il controller espone DTO del progetto Model, non direttamente le entity EF.
         var imagesToReturn = _mapper.Map<IEnumerable<Image>>(imagesFromRepo);
 
         return Ok(imagesToReturn);
@@ -58,9 +61,12 @@ public class ImagesController : ControllerBase
     {
         var imageEntity = _mapper.Map<API.Entities.Image>(imageForCreation);
         var webRootPath = _hostingEnvironment.WebRootPath;
+        // Il nome file viene generato lato server per evitare collisioni e non fidarsi
+        // di eventuali nomi provenienti dal client.
         var fileName = $"{Guid.NewGuid()}.jpg";
         var filePath = Path.Combine(webRootPath, "images", fileName);
 
+        // I byte dell'immagine vengono salvati fisicamente in wwwroot/images.
         await System.IO.File.WriteAllBytesAsync(filePath, imageForCreation.Bytes);
 
         imageEntity.FileName = fileName;
@@ -70,6 +76,7 @@ public class ImagesController : ControllerBase
 
         var imageToReturn = _mapper.Map<Image>(imageEntity);
 
+        // Restituisce 201 con header Location che punta all'endpoint GetImage.
         return CreatedAtRoute(
             "GetImage",
             new { id = imageToReturn.Id },
@@ -102,6 +109,7 @@ public class ImagesController : ControllerBase
             return NotFound();
         }
 
+        // AutoMapper aggiorna l'entity esistente con i valori ricevuti dal client.
         _mapper.Map(imageForUpdate, imageFromRepo);
 
         _galleryRepository.UpdateImage(imageFromRepo);

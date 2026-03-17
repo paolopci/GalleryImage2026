@@ -6,6 +6,9 @@
 # dotenv files
 .env
 
+# Local .NET CLI sandbox/home used for local builds
+.dotnet/
+
 # User-specific files
 *.rsuser
 *.suo

@@ -332,6 +332,22 @@ Impatto:
 - la API può autenticare la richiesta e valutare la policy sullo scope `imagegalleryapi.fullaccess`;
 - il `401` non dipende più dall'assenza dell'header Bearer.
 
+## Correzione applicata per visibilità token solo in Development
+
+Per confrontare l'output locale con il corso senza esporre token in produzione, il controller MVC è stato aggiornato nel metodo `LoginIdentityInformation()`.
+
+Correzione applicata:
+
+- recupero sia di `id_token` sia di `access_token` dal contesto di autenticazione;
+- scrittura nei log dei token completi solo quando l'ambiente corrente è `Development`;
+- fuori da `Development` logging limitato ai soli claim utente.
+
+Impatto:
+
+- in sviluppo il terminale mostra anche `Access token:` come nel corso;
+- in produzione e negli altri ambienti non vengono scritti token sensibili nei log;
+- il comportamento resta coerente con il flusso OAuth2/OpenID Connect già configurato nel client MVC.
+
 ## Correzione applicata dopo ulteriore `401 Unauthorized` in validazione Bearer
 
 Dopo aver iniziato a inviare correttamente il Bearer token alla API, la richiesta continuava a essere rifiutata con `401 Unauthorized`.
