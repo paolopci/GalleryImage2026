@@ -34,9 +34,19 @@ public class ImagesController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Image>>> GetImages()
     {
-        var imagesFromRepo = await _galleryRepository.GetImagesAsync();
+        var ownerId = GetOwnerId();
+
+        var givenName = User.Claims.FirstOrDefault(c => c.Type == "given_name")?.Value;
+        var displayName = string.IsNullOrWhiteSpace(givenName) ? "the user" : givenName;
+
+        var imagesFromRepo = await _galleryRepository.GetImagesAsync(ownerId);
         // Il controller espone DTO del progetto Model, non direttamente le entity EF.
-        var imagesToReturn = _mapper.Map<IEnumerable<Image>>(imagesFromRepo);
+        var imagesToReturn = _mapper.Map<IEnumerable<Image>>(imagesFromRepo)
+            .Select(image =>
+            {
+                image.Title = $"An image by {displayName}";
+                return image;
+            });
 
         return Ok(imagesToReturn);
     }
@@ -59,6 +69,7 @@ public class ImagesController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Image>> CreateImage([FromBody] ImageForCreation imageForCreation)
     {
+        var ownerId = GetOwnerId();
         var imageEntity = _mapper.Map<API.Entities.Image>(imageForCreation);
         var webRootPath = _hostingEnvironment.WebRootPath;
         // Il nome file viene generato lato server per evitare collisioni e non fidarsi
@@ -70,6 +81,7 @@ public class ImagesController : ControllerBase
         await System.IO.File.WriteAllBytesAsync(filePath, imageForCreation.Bytes);
 
         imageEntity.FileName = fileName;
+        imageEntity.OwnerId = ownerId;
 
         _galleryRepository.AddImage(imageEntity);
         await _galleryRepository.SaveChangesAsync();
@@ -86,11 +98,17 @@ public class ImagesController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteImage(Guid id)
     {
+        var ownerId = GetOwnerId();
         var imageFromRepo = await _galleryRepository.GetImageAsync(id);
 
         if (imageFromRepo == null)
         {
             return NotFound();
+        }
+
+        if (!await _galleryRepository.IsImageOwnerAsync(id, ownerId))
+        {
+            return Forbid();
         }
 
         _galleryRepository.DeleteImage(imageFromRepo);
@@ -102,11 +120,17 @@ public class ImagesController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateImage(Guid id, [FromBody] ImageForUpdate imageForUpdate)
     {
+        var ownerId = GetOwnerId();
         var imageFromRepo = await _galleryRepository.GetImageAsync(id);
 
         if (imageFromRepo == null)
         {
             return NotFound();
+        }
+
+        if (!await _galleryRepository.IsImageOwnerAsync(id, ownerId))
+        {
+            return Forbid();
         }
 
         // AutoMapper aggiorna l'entity esistente con i valori ricevuti dal client.
@@ -116,5 +140,17 @@ public class ImagesController : ControllerBase
         await _galleryRepository.SaveChangesAsync();
 
         return NoContent();
+    }
+
+    private string GetOwnerId()
+    {
+        // Recupera dal token il claim "sub", usato come identificativo univoco dell'utente autenticato.
+        var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
+        if (string.IsNullOrWhiteSpace(ownerId))
+        {
+            throw new Exception("User identifier is missing from token.");
+        }
+
+        return ownerId;
     }
 }

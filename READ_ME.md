@@ -364,6 +364,58 @@ Impatto:
 - viene evitato il rifiuto del token dovuto al tipo token atteso;
 - il flusso resta più vicino alla configurazione essenziale del corso.
 
+## Correzione applicata per usare `given_name` nella descrizione immagini restituite dalla API
+
+File coinvolto:
+
+- `ImageGallery.IdentityServer/Config.cs`
+- `ImageGallery.API/Controllers/ImagesController.cs`
+
+Correzione applicata:
+
+- la `ApiResource` `imagegalleryapi` è stata configurata per includere `given_name` tra gli user claim emessi verso la API;
+- oltre al claim `sub`, il controller legge anche il claim `given_name` dal Bearer token;
+- la query verso il repository continua a usare `sub` come identificativo tecnico del proprietario;
+- prima di restituire i DTO `Image`, il campo `Title` viene valorizzato con il testo `An image by <given_name>`;
+- se il token corrente non contiene ancora `given_name`, il controller usa temporaneamente il fallback `An image by the user` invece di interrompere la richiesta.
+
+Motivo tecnico:
+
+- il claim `sub` deve restare l'identificativo stabile usato lato API per filtrare le immagini dell'utente;
+- il claim `given_name` è invece il dato corretto da mostrare in output quando serve una descrizione leggibile per l'utente autenticato;
+- l'access token già emesso prima della modifica può non contenere ancora il claim, quindi serve una gestione compatibile durante la transizione.
+
+Impatto:
+
+- il client MVC continua a ricevere la stessa struttura JSON del DTO `Image`;
+- nella galleria non viene più visualizzato l'identificativo tecnico del soggetto autenticato;
+- dopo l'emissione di un nuovo access token, il testo mostrato per ogni immagine usa il nome profilo presente nei claim OIDC;
+- finché non viene ottenuto un nuovo token, la UI resta funzionante grazie al fallback senza eccezioni runtime.
+
+## Correzione applicata per limitare create, update e delete alle sole immagini del proprietario
+
+File coinvolto:
+
+- `ImageGallery.API/Controllers/ImagesController.cs`
+
+Correzione applicata:
+
+- il controller recupera il claim `sub` tramite un metodo condiviso `GetOwnerId()`;
+- in `CreateImage()` il valore di `sub` viene assegnato a `OwnerId` prima del salvataggio;
+- in `UpdateImage()` e `DeleteImage()` viene verificato che l'immagine richiesta appartenga all'utente autenticato;
+- se l'immagine esiste ma appartiene a un altro utente, la API restituisce `Forbid()`.
+
+Motivo tecnico:
+
+- filtrare `GetImages()` per proprietario non basta a proteggere anche le operazioni di modifica;
+- senza controllo esplicito su create, update e delete, un utente autenticato potrebbe agire su immagini non sue conoscendone l'identificativo.
+
+Impatto:
+
+- ogni nuova immagine viene salvata con un proprietario coerente con il claim `sub` del token;
+- modifica e cancellazione sono consentite solo al proprietario dell'immagine;
+- il comportamento della API è ora coerente con la regola di ownership già applicata nella lettura della galleria.
+
 ## Correzione applicata dopo `401 Unauthorized` dovuto a chiamata HTTP verso la API
 
 Dopo i fix precedenti, dai log risultava che il client MVC chiamava:
