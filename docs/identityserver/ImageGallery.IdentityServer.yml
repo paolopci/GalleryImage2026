@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer
+  commentId: N:ImageGallery.IdentityServer
+  id: ImageGallery.IdentityServer
+  children:
+  - ImageGallery.IdentityServer.Config
+  - ImageGallery.IdentityServer.TestUsers
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer
+  nameWithType: ImageGallery.IdentityServer
+  fullName: ImageGallery.IdentityServer
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Config
+  commentId: T:ImageGallery.IdentityServer.Config
+  href: ImageGallery.IdentityServer.Config.html
+  name: Config
+  nameWithType: Config
+  fullName: ImageGallery.IdentityServer.Config
+- uid: ImageGallery.IdentityServer.TestUsers
+  commentId: T:ImageGallery.IdentityServer.TestUsers
+  href: ImageGallery.IdentityServer.TestUsers.html
+  name: TestUsers
+  nameWithType: TestUsers
+  fullName: ImageGallery.IdentityServer.TestUsers

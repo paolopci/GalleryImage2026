@@ -1,0 +1,487 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+  commentId: T:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+  id: Telemetry.Metrics.Tags
+  parent: ImageGallery.IdentityServer.Pages
+  children:
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Client
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Consent
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Error
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Idp
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Remember
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Scope
+  langs:
+  - csharp
+  - vb
+  name: Telemetry.Metrics.Tags
+  nameWithType: Telemetry.Metrics.Tags
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+  type: Class
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Telemetry.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: Tags
+    path: ../ImageGallery.IdentityServer/Pages/Telemetry.cs
+    startLine: 40
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages
+  summary: Name of tags
+  example: []
+  syntax:
+    content: public static class Telemetry.Metrics.Tags
+    content.vb: Public Module Telemetry.Metrics.Tags
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Client
+  commentId: F:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Client
+  id: Client
+  parent: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+  langs:
+  - csharp
+  - vb
+  name: Client
+  nameWithType: Telemetry.Metrics.Tags.Client
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Client
+  type: Field
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Telemetry.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: Client
+    path: ../ImageGallery.IdentityServer/Pages/Telemetry.cs
+    startLine: 42
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages
+  syntax:
+    content: public const string Client = "client"
+    return:
+      type: System.String
+    content.vb: Public Const Client As String = "client"
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Error
+  commentId: F:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Error
+  id: Error
+  parent: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+  langs:
+  - csharp
+  - vb
+  name: Error
+  nameWithType: Telemetry.Metrics.Tags.Error
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Error
+  type: Field
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Telemetry.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: Error
+    path: ../ImageGallery.IdentityServer/Pages/Telemetry.cs
+    startLine: 43
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages
+  syntax:
+    content: public const string Error = "error"
+    return:
+      type: System.String
+    content.vb: Public Const Error As String = "error"
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Idp
+  commentId: F:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Idp
+  id: Idp
+  parent: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+  langs:
+  - csharp
+  - vb
+  name: Idp
+  nameWithType: Telemetry.Metrics.Tags.Idp
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Idp
+  type: Field
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Telemetry.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: Idp
+    path: ../ImageGallery.IdentityServer/Pages/Telemetry.cs
+    startLine: 44
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages
+  syntax:
+    content: public const string Idp = "idp"
+    return:
+      type: System.String
+    content.vb: Public Const Idp As String = "idp"
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Remember
+  commentId: F:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Remember
+  id: Remember
+  parent: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+  langs:
+  - csharp
+  - vb
+  name: Remember
+  nameWithType: Telemetry.Metrics.Tags.Remember
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Remember
+  type: Field
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Telemetry.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: Remember
+    path: ../ImageGallery.IdentityServer/Pages/Telemetry.cs
+    startLine: 45
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages
+  syntax:
+    content: public const string Remember = "remember"
+    return:
+      type: System.String
+    content.vb: Public Const Remember As String = "remember"
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Scope
+  commentId: F:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Scope
+  id: Scope
+  parent: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+  langs:
+  - csharp
+  - vb
+  name: Scope
+  nameWithType: Telemetry.Metrics.Tags.Scope
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Scope
+  type: Field
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Telemetry.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: Scope
+    path: ../ImageGallery.IdentityServer/Pages/Telemetry.cs
+    startLine: 46
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages
+  syntax:
+    content: public const string Scope = "scope"
+    return:
+      type: System.String
+    content.vb: Public Const Scope As String = "scope"
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Consent
+  commentId: F:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Consent
+  id: Consent
+  parent: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+  langs:
+  - csharp
+  - vb
+  name: Consent
+  nameWithType: Telemetry.Metrics.Tags.Consent
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags.Consent
+  type: Field
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Telemetry.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: Consent
+    path: ../ImageGallery.IdentityServer/Pages/Telemetry.cs
+    startLine: 47
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages
+  syntax:
+    content: public const string Consent = "consent"
+    return:
+      type: System.String
+    content.vb: Public Const Consent As String = "consent"
+references:
+- uid: ImageGallery.IdentityServer.Pages
+  commentId: N:ImageGallery.IdentityServer.Pages
+  href: ImageGallery.html
+  name: ImageGallery.IdentityServer.Pages
+  nameWithType: ImageGallery.IdentityServer.Pages
+  fullName: ImageGallery.IdentityServer.Pages
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

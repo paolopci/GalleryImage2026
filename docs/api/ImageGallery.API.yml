@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.API
+  commentId: N:ImageGallery.API
+  id: ImageGallery.API
+  children:
+  - ImageGallery.API.WeatherForecast
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.API
+  nameWithType: ImageGallery.API
+  fullName: ImageGallery.API
+  type: Namespace
+  assemblies:
+  - ImageGallery.API
+references:
+- uid: ImageGallery.API.WeatherForecast
+  commentId: T:ImageGallery.API.WeatherForecast
+  href: ImageGallery.API.WeatherForecast.html
+  name: WeatherForecast
+  nameWithType: WeatherForecast
+  fullName: ImageGallery.API.WeatherForecast

@@ -1,0 +1,76 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Grants
+  commentId: N:ImageGallery.IdentityServer.Pages.Grants
+  id: ImageGallery.IdentityServer.Pages.Grants
+  children:
+  - ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  - ImageGallery.IdentityServer.Pages.Grants.Index
+  - ImageGallery.IdentityServer.Pages.Grants.ViewModel
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer.Pages.Grants
+  nameWithType: ImageGallery.IdentityServer.Pages.Grants
+  fullName: ImageGallery.IdentityServer.Pages.Grants
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Pages.Grants.Index
+  commentId: T:ImageGallery.IdentityServer.Pages.Grants.Index
+  href: ImageGallery.IdentityServer.Pages.Grants.Index.html
+  name: Index
+  nameWithType: Index
+  fullName: ImageGallery.IdentityServer.Pages.Grants.Index
+- uid: ImageGallery.IdentityServer.Pages.Grants.ViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Grants.ViewModel
+  parent: ImageGallery.IdentityServer.Pages.Grants
+  href: ImageGallery.IdentityServer.Pages.Grants.ViewModel.html
+  name: ViewModel
+  nameWithType: ViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Grants.ViewModel
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  href: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.html
+  name: GrantViewModel
+  nameWithType: GrantViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+- uid: ImageGallery.IdentityServer.Pages.Grants
+  commentId: N:ImageGallery.IdentityServer.Pages.Grants
+  href: ImageGallery.html
+  name: ImageGallery.IdentityServer.Pages.Grants
+  nameWithType: ImageGallery.IdentityServer.Pages.Grants
+  fullName: ImageGallery.IdentityServer.Pages.Grants
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Grants
+    name: Grants
+    href: ImageGallery.IdentityServer.Pages.Grants.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Grants
+    name: Grants
+    href: ImageGallery.IdentityServer.Pages.Grants.html

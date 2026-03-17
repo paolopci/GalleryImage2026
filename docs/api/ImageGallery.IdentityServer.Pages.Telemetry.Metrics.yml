@@ -1,0 +1,730 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+  commentId: T:ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+  id: Telemetry.Metrics
+  parent: ImageGallery.IdentityServer.Pages
+  children:
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentDenied(System.String,System.Collections.Generic.IEnumerable{System.String})
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentGranted(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.GrantsRevoked(System.String)
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogin(System.String,System.String)
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLoginFailure(System.String,System.String,System.String)
+  - ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogout(System.String)
+  langs:
+  - csharp
+  - vb
+  name: Telemetry.Metrics
+  nameWithType: Telemetry.Metrics
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+  type: Class
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Telemetry.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: Metrics
+    path: ../ImageGallery.IdentityServer/Pages/Telemetry.cs
+    startLine: 22
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages
+  summary: Metrics configuration
+  example: []
+  syntax:
+    content: public static class Telemetry.Metrics
+    content.vb: Public Module Telemetry.Metrics
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentGranted(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  commentId: M:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentGranted(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  id: ConsentGranted(System.String,System.Collections.Generic.IEnumerable{System.String},System.Boolean)
+  parent: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+  langs:
+  - csharp
+  - vb
+  name: ConsentGranted(string, IEnumerable<string>, bool)
+  nameWithType: Telemetry.Metrics.ConsentGranted(string, IEnumerable<string>, bool)
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentGranted(string, System.Collections.Generic.IEnumerable<string>, bool)
+  type: Method
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Telemetry.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: ConsentGranted
+    path: ../ImageGallery.IdentityServer/Pages/Telemetry.cs
+    startLine: 75
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages
+  summary: >-
+    Helper method to increase <xref href="ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.Consent" data-throw-if-not-resolved="false"></xref> counter. The scopes
+
+    are expanded and called one by one to not cause a combinatory explosion of scopes.
+  example: []
+  syntax:
+    content: public static void ConsentGranted(string clientId, IEnumerable<string> scopes, bool remember)
+    parameters:
+    - id: clientId
+      type: System.String
+      description: Client id
+    - id: scopes
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: Scope names. Each element is added on it's own to the counter
+    - id: remember
+      type: System.Boolean
+      description: Remember consent granted
+    content.vb: Public Shared Sub ConsentGranted(clientId As String, scopes As IEnumerable(Of String), remember As Boolean)
+  overload: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentGranted*
+  nameWithType.vb: Telemetry.Metrics.ConsentGranted(String, IEnumerable(Of String), Boolean)
+  fullName.vb: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentGranted(String, System.Collections.Generic.IEnumerable(Of String), Boolean)
+  name.vb: ConsentGranted(String, IEnumerable(Of String), Boolean)
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentDenied(System.String,System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentDenied(System.String,System.Collections.Generic.IEnumerable{System.String})
+  id: ConsentDenied(System.String,System.Collections.Generic.IEnumerable{System.String})
+  parent: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+  langs:
+  - csharp
+  - vb
+  name: ConsentDenied(string, IEnumerable<string>)
+  nameWithType: Telemetry.Metrics.ConsentDenied(string, IEnumerable<string>)
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentDenied(string, System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Telemetry.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: ConsentDenied
+    path: ../ImageGallery.IdentityServer/Pages/Telemetry.cs
+    startLine: 95
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages
+  summary: >-
+    Helper method to increase <xref href="ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.Consent" data-throw-if-not-resolved="false"></xref> counter. The scopes
+
+    are expanded and called one by one to not cause a combinatory explosion of scopes.
+  example: []
+  syntax:
+    content: public static void ConsentDenied(string clientId, IEnumerable<string> scopes)
+    parameters:
+    - id: clientId
+      type: System.String
+      description: Client id
+    - id: scopes
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: Scope names. Each element is added on it's own to the counter
+    content.vb: Public Shared Sub ConsentDenied(clientId As String, scopes As IEnumerable(Of String))
+  overload: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentDenied*
+  nameWithType.vb: Telemetry.Metrics.ConsentDenied(String, IEnumerable(Of String))
+  fullName.vb: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentDenied(String, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: ConsentDenied(String, IEnumerable(Of String))
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.GrantsRevoked(System.String)
+  commentId: M:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.GrantsRevoked(System.String)
+  id: GrantsRevoked(System.String)
+  parent: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+  langs:
+  - csharp
+  - vb
+  name: GrantsRevoked(string?)
+  nameWithType: Telemetry.Metrics.GrantsRevoked(string?)
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.GrantsRevoked(string?)
+  type: Method
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Telemetry.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: GrantsRevoked
+    path: ../ImageGallery.IdentityServer/Pages/Telemetry.cs
+    startLine: 110
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages
+  summary: Helper method to increase the <xref href="ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.GrantsRevoked" data-throw-if-not-resolved="false"></xref> counter.
+  example: []
+  syntax:
+    content: public static void GrantsRevoked(string? clientId)
+    parameters:
+    - id: clientId
+      type: System.String
+      description: Client id to revoke for, or null for all.
+    content.vb: Public Shared Sub GrantsRevoked(clientId As String)
+  overload: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.GrantsRevoked*
+  nameWithType.vb: Telemetry.Metrics.GrantsRevoked(String)
+  fullName.vb: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.GrantsRevoked(String)
+  name.vb: GrantsRevoked(String)
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogin(System.String,System.String)
+  commentId: M:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogin(System.String,System.String)
+  id: UserLogin(System.String,System.String)
+  parent: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+  langs:
+  - csharp
+  - vb
+  name: UserLogin(string?, string)
+  nameWithType: Telemetry.Metrics.UserLogin(string?, string)
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogin(string?, string)
+  type: Method
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Telemetry.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: UserLogin
+    path: ../ImageGallery.IdentityServer/Pages/Telemetry.cs
+    startLine: 120
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages
+  summary: Helper method to increase <xref href="ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.UserLogin" data-throw-if-not-resolved="false"></xref> counter.
+  example: []
+  syntax:
+    content: public static void UserLogin(string? clientId, string idp)
+    parameters:
+    - id: clientId
+      type: System.String
+      description: Client Id, if available
+    - id: idp
+      type: System.String
+      description: Identity provider
+    content.vb: Public Shared Sub UserLogin(clientId As String, idp As String)
+  overload: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogin*
+  nameWithType.vb: Telemetry.Metrics.UserLogin(String, String)
+  fullName.vb: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogin(String, String)
+  name.vb: UserLogin(String, String)
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLoginFailure(System.String,System.String,System.String)
+  commentId: M:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLoginFailure(System.String,System.String,System.String)
+  id: UserLoginFailure(System.String,System.String,System.String)
+  parent: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+  langs:
+  - csharp
+  - vb
+  name: UserLoginFailure(string?, string, string)
+  nameWithType: Telemetry.Metrics.UserLoginFailure(string?, string, string)
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLoginFailure(string?, string, string)
+  type: Method
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Telemetry.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: UserLoginFailure
+    path: ../ImageGallery.IdentityServer/Pages/Telemetry.cs
+    startLine: 129
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages
+  summary: Helper method to increase <xref href="ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.UserLogin" data-throw-if-not-resolved="false"></xref> counter on failure.
+  example: []
+  syntax:
+    content: public static void UserLoginFailure(string? clientId, string idp, string error)
+    parameters:
+    - id: clientId
+      type: System.String
+      description: Client Id, if available
+    - id: idp
+      type: System.String
+      description: Identity provider
+    - id: error
+      type: System.String
+      description: Error message
+    content.vb: Public Shared Sub UserLoginFailure(clientId As String, idp As String, [error] As String)
+  overload: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLoginFailure*
+  nameWithType.vb: Telemetry.Metrics.UserLoginFailure(String, String, String)
+  fullName.vb: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLoginFailure(String, String, String)
+  name.vb: UserLoginFailure(String, String, String)
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogout(System.String)
+  commentId: M:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogout(System.String)
+  id: UserLogout(System.String)
+  parent: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+  langs:
+  - csharp
+  - vb
+  name: UserLogout(string?)
+  nameWithType: Telemetry.Metrics.UserLogout(string?)
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogout(string?)
+  type: Method
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Telemetry.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: UserLogout
+    path: ../ImageGallery.IdentityServer/Pages/Telemetry.cs
+    startLine: 138
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages
+  summary: Helper method to increase the <xref href="ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.UserLogout" data-throw-if-not-resolved="false"></xref> counter.
+  example: []
+  syntax:
+    content: public static void UserLogout(string? idp)
+    parameters:
+    - id: idp
+      type: System.String
+      description: Idp/authentication scheme for external authentication, or "local" for built in.
+    content.vb: Public Shared Sub UserLogout(idp As String)
+  overload: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogout*
+  nameWithType.vb: Telemetry.Metrics.UserLogout(String)
+  fullName.vb: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogout(String)
+  name.vb: UserLogout(String)
+references:
+- uid: ImageGallery.IdentityServer.Pages
+  commentId: N:ImageGallery.IdentityServer.Pages
+  href: ImageGallery.html
+  name: ImageGallery.IdentityServer.Pages
+  nameWithType: ImageGallery.IdentityServer.Pages
+  fullName: ImageGallery.IdentityServer.Pages
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.Consent
+  commentId: F:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.Consent
+  href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.html#ImageGallery_IdentityServer_Pages_Telemetry_Metrics_Counters_Consent
+  name: Consent
+  nameWithType: Telemetry.Metrics.Counters.Consent
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.Consent
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentGranted*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentGranted
+  href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html#ImageGallery_IdentityServer_Pages_Telemetry_Metrics_ConsentGranted_System_String_System_Collections_Generic_IEnumerable_System_String__System_Boolean_
+  name: ConsentGranted
+  nameWithType: Telemetry.Metrics.ConsentGranted
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentGranted
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentDenied*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentDenied
+  href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html#ImageGallery_IdentityServer_Pages_Telemetry_Metrics_ConsentDenied_System_String_System_Collections_Generic_IEnumerable_System_String__
+  name: ConsentDenied
+  nameWithType: Telemetry.Metrics.ConsentDenied
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.ConsentDenied
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.GrantsRevoked
+  commentId: F:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.GrantsRevoked
+  href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.html#ImageGallery_IdentityServer_Pages_Telemetry_Metrics_Counters_GrantsRevoked
+  name: GrantsRevoked
+  nameWithType: Telemetry.Metrics.Counters.GrantsRevoked
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.GrantsRevoked
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.GrantsRevoked*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.GrantsRevoked
+  href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html#ImageGallery_IdentityServer_Pages_Telemetry_Metrics_GrantsRevoked_System_String_
+  name: GrantsRevoked
+  nameWithType: Telemetry.Metrics.GrantsRevoked
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.GrantsRevoked
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.UserLogin
+  commentId: F:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.UserLogin
+  href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.html#ImageGallery_IdentityServer_Pages_Telemetry_Metrics_Counters_UserLogin
+  name: UserLogin
+  nameWithType: Telemetry.Metrics.Counters.UserLogin
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.UserLogin
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogin*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogin
+  href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html#ImageGallery_IdentityServer_Pages_Telemetry_Metrics_UserLogin_System_String_System_String_
+  name: UserLogin
+  nameWithType: Telemetry.Metrics.UserLogin
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogin
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLoginFailure*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLoginFailure
+  href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html#ImageGallery_IdentityServer_Pages_Telemetry_Metrics_UserLoginFailure_System_String_System_String_System_String_
+  name: UserLoginFailure
+  nameWithType: Telemetry.Metrics.UserLoginFailure
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLoginFailure
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.UserLogout
+  commentId: F:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.UserLogout
+  href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.html#ImageGallery_IdentityServer_Pages_Telemetry_Metrics_Counters_UserLogout
+  name: UserLogout
+  nameWithType: Telemetry.Metrics.Counters.UserLogout
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters.UserLogout
+- uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogout*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogout
+  href: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.html#ImageGallery_IdentityServer_Pages_Telemetry_Metrics_UserLogout_System_String_
+  name: UserLogout
+  nameWithType: Telemetry.Metrics.UserLogout
+  fullName: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.UserLogout

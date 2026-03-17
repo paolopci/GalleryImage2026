@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.API.Migrations
+  commentId: N:ImageGallery.API.Migrations
+  id: ImageGallery.API.Migrations
+  children:
+  - ImageGallery.API.Migrations.InitialCreate
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.API.Migrations
+  nameWithType: ImageGallery.API.Migrations
+  fullName: ImageGallery.API.Migrations
+  type: Namespace
+  assemblies:
+  - ImageGallery.API
+references:
+- uid: ImageGallery.API.Migrations.InitialCreate
+  commentId: T:ImageGallery.API.Migrations.InitialCreate
+  href: ImageGallery.API.Migrations.InitialCreate.html
+  name: InitialCreate
+  nameWithType: InitialCreate
+  fullName: ImageGallery.API.Migrations.InitialCreate

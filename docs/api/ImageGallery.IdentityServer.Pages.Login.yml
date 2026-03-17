@@ -1,0 +1,107 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Login
+  commentId: N:ImageGallery.IdentityServer.Pages.Login
+  id: ImageGallery.IdentityServer.Pages.Login
+  children:
+  - ImageGallery.IdentityServer.Pages.Login.Index
+  - ImageGallery.IdentityServer.Pages.Login.InputModel
+  - ImageGallery.IdentityServer.Pages.Login.LoginOptions
+  - ImageGallery.IdentityServer.Pages.Login.ViewModel
+  - ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer.Pages.Login
+  nameWithType: ImageGallery.IdentityServer.Pages.Login
+  fullName: ImageGallery.IdentityServer.Pages.Login
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Pages.Login.Index
+  commentId: T:ImageGallery.IdentityServer.Pages.Login.Index
+  href: ImageGallery.IdentityServer.Pages.Login.Index.html
+  name: Index
+  nameWithType: Index
+  fullName: ImageGallery.IdentityServer.Pages.Login.Index
+- uid: ImageGallery.IdentityServer.Pages.Login.InputModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Login.InputModel
+  parent: ImageGallery.IdentityServer.Pages.Login
+  href: ImageGallery.IdentityServer.Pages.Login.InputModel.html
+  name: InputModel
+  nameWithType: InputModel
+  fullName: ImageGallery.IdentityServer.Pages.Login.InputModel
+- uid: ImageGallery.IdentityServer.Pages.Login.LoginOptions
+  commentId: T:ImageGallery.IdentityServer.Pages.Login.LoginOptions
+  href: ImageGallery.IdentityServer.Pages.Login.LoginOptions.html
+  name: LoginOptions
+  nameWithType: LoginOptions
+  fullName: ImageGallery.IdentityServer.Pages.Login.LoginOptions
+- uid: ImageGallery.IdentityServer.Pages.Login.ViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Login.ViewModel
+  parent: ImageGallery.IdentityServer.Pages.Login
+  href: ImageGallery.IdentityServer.Pages.Login.ViewModel.html
+  name: ViewModel
+  nameWithType: ViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Login.ViewModel
+- uid: ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider
+  commentId: T:ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider
+  href: ImageGallery.IdentityServer.Pages.Login.ViewModel.html
+  name: ViewModel.ExternalProvider
+  nameWithType: ViewModel.ExternalProvider
+  fullName: ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider
+  spec.csharp:
+  - uid: ImageGallery.IdentityServer.Pages.Login.ViewModel
+    name: ViewModel
+    href: ImageGallery.IdentityServer.Pages.Login.ViewModel.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider
+    name: ExternalProvider
+    href: ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider.html
+  spec.vb:
+  - uid: ImageGallery.IdentityServer.Pages.Login.ViewModel
+    name: ViewModel
+    href: ImageGallery.IdentityServer.Pages.Login.ViewModel.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider
+    name: ExternalProvider
+    href: ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider.html
+- uid: ImageGallery.IdentityServer.Pages.Login
+  commentId: N:ImageGallery.IdentityServer.Pages.Login
+  href: ImageGallery.html
+  name: ImageGallery.IdentityServer.Pages.Login
+  nameWithType: ImageGallery.IdentityServer.Pages.Login
+  fullName: ImageGallery.IdentityServer.Pages.Login
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Login
+    name: Login
+    href: ImageGallery.IdentityServer.Pages.Login.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Login
+    name: Login
+    href: ImageGallery.IdentityServer.Pages.Login.html

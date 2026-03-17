@@ -17,9 +17,10 @@
                     <img src="@($"{imageGalleryApiRoot}/images/{item.FileName}")" />
                 </div>
                 <div>
-                    <div class="h6 topMarginSmall">@item.Title</div>
-                    <div class="bottomMarginDefault">
+                    <div class="h6 topMarginSmall" style="margin-top: 12px;">@item.Title</div>
+                    <div class="bottomMarginDefault" style="margin-bottom: 16px;">
                         <a asp-action="EditImage" asp-controller="Gallery" asp-route-id="@item.Id">Edit title</a>
+                        <span> | </span>
                         <a asp-action="DeleteImage" asp-controller="Gallery" asp-route-id="@item.Id">Delete title</a>
                     </div>
                 </div>

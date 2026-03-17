@@ -82,6 +82,7 @@ builder.Services.AddAuthentication(options =>
           options.ClaimActions.Remove("aud");
           options.ClaimActions.DeleteClaim("sid");
           options.ClaimActions.DeleteClaim("idp");
+          options.Scope.Add("imagegalleryapi.fullaccess");
 
           // Richiede i ruoli dell'utente all'IdentityServer e mappa il campo JSON "role"
           // come claim locale, così il client può usarlo per autorizzazioni e controlli sui ruoli.

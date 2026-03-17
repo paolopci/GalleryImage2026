@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.API.Entities
+  commentId: N:ImageGallery.API.Entities
+  id: ImageGallery.API.Entities
+  children:
+  - ImageGallery.API.Entities.Image
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.API.Entities
+  nameWithType: ImageGallery.API.Entities
+  fullName: ImageGallery.API.Entities
+  type: Namespace
+  assemblies:
+  - ImageGallery.API
+references:
+- uid: ImageGallery.API.Entities.Image
+  commentId: T:ImageGallery.API.Entities.Image
+  parent: ImageGallery.API.Entities
+  href: ImageGallery.API.Entities.Image.html
+  name: Image
+  nameWithType: Image
+  fullName: ImageGallery.API.Entities.Image
+- uid: ImageGallery.API.Entities
+  commentId: N:ImageGallery.API.Entities
+  href: ImageGallery.html
+  name: ImageGallery.API.Entities
+  nameWithType: ImageGallery.API.Entities
+  fullName: ImageGallery.API.Entities
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.API
+    name: API
+    href: ImageGallery.API.html
+  - name: .
+  - uid: ImageGallery.API.Entities
+    name: Entities
+    href: ImageGallery.API.Entities.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.API
+    name: API
+    href: ImageGallery.API.html
+  - name: .
+  - uid: ImageGallery.API.Entities
+    name: Entities
+    href: ImageGallery.API.Entities.html

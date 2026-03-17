@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Diagnostics
+  commentId: N:ImageGallery.IdentityServer.Pages.Diagnostics
+  id: ImageGallery.IdentityServer.Pages.Diagnostics
+  children:
+  - ImageGallery.IdentityServer.Pages.Diagnostics.Index
+  - ImageGallery.IdentityServer.Pages.Diagnostics.ViewModel
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer.Pages.Diagnostics
+  nameWithType: ImageGallery.IdentityServer.Pages.Diagnostics
+  fullName: ImageGallery.IdentityServer.Pages.Diagnostics
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Pages.Diagnostics.Index
+  commentId: T:ImageGallery.IdentityServer.Pages.Diagnostics.Index
+  href: ImageGallery.IdentityServer.Pages.Diagnostics.Index.html
+  name: Index
+  nameWithType: Index
+  fullName: ImageGallery.IdentityServer.Pages.Diagnostics.Index
+- uid: ImageGallery.IdentityServer.Pages.Diagnostics.ViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Diagnostics.ViewModel
+  parent: ImageGallery.IdentityServer.Pages.Diagnostics
+  href: ImageGallery.IdentityServer.Pages.Diagnostics.ViewModel.html
+  name: ViewModel
+  nameWithType: ViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Diagnostics.ViewModel
+- uid: ImageGallery.IdentityServer.Pages.Diagnostics
+  commentId: N:ImageGallery.IdentityServer.Pages.Diagnostics
+  href: ImageGallery.html
+  name: ImageGallery.IdentityServer.Pages.Diagnostics
+  nameWithType: ImageGallery.IdentityServer.Pages.Diagnostics
+  fullName: ImageGallery.IdentityServer.Pages.Diagnostics
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Diagnostics
+    name: Diagnostics
+    href: ImageGallery.IdentityServer.Pages.Diagnostics.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Diagnostics
+    name: Diagnostics
+    href: ImageGallery.IdentityServer.Pages.Diagnostics.html

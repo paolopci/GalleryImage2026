@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.API.Controllers
+  commentId: N:ImageGallery.API.Controllers
+  id: ImageGallery.API.Controllers
+  children:
+  - ImageGallery.API.Controllers.ImagesController
+  - ImageGallery.API.Controllers.WeatherForecastController
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.API.Controllers
+  nameWithType: ImageGallery.API.Controllers
+  fullName: ImageGallery.API.Controllers
+  type: Namespace
+  assemblies:
+  - ImageGallery.API
+references:
+- uid: ImageGallery.API.Controllers.ImagesController
+  commentId: T:ImageGallery.API.Controllers.ImagesController
+  href: ImageGallery.API.Controllers.ImagesController.html
+  name: ImagesController
+  nameWithType: ImagesController
+  fullName: ImageGallery.API.Controllers.ImagesController
+- uid: ImageGallery.API.Controllers.WeatherForecastController
+  commentId: T:ImageGallery.API.Controllers.WeatherForecastController
+  href: ImageGallery.API.Controllers.WeatherForecastController.html
+  name: WeatherForecastController
+  nameWithType: WeatherForecastController
+  fullName: ImageGallery.API.Controllers.WeatherForecastController

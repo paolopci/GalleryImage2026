@@ -1,0 +1,16 @@
+### YamlMime:TableOfContent
+items:
+- uid: ImageGallery.Model
+  name: ImageGallery.Model
+  type: Namespace
+  items:
+  - uid: ImageGallery.Model.Image
+    name: Image
+    type: Class
+  - uid: ImageGallery.Model.ImageForCreation
+    name: ImageForCreation
+    type: Class
+  - uid: ImageGallery.Model.ImageForUpdate
+    name: ImageForUpdate
+    type: Class
+memberLayout: SamePage

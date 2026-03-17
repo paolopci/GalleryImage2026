@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.ExternalLogin
+  commentId: N:ImageGallery.IdentityServer.Pages.ExternalLogin
+  id: ImageGallery.IdentityServer.Pages.ExternalLogin
+  children:
+  - ImageGallery.IdentityServer.Pages.ExternalLogin.Callback
+  - ImageGallery.IdentityServer.Pages.ExternalLogin.Challenge
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer.Pages.ExternalLogin
+  nameWithType: ImageGallery.IdentityServer.Pages.ExternalLogin
+  fullName: ImageGallery.IdentityServer.Pages.ExternalLogin
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Pages.ExternalLogin.Callback
+  commentId: T:ImageGallery.IdentityServer.Pages.ExternalLogin.Callback
+  href: ImageGallery.IdentityServer.Pages.ExternalLogin.Callback.html
+  name: Callback
+  nameWithType: Callback
+  fullName: ImageGallery.IdentityServer.Pages.ExternalLogin.Callback
+- uid: ImageGallery.IdentityServer.Pages.ExternalLogin.Challenge
+  commentId: T:ImageGallery.IdentityServer.Pages.ExternalLogin.Challenge
+  href: ImageGallery.IdentityServer.Pages.ExternalLogin.Challenge.html
+  name: Challenge
+  nameWithType: Challenge
+  fullName: ImageGallery.IdentityServer.Pages.ExternalLogin.Challenge

@@ -1,0 +1,76 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.Client.ViewModels
+  commentId: N:ImageGallery.Client.ViewModels
+  id: ImageGallery.Client.ViewModels
+  children:
+  - ImageGallery.Client.ViewModels.AddImageViewModel
+  - ImageGallery.Client.ViewModels.EditImageViewModel
+  - ImageGallery.Client.ViewModels.ErrorViewModel
+  - ImageGallery.Client.ViewModels.GalleryIndexViewModel
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.Client.ViewModels
+  nameWithType: ImageGallery.Client.ViewModels
+  fullName: ImageGallery.Client.ViewModels
+  type: Namespace
+  assemblies:
+  - ImageGallery.Client
+references:
+- uid: ImageGallery.Client.ViewModels.AddImageViewModel
+  commentId: T:ImageGallery.Client.ViewModels.AddImageViewModel
+  parent: ImageGallery.Client.ViewModels
+  href: ImageGallery.Client.ViewModels.AddImageViewModel.html
+  name: AddImageViewModel
+  nameWithType: AddImageViewModel
+  fullName: ImageGallery.Client.ViewModels.AddImageViewModel
+- uid: ImageGallery.Client.ViewModels.EditImageViewModel
+  commentId: T:ImageGallery.Client.ViewModels.EditImageViewModel
+  parent: ImageGallery.Client.ViewModels
+  href: ImageGallery.Client.ViewModels.EditImageViewModel.html
+  name: EditImageViewModel
+  nameWithType: EditImageViewModel
+  fullName: ImageGallery.Client.ViewModels.EditImageViewModel
+- uid: ImageGallery.Client.ViewModels.ErrorViewModel
+  commentId: T:ImageGallery.Client.ViewModels.ErrorViewModel
+  href: ImageGallery.Client.ViewModels.ErrorViewModel.html
+  name: ErrorViewModel
+  nameWithType: ErrorViewModel
+  fullName: ImageGallery.Client.ViewModels.ErrorViewModel
+- uid: ImageGallery.Client.ViewModels.GalleryIndexViewModel
+  commentId: T:ImageGallery.Client.ViewModels.GalleryIndexViewModel
+  href: ImageGallery.Client.ViewModels.GalleryIndexViewModel.html
+  name: GalleryIndexViewModel
+  nameWithType: GalleryIndexViewModel
+  fullName: ImageGallery.Client.ViewModels.GalleryIndexViewModel
+- uid: ImageGallery.Client.ViewModels
+  commentId: N:ImageGallery.Client.ViewModels
+  href: ImageGallery.html
+  name: ImageGallery.Client.ViewModels
+  nameWithType: ImageGallery.Client.ViewModels
+  fullName: ImageGallery.Client.ViewModels
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.Client
+    name: Client
+    href: ImageGallery.Client.html
+  - name: .
+  - uid: ImageGallery.Client.ViewModels
+    name: ViewModels
+    href: ImageGallery.Client.ViewModels.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.Client
+    name: Client
+    href: ImageGallery.Client.html
+  - name: .
+  - uid: ImageGallery.Client.ViewModels
+    name: ViewModels
+    href: ImageGallery.Client.ViewModels.html

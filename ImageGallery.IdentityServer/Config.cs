@@ -26,7 +26,25 @@ public static class Config
     // l'autenticazione OIDC del client e non espone scope API aggiuntivi.
     public static IEnumerable<ApiScope> ApiScopes =>
         new ApiScope[]
-            { };
+        {
+            // Questo scope rappresenta un permesso applicativo più esplicito:
+            // il client che lo richiede ottiene accesso completo alle operazioni
+            // esposte dall'API Image Gallery.
+            new ApiScope("imagegalleryapi.fullaccess","Image Gallery API Full Access")
+        };
+
+    // Gli ApiResources rappresentano le API protette esposte dall'IdentityServer.
+    // In questo caso definiamo la risorsa "imagegalleryapi" a cui i client possono
+    // richiedere accesso tramite lo scope omonimo.
+    public static IEnumerable<ApiResource> ApiResources =>
+        new ApiResource[]
+        {
+        new ApiResource("imagegalleryapi", "Image Gallery API")
+        {
+            Scopes = { "imagegalleryapi.fullaccess" },
+            UserClaims = { "given_name" , "role"}
+        }
+    };
 
     // La sezione Clients definisce le applicazioni che possono usare questo
     // IdentityServer come Identity Provider (IDP).
@@ -39,6 +57,8 @@ public static class Config
             new Client()
             {
                 ClientName="Image Gallery",
+                // Manteniamo lo stesso ClientId usato dal client MVC,
+                // così l'IdentityServer riconosce correttamente il chiamante.
                 ClientId="imagegalleryclient",
 
                 // Authorization Code Flow:
@@ -68,7 +88,8 @@ public static class Config
                     // profile permette il rilascio di claim di profilo base.
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
-                    "roles"
+                    "roles",
+                    "imagegalleryapi.fullaccess"
                 },
                 ClientSecrets =
                 {

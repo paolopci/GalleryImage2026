@@ -1,0 +1,226 @@
+### YamlMime:TableOfContent
+items:
+- uid: ImageGallery.IdentityServer
+  name: ImageGallery.IdentityServer
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Config
+    name: Config
+    type: Class
+  - uid: ImageGallery.IdentityServer.TestUsers
+    name: TestUsers
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages
+  name: ImageGallery.IdentityServer.Pages
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.Extensions
+    name: Extensions
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.SecurityHeadersAttribute
+    name: SecurityHeadersAttribute
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry
+    name: Telemetry
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics
+    name: Telemetry.Metrics
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Counters
+    name: Telemetry.Metrics.Counters
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.TagValues
+    name: Telemetry.Metrics.TagValues
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Telemetry.Metrics.Tags
+    name: Telemetry.Metrics.Tags
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages.Account
+  name: ImageGallery.IdentityServer.Pages.Account
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.Account.AccessDeniedModel
+    name: AccessDeniedModel
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages.Ciba
+  name: ImageGallery.IdentityServer.Pages.Ciba
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.Ciba.AllModel
+    name: AllModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Ciba.Consent
+    name: Consent
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Ciba.ConsentOptions
+    name: ConsentOptions
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Ciba.IndexModel
+    name: IndexModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Ciba.InputModel
+    name: InputModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Ciba.ResourceViewModel
+    name: ResourceViewModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Ciba.ScopeViewModel
+    name: ScopeViewModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Ciba.ViewModel
+    name: ViewModel
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages.Consent
+  name: ImageGallery.IdentityServer.Pages.Consent
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.Consent.ConsentOptions
+    name: ConsentOptions
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Consent.Index
+    name: Index
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Consent.InputModel
+    name: InputModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Consent.ResourceViewModel
+    name: ResourceViewModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Consent.ScopeViewModel
+    name: ScopeViewModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Consent.ViewModel
+    name: ViewModel
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages.Create
+  name: ImageGallery.IdentityServer.Pages.Create
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.Create.Index
+    name: Index
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Create.InputModel
+    name: InputModel
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages.Device
+  name: ImageGallery.IdentityServer.Pages.Device
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.Device.DeviceOptions
+    name: DeviceOptions
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Device.Index
+    name: Index
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Device.InputModel
+    name: InputModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Device.ScopeViewModel
+    name: ScopeViewModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Device.SuccessModel
+    name: SuccessModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Device.ViewModel
+    name: ViewModel
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages.Diagnostics
+  name: ImageGallery.IdentityServer.Pages.Diagnostics
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.Diagnostics.Index
+    name: Index
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Diagnostics.ViewModel
+    name: ViewModel
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages.Error
+  name: ImageGallery.IdentityServer.Pages.Error
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.Error.Index
+    name: Index
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Error.ViewModel
+    name: ViewModel
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages.ExternalLogin
+  name: ImageGallery.IdentityServer.Pages.ExternalLogin
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.ExternalLogin.Callback
+    name: Callback
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.ExternalLogin.Challenge
+    name: Challenge
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages.Grants
+  name: ImageGallery.IdentityServer.Pages.Grants
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+    name: GrantViewModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Grants.Index
+    name: Index
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Grants.ViewModel
+    name: ViewModel
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages.Home
+  name: ImageGallery.IdentityServer.Pages.Home
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.Home.Index
+    name: Index
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages.Login
+  name: ImageGallery.IdentityServer.Pages.Login
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.Login.Index
+    name: Index
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Login.InputModel
+    name: InputModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Login.LoginOptions
+    name: LoginOptions
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Login.ViewModel
+    name: ViewModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Login.ViewModel.ExternalProvider
+    name: ViewModel.ExternalProvider
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages.Logout
+  name: ImageGallery.IdentityServer.Pages.Logout
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.Logout.Index
+    name: Index
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Logout.LoggedOut
+    name: LoggedOut
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Logout.LoggedOutViewModel
+    name: LoggedOutViewModel
+    type: Class
+  - uid: ImageGallery.IdentityServer.Pages.Logout.LogoutOptions
+    name: LogoutOptions
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages.Redirect
+  name: ImageGallery.IdentityServer.Pages.Redirect
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.Redirect.IndexModel
+    name: IndexModel
+    type: Class
+- uid: ImageGallery.IdentityServer.Pages.ServerSideSessions
+  name: ImageGallery.IdentityServer.Pages.ServerSideSessions
+  type: Namespace
+  items:
+  - uid: ImageGallery.IdentityServer.Pages.ServerSideSessions.IndexModel
+    name: IndexModel
+    type: Class
+memberLayout: SamePage

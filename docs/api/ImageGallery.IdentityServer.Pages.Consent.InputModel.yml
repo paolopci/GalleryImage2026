@@ -1,0 +1,616 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Consent.InputModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Consent.InputModel
+  id: InputModel
+  parent: ImageGallery.IdentityServer.Pages.Consent
+  children:
+  - ImageGallery.IdentityServer.Pages.Consent.InputModel.Button
+  - ImageGallery.IdentityServer.Pages.Consent.InputModel.Description
+  - ImageGallery.IdentityServer.Pages.Consent.InputModel.RememberConsent
+  - ImageGallery.IdentityServer.Pages.Consent.InputModel.ReturnUrl
+  - ImageGallery.IdentityServer.Pages.Consent.InputModel.ScopesConsented
+  langs:
+  - csharp
+  - vb
+  name: InputModel
+  nameWithType: InputModel
+  fullName: ImageGallery.IdentityServer.Pages.Consent.InputModel
+  type: Class
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Consent/InputModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: InputModel
+    path: ../ImageGallery.IdentityServer/Pages/Consent/InputModel.cs
+    startLine: 2
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Consent
+  syntax:
+    content: public class InputModel
+    content.vb: Public Class InputModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ImageGallery.IdentityServer.Pages.Consent.InputModel.Button
+  commentId: P:ImageGallery.IdentityServer.Pages.Consent.InputModel.Button
+  id: Button
+  parent: ImageGallery.IdentityServer.Pages.Consent.InputModel
+  langs:
+  - csharp
+  - vb
+  name: Button
+  nameWithType: InputModel.Button
+  fullName: ImageGallery.IdentityServer.Pages.Consent.InputModel.Button
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Consent/InputModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: Button
+    path: ../ImageGallery.IdentityServer/Pages/Consent/InputModel.cs
+    startLine: 4
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Consent
+  syntax:
+    content: public string? Button { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Button As String
+  overload: ImageGallery.IdentityServer.Pages.Consent.InputModel.Button*
+- uid: ImageGallery.IdentityServer.Pages.Consent.InputModel.ScopesConsented
+  commentId: P:ImageGallery.IdentityServer.Pages.Consent.InputModel.ScopesConsented
+  id: ScopesConsented
+  parent: ImageGallery.IdentityServer.Pages.Consent.InputModel
+  langs:
+  - csharp
+  - vb
+  name: ScopesConsented
+  nameWithType: InputModel.ScopesConsented
+  fullName: ImageGallery.IdentityServer.Pages.Consent.InputModel.ScopesConsented
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Consent/InputModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: ScopesConsented
+    path: ../ImageGallery.IdentityServer/Pages/Consent/InputModel.cs
+    startLine: 5
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Consent
+  syntax:
+    content: public IEnumerable<string> ScopesConsented { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{System.String}
+    content.vb: Public Property ScopesConsented As IEnumerable(Of String)
+  overload: ImageGallery.IdentityServer.Pages.Consent.InputModel.ScopesConsented*
+- uid: ImageGallery.IdentityServer.Pages.Consent.InputModel.RememberConsent
+  commentId: P:ImageGallery.IdentityServer.Pages.Consent.InputModel.RememberConsent
+  id: RememberConsent
+  parent: ImageGallery.IdentityServer.Pages.Consent.InputModel
+  langs:
+  - csharp
+  - vb
+  name: RememberConsent
+  nameWithType: InputModel.RememberConsent
+  fullName: ImageGallery.IdentityServer.Pages.Consent.InputModel.RememberConsent
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Consent/InputModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: RememberConsent
+    path: ../ImageGallery.IdentityServer/Pages/Consent/InputModel.cs
+    startLine: 6
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Consent
+  syntax:
+    content: public bool RememberConsent { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property RememberConsent As Boolean
+  overload: ImageGallery.IdentityServer.Pages.Consent.InputModel.RememberConsent*
+- uid: ImageGallery.IdentityServer.Pages.Consent.InputModel.ReturnUrl
+  commentId: P:ImageGallery.IdentityServer.Pages.Consent.InputModel.ReturnUrl
+  id: ReturnUrl
+  parent: ImageGallery.IdentityServer.Pages.Consent.InputModel
+  langs:
+  - csharp
+  - vb
+  name: ReturnUrl
+  nameWithType: InputModel.ReturnUrl
+  fullName: ImageGallery.IdentityServer.Pages.Consent.InputModel.ReturnUrl
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Consent/InputModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: ReturnUrl
+    path: ../ImageGallery.IdentityServer/Pages/Consent/InputModel.cs
+    startLine: 7
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Consent
+  syntax:
+    content: public string? ReturnUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ReturnUrl As String
+  overload: ImageGallery.IdentityServer.Pages.Consent.InputModel.ReturnUrl*
+- uid: ImageGallery.IdentityServer.Pages.Consent.InputModel.Description
+  commentId: P:ImageGallery.IdentityServer.Pages.Consent.InputModel.Description
+  id: Description
+  parent: ImageGallery.IdentityServer.Pages.Consent.InputModel
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: InputModel.Description
+  fullName: ImageGallery.IdentityServer.Pages.Consent.InputModel.Description
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Consent/InputModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: Description
+    path: ../ImageGallery.IdentityServer/Pages/Consent/InputModel.cs
+    startLine: 8
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Consent
+  syntax:
+    content: public string? Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: ImageGallery.IdentityServer.Pages.Consent.InputModel.Description*
+references:
+- uid: ImageGallery.IdentityServer.Pages.Consent
+  commentId: N:ImageGallery.IdentityServer.Pages.Consent
+  href: ImageGallery.html
+  name: ImageGallery.IdentityServer.Pages.Consent
+  nameWithType: ImageGallery.IdentityServer.Pages.Consent
+  fullName: ImageGallery.IdentityServer.Pages.Consent
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Consent
+    name: Consent
+    href: ImageGallery.IdentityServer.Pages.Consent.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Consent
+    name: Consent
+    href: ImageGallery.IdentityServer.Pages.Consent.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ImageGallery.IdentityServer.Pages.Consent.InputModel.Button*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Consent.InputModel.Button
+  href: ImageGallery.IdentityServer.Pages.Consent.InputModel.html#ImageGallery_IdentityServer_Pages_Consent_InputModel_Button
+  name: Button
+  nameWithType: InputModel.Button
+  fullName: ImageGallery.IdentityServer.Pages.Consent.InputModel.Button
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ImageGallery.IdentityServer.Pages.Consent.InputModel.ScopesConsented*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Consent.InputModel.ScopesConsented
+  href: ImageGallery.IdentityServer.Pages.Consent.InputModel.html#ImageGallery_IdentityServer_Pages_Consent_InputModel_ScopesConsented
+  name: ScopesConsented
+  nameWithType: InputModel.ScopesConsented
+  fullName: ImageGallery.IdentityServer.Pages.Consent.InputModel.ScopesConsented
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ImageGallery.IdentityServer.Pages.Consent.InputModel.RememberConsent*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Consent.InputModel.RememberConsent
+  href: ImageGallery.IdentityServer.Pages.Consent.InputModel.html#ImageGallery_IdentityServer_Pages_Consent_InputModel_RememberConsent
+  name: RememberConsent
+  nameWithType: InputModel.RememberConsent
+  fullName: ImageGallery.IdentityServer.Pages.Consent.InputModel.RememberConsent
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ImageGallery.IdentityServer.Pages.Consent.InputModel.ReturnUrl*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Consent.InputModel.ReturnUrl
+  href: ImageGallery.IdentityServer.Pages.Consent.InputModel.html#ImageGallery_IdentityServer_Pages_Consent_InputModel_ReturnUrl
+  name: ReturnUrl
+  nameWithType: InputModel.ReturnUrl
+  fullName: ImageGallery.IdentityServer.Pages.Consent.InputModel.ReturnUrl
+- uid: ImageGallery.IdentityServer.Pages.Consent.InputModel.Description*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Consent.InputModel.Description
+  href: ImageGallery.IdentityServer.Pages.Consent.InputModel.html#ImageGallery_IdentityServer_Pages_Consent_InputModel_Description
+  name: Description
+  nameWithType: InputModel.Description
+  fullName: ImageGallery.IdentityServer.Pages.Consent.InputModel.Description

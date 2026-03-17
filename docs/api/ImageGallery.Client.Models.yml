@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.Client.Models
+  commentId: N:ImageGallery.Client.Models
+  id: ImageGallery.Client.Models
+  children:
+  - ImageGallery.Client.Models.ErrorViewModel
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.Client.Models
+  nameWithType: ImageGallery.Client.Models
+  fullName: ImageGallery.Client.Models
+  type: Namespace
+  assemblies:
+  - ImageGallery.Client
+references:
+- uid: ImageGallery.Client.Models.ErrorViewModel
+  commentId: T:ImageGallery.Client.Models.ErrorViewModel
+  href: ImageGallery.Client.Models.ErrorViewModel.html
+  name: ErrorViewModel
+  nameWithType: ErrorViewModel
+  fullName: ImageGallery.Client.Models.ErrorViewModel

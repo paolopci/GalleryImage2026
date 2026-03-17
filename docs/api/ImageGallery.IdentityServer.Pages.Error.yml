@@ -1,0 +1,69 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Error
+  commentId: N:ImageGallery.IdentityServer.Pages.Error
+  id: ImageGallery.IdentityServer.Pages.Error
+  children:
+  - ImageGallery.IdentityServer.Pages.Error.Index
+  - ImageGallery.IdentityServer.Pages.Error.ViewModel
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer.Pages.Error
+  nameWithType: ImageGallery.IdentityServer.Pages.Error
+  fullName: ImageGallery.IdentityServer.Pages.Error
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Pages.Error.Index
+  commentId: T:ImageGallery.IdentityServer.Pages.Error.Index
+  href: ImageGallery.IdentityServer.Pages.Error.Index.html
+  name: Index
+  nameWithType: Index
+  fullName: ImageGallery.IdentityServer.Pages.Error.Index
+- uid: ImageGallery.IdentityServer.Pages.Error.ViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Error.ViewModel
+  parent: ImageGallery.IdentityServer.Pages.Error
+  href: ImageGallery.IdentityServer.Pages.Error.ViewModel.html
+  name: ViewModel
+  nameWithType: ViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Error.ViewModel
+- uid: ImageGallery.IdentityServer.Pages.Error
+  commentId: N:ImageGallery.IdentityServer.Pages.Error
+  href: ImageGallery.html
+  name: ImageGallery.IdentityServer.Pages.Error
+  nameWithType: ImageGallery.IdentityServer.Pages.Error
+  fullName: ImageGallery.IdentityServer.Pages.Error
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Error
+    name: Error
+    href: ImageGallery.IdentityServer.Pages.Error.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Error
+    name: Error
+    href: ImageGallery.IdentityServer.Pages.Error.html

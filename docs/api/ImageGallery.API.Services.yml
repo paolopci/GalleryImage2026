@@ -1,0 +1,61 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.API.Services
+  commentId: N:ImageGallery.API.Services
+  id: ImageGallery.API.Services
+  children:
+  - ImageGallery.API.Services.GalleryRepository
+  - ImageGallery.API.Services.IGalleryRepository
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.API.Services
+  nameWithType: ImageGallery.API.Services
+  fullName: ImageGallery.API.Services
+  type: Namespace
+  assemblies:
+  - ImageGallery.API
+references:
+- uid: ImageGallery.API.Services.GalleryRepository
+  commentId: T:ImageGallery.API.Services.GalleryRepository
+  href: ImageGallery.API.Services.GalleryRepository.html
+  name: GalleryRepository
+  nameWithType: GalleryRepository
+  fullName: ImageGallery.API.Services.GalleryRepository
+- uid: ImageGallery.API.Services.IGalleryRepository
+  commentId: T:ImageGallery.API.Services.IGalleryRepository
+  parent: ImageGallery.API.Services
+  href: ImageGallery.API.Services.IGalleryRepository.html
+  name: IGalleryRepository
+  nameWithType: IGalleryRepository
+  fullName: ImageGallery.API.Services.IGalleryRepository
+- uid: ImageGallery.API.Services
+  commentId: N:ImageGallery.API.Services
+  href: ImageGallery.html
+  name: ImageGallery.API.Services
+  nameWithType: ImageGallery.API.Services
+  fullName: ImageGallery.API.Services
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.API
+    name: API
+    href: ImageGallery.API.html
+  - name: .
+  - uid: ImageGallery.API.Services
+    name: Services
+    href: ImageGallery.API.Services.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.API
+    name: API
+    href: ImageGallery.API.html
+  - name: .
+  - uid: ImageGallery.API.Services
+    name: Services
+    href: ImageGallery.API.Services.html

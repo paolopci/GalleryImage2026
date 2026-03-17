@@ -1,0 +1,39 @@
+### YamlMime:TableOfContent
+items:
+- uid: ImageGallery.Client.Controllers
+  name: ImageGallery.Client.Controllers
+  type: Namespace
+  items:
+  - uid: ImageGallery.Client.Controllers.AuthenticationController
+    name: AuthenticationController
+    type: Class
+  - uid: ImageGallery.Client.Controllers.GalleryController
+    name: GalleryController
+    type: Class
+  - uid: ImageGallery.Client.Controllers.HomeController
+    name: HomeController
+    type: Class
+- uid: ImageGallery.Client.Models
+  name: ImageGallery.Client.Models
+  type: Namespace
+  items:
+  - uid: ImageGallery.Client.Models.ErrorViewModel
+    name: ErrorViewModel
+    type: Class
+- uid: ImageGallery.Client.ViewModels
+  name: ImageGallery.Client.ViewModels
+  type: Namespace
+  items:
+  - uid: ImageGallery.Client.ViewModels.AddImageViewModel
+    name: AddImageViewModel
+    type: Class
+  - uid: ImageGallery.Client.ViewModels.EditImageViewModel
+    name: EditImageViewModel
+    type: Class
+  - uid: ImageGallery.Client.ViewModels.ErrorViewModel
+    name: ErrorViewModel
+    type: Class
+  - uid: ImageGallery.Client.ViewModels.GalleryIndexViewModel
+    name: GalleryIndexViewModel
+    type: Class
+memberLayout: SamePage

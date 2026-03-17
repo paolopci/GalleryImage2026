@@ -1,0 +1,98 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Consent
+  commentId: N:ImageGallery.IdentityServer.Pages.Consent
+  id: ImageGallery.IdentityServer.Pages.Consent
+  children:
+  - ImageGallery.IdentityServer.Pages.Consent.ConsentOptions
+  - ImageGallery.IdentityServer.Pages.Consent.Index
+  - ImageGallery.IdentityServer.Pages.Consent.InputModel
+  - ImageGallery.IdentityServer.Pages.Consent.ResourceViewModel
+  - ImageGallery.IdentityServer.Pages.Consent.ScopeViewModel
+  - ImageGallery.IdentityServer.Pages.Consent.ViewModel
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer.Pages.Consent
+  nameWithType: ImageGallery.IdentityServer.Pages.Consent
+  fullName: ImageGallery.IdentityServer.Pages.Consent
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Pages.Consent.ConsentOptions
+  commentId: T:ImageGallery.IdentityServer.Pages.Consent.ConsentOptions
+  href: ImageGallery.IdentityServer.Pages.Consent.ConsentOptions.html
+  name: ConsentOptions
+  nameWithType: ConsentOptions
+  fullName: ImageGallery.IdentityServer.Pages.Consent.ConsentOptions
+- uid: ImageGallery.IdentityServer.Pages.Consent.Index
+  commentId: T:ImageGallery.IdentityServer.Pages.Consent.Index
+  href: ImageGallery.IdentityServer.Pages.Consent.Index.html
+  name: Index
+  nameWithType: Index
+  fullName: ImageGallery.IdentityServer.Pages.Consent.Index
+- uid: ImageGallery.IdentityServer.Pages.Consent.InputModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Consent.InputModel
+  parent: ImageGallery.IdentityServer.Pages.Consent
+  href: ImageGallery.IdentityServer.Pages.Consent.InputModel.html
+  name: InputModel
+  nameWithType: InputModel
+  fullName: ImageGallery.IdentityServer.Pages.Consent.InputModel
+- uid: ImageGallery.IdentityServer.Pages.Consent.ViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Consent.ViewModel
+  parent: ImageGallery.IdentityServer.Pages.Consent
+  href: ImageGallery.IdentityServer.Pages.Consent.ViewModel.html
+  name: ViewModel
+  nameWithType: ViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Consent.ViewModel
+- uid: ImageGallery.IdentityServer.Pages.Consent.ScopeViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Consent.ScopeViewModel
+  href: ImageGallery.IdentityServer.Pages.Consent.ScopeViewModel.html
+  name: ScopeViewModel
+  nameWithType: ScopeViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Consent.ScopeViewModel
+- uid: ImageGallery.IdentityServer.Pages.Consent.ResourceViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Consent.ResourceViewModel
+  href: ImageGallery.IdentityServer.Pages.Consent.ResourceViewModel.html
+  name: ResourceViewModel
+  nameWithType: ResourceViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Consent.ResourceViewModel
+- uid: ImageGallery.IdentityServer.Pages.Consent
+  commentId: N:ImageGallery.IdentityServer.Pages.Consent
+  href: ImageGallery.html
+  name: ImageGallery.IdentityServer.Pages.Consent
+  nameWithType: ImageGallery.IdentityServer.Pages.Consent
+  fullName: ImageGallery.IdentityServer.Pages.Consent
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Consent
+    name: Consent
+    href: ImageGallery.IdentityServer.Pages.Consent.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Consent
+    name: Consent
+    href: ImageGallery.IdentityServer.Pages.Consent.html

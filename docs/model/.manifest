@@ -1,0 +1,14 @@
+{
+  "ImageGallery.Model": "ImageGallery.Model.yml",
+  "ImageGallery.Model.Image": "ImageGallery.Model.Image.yml",
+  "ImageGallery.Model.Image.FileName": "ImageGallery.Model.Image.yml",
+  "ImageGallery.Model.Image.Id": "ImageGallery.Model.Image.yml",
+  "ImageGallery.Model.Image.Title": "ImageGallery.Model.Image.yml",
+  "ImageGallery.Model.ImageForCreation": "ImageGallery.Model.ImageForCreation.yml",
+  "ImageGallery.Model.ImageForCreation.#ctor(System.String,System.Byte[])": "ImageGallery.Model.ImageForCreation.yml",
+  "ImageGallery.Model.ImageForCreation.Bytes": "ImageGallery.Model.ImageForCreation.yml",
+  "ImageGallery.Model.ImageForCreation.Title": "ImageGallery.Model.ImageForCreation.yml",
+  "ImageGallery.Model.ImageForUpdate": "ImageGallery.Model.ImageForUpdate.yml",
+  "ImageGallery.Model.ImageForUpdate.#ctor(System.String)": "ImageGallery.Model.ImageForUpdate.yml",
+  "ImageGallery.Model.ImageForUpdate.Title": "ImageGallery.Model.ImageForUpdate.yml"
+}

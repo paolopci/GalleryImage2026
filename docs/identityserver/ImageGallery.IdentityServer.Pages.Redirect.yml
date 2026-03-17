@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Redirect
+  commentId: N:ImageGallery.IdentityServer.Pages.Redirect
+  id: ImageGallery.IdentityServer.Pages.Redirect
+  children:
+  - ImageGallery.IdentityServer.Pages.Redirect.IndexModel
+  langs:
+  - csharp
+  - vb
+  name: ImageGallery.IdentityServer.Pages.Redirect
+  nameWithType: ImageGallery.IdentityServer.Pages.Redirect
+  fullName: ImageGallery.IdentityServer.Pages.Redirect
+  type: Namespace
+  assemblies:
+  - ImageGallery.IdentityServer
+references:
+- uid: ImageGallery.IdentityServer.Pages.Redirect.IndexModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Redirect.IndexModel
+  href: ImageGallery.IdentityServer.Pages.Redirect.IndexModel.html
+  name: IndexModel
+  nameWithType: IndexModel
+  fullName: ImageGallery.IdentityServer.Pages.Redirect.IndexModel

@@ -1,0 +1,58 @@
+### YamlMime:TableOfContent
+items:
+- uid: ImageGallery.API
+  name: ImageGallery.API
+  type: Namespace
+  items:
+  - uid: ImageGallery.API.WeatherForecast
+    name: WeatherForecast
+    type: Class
+- uid: ImageGallery.API.Controllers
+  name: ImageGallery.API.Controllers
+  type: Namespace
+  items:
+  - uid: ImageGallery.API.Controllers.ImagesController
+    name: ImagesController
+    type: Class
+  - uid: ImageGallery.API.Controllers.WeatherForecastController
+    name: WeatherForecastController
+    type: Class
+- uid: ImageGallery.API.DbContext
+  name: ImageGallery.API.DbContext
+  type: Namespace
+  items:
+  - uid: ImageGallery.API.DbContext.GalleryDbContext
+    name: GalleryDbContext
+    type: Class
+- uid: ImageGallery.API.Entities
+  name: ImageGallery.API.Entities
+  type: Namespace
+  items:
+  - uid: ImageGallery.API.Entities.Image
+    name: Image
+    type: Class
+- uid: ImageGallery.API.Migrations
+  name: ImageGallery.API.Migrations
+  type: Namespace
+  items:
+  - uid: ImageGallery.API.Migrations.InitialCreate
+    name: InitialCreate
+    type: Class
+- uid: ImageGallery.API.Profiles
+  name: ImageGallery.API.Profiles
+  type: Namespace
+  items:
+  - uid: ImageGallery.API.Profiles.ImageProfile
+    name: ImageProfile
+    type: Class
+- uid: ImageGallery.API.Services
+  name: ImageGallery.API.Services
+  type: Namespace
+  items:
+  - uid: ImageGallery.API.Services.GalleryRepository
+    name: GalleryRepository
+    type: Class
+  - uid: ImageGallery.API.Services.IGalleryRepository
+    name: IGalleryRepository
+    type: Interface
+memberLayout: SamePage

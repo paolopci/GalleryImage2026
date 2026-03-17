@@ -1,0 +1,811 @@
+### YamlMime:ManagedReference
+items:
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  commentId: T:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  id: GrantViewModel
+  parent: ImageGallery.IdentityServer.Pages.Grants
+  children:
+  - ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ApiGrantNames
+  - ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientId
+  - ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientLogoUrl
+  - ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientName
+  - ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientUrl
+  - ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Created
+  - ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Description
+  - ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Expires
+  - ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.IdentityGrantNames
+  langs:
+  - csharp
+  - vb
+  name: GrantViewModel
+  nameWithType: GrantViewModel
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  type: Class
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: GrantViewModel
+    path: ../ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+    startLine: 7
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Grants
+  syntax:
+    content: public class GrantViewModel
+    content.vb: Public Class GrantViewModel
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientId
+  commentId: P:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientId
+  id: ClientId
+  parent: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  langs:
+  - csharp
+  - vb
+  name: ClientId
+  nameWithType: GrantViewModel.ClientId
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientId
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: ClientId
+    path: ../ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+    startLine: 9
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Grants
+  syntax:
+    content: public string? ClientId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ClientId As String
+  overload: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientId*
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientName
+  commentId: P:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientName
+  id: ClientName
+  parent: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  langs:
+  - csharp
+  - vb
+  name: ClientName
+  nameWithType: GrantViewModel.ClientName
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientName
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: ClientName
+    path: ../ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+    startLine: 10
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Grants
+  syntax:
+    content: public string? ClientName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ClientName As String
+  overload: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientName*
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientUrl
+  commentId: P:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientUrl
+  id: ClientUrl
+  parent: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  langs:
+  - csharp
+  - vb
+  name: ClientUrl
+  nameWithType: GrantViewModel.ClientUrl
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientUrl
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: ClientUrl
+    path: ../ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+    startLine: 11
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Grants
+  syntax:
+    content: public string? ClientUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ClientUrl As String
+  overload: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientUrl*
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientLogoUrl
+  commentId: P:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientLogoUrl
+  id: ClientLogoUrl
+  parent: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  langs:
+  - csharp
+  - vb
+  name: ClientLogoUrl
+  nameWithType: GrantViewModel.ClientLogoUrl
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientLogoUrl
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: ClientLogoUrl
+    path: ../ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+    startLine: 12
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Grants
+  syntax:
+    content: public string? ClientLogoUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ClientLogoUrl As String
+  overload: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientLogoUrl*
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Description
+  commentId: P:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Description
+  id: Description
+  parent: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: GrantViewModel.Description
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Description
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: Description
+    path: ../ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+    startLine: 13
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Grants
+  syntax:
+    content: public string? Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Description As String
+  overload: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Description*
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Created
+  commentId: P:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Created
+  id: Created
+  parent: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  langs:
+  - csharp
+  - vb
+  name: Created
+  nameWithType: GrantViewModel.Created
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Created
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: Created
+    path: ../ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+    startLine: 14
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Grants
+  syntax:
+    content: public DateTime Created { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: Public Property Created As Date
+  overload: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Created*
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Expires
+  commentId: P:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Expires
+  id: Expires
+  parent: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  langs:
+  - csharp
+  - vb
+  name: Expires
+  nameWithType: GrantViewModel.Expires
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Expires
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: Expires
+    path: ../ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+    startLine: 15
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Grants
+  syntax:
+    content: public DateTime? Expires { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: Public Property Expires As Date?
+  overload: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Expires*
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.IdentityGrantNames
+  commentId: P:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.IdentityGrantNames
+  id: IdentityGrantNames
+  parent: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  langs:
+  - csharp
+  - vb
+  name: IdentityGrantNames
+  nameWithType: GrantViewModel.IdentityGrantNames
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.IdentityGrantNames
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: IdentityGrantNames
+    path: ../ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+    startLine: 16
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Grants
+  syntax:
+    content: public IEnumerable<string> IdentityGrantNames { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{System.String}
+    content.vb: Public Property IdentityGrantNames As IEnumerable(Of String)
+  overload: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.IdentityGrantNames*
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ApiGrantNames
+  commentId: P:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ApiGrantNames
+  id: ApiGrantNames
+  parent: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel
+  langs:
+  - csharp
+  - vb
+  name: ApiGrantNames
+  nameWithType: GrantViewModel.ApiGrantNames
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ApiGrantNames
+  type: Property
+  source:
+    remote:
+      path: ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+      branch: feature/07-Securing-Your-API
+      repo: https://github.com/paolopci/GalleryImage2026.git
+    id: ApiGrantNames
+    path: ../ImageGallery.IdentityServer/Pages/Grants/ViewModel.cs
+    startLine: 17
+  assemblies:
+  - ImageGallery.IdentityServer
+  namespace: ImageGallery.IdentityServer.Pages.Grants
+  syntax:
+    content: public IEnumerable<string> ApiGrantNames { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IEnumerable{System.String}
+    content.vb: Public Property ApiGrantNames As IEnumerable(Of String)
+  overload: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ApiGrantNames*
+references:
+- uid: ImageGallery.IdentityServer.Pages.Grants
+  commentId: N:ImageGallery.IdentityServer.Pages.Grants
+  href: ImageGallery.html
+  name: ImageGallery.IdentityServer.Pages.Grants
+  nameWithType: ImageGallery.IdentityServer.Pages.Grants
+  fullName: ImageGallery.IdentityServer.Pages.Grants
+  spec.csharp:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Grants
+    name: Grants
+    href: ImageGallery.IdentityServer.Pages.Grants.html
+  spec.vb:
+  - uid: ImageGallery
+    name: ImageGallery
+    href: ImageGallery.html
+  - name: .
+  - uid: ImageGallery.IdentityServer
+    name: IdentityServer
+    href: ImageGallery.IdentityServer.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages
+    name: Pages
+    href: ImageGallery.IdentityServer.Pages.html
+  - name: .
+  - uid: ImageGallery.IdentityServer.Pages.Grants
+    name: Grants
+    href: ImageGallery.IdentityServer.Pages.Grants.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientId*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientId
+  href: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.html#ImageGallery_IdentityServer_Pages_Grants_GrantViewModel_ClientId
+  name: ClientId
+  nameWithType: GrantViewModel.ClientId
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientName*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientName
+  href: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.html#ImageGallery_IdentityServer_Pages_Grants_GrantViewModel_ClientName
+  name: ClientName
+  nameWithType: GrantViewModel.ClientName
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientName
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientUrl*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientUrl
+  href: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.html#ImageGallery_IdentityServer_Pages_Grants_GrantViewModel_ClientUrl
+  name: ClientUrl
+  nameWithType: GrantViewModel.ClientUrl
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientUrl
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientLogoUrl*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientLogoUrl
+  href: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.html#ImageGallery_IdentityServer_Pages_Grants_GrantViewModel_ClientLogoUrl
+  name: ClientLogoUrl
+  nameWithType: GrantViewModel.ClientLogoUrl
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ClientLogoUrl
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Description*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Description
+  href: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.html#ImageGallery_IdentityServer_Pages_Grants_GrantViewModel_Description
+  name: Description
+  nameWithType: GrantViewModel.Description
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Description
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Created*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Created
+  href: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.html#ImageGallery_IdentityServer_Pages_Grants_GrantViewModel_Created
+  name: Created
+  nameWithType: GrantViewModel.Created
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Created
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Expires*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Expires
+  href: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.html#ImageGallery_IdentityServer_Pages_Grants_GrantViewModel_Expires
+  name: Expires
+  nameWithType: GrantViewModel.Expires
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.Expires
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.IdentityGrantNames*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.IdentityGrantNames
+  href: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.html#ImageGallery_IdentityServer_Pages_Grants_GrantViewModel_IdentityGrantNames
+  name: IdentityGrantNames
+  nameWithType: GrantViewModel.IdentityGrantNames
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.IdentityGrantNames
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ApiGrantNames*
+  commentId: Overload:ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ApiGrantNames
+  href: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.html#ImageGallery_IdentityServer_Pages_Grants_GrantViewModel_ApiGrantNames
+  name: ApiGrantNames
+  nameWithType: GrantViewModel.ApiGrantNames
+  fullName: ImageGallery.IdentityServer.Pages.Grants.GrantViewModel.ApiGrantNames
