@@ -1,6 +1,7 @@
 using AutoMapper;
 using ImageGallery.API.DbContext;
 using ImageGallery.API.Services;
+using ImageGallery.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.JsonWebTokens;
@@ -49,13 +50,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-builder.Services.AddAuthorization(options =>
+// Registra sia la policy di accesso generale alla API, basata sullo scope OAuth2,
+// sia la policy più restrittiva riusata per l'upload immagini.
+builder.Services.AddAuthorization(authorizationOptions =>
 {
-    options.AddPolicy("ImageGalleryApiFullAccess", policy =>
+    authorizationOptions.AddPolicy("ImageGalleryApiFullAccess", policy =>
     {
         policy.RequireAuthenticatedUser();
         policy.RequireClaim("scope", "imagegalleryapi.fullaccess");
     });
+
+    authorizationOptions.AddPolicy("UserCanAddImage", AuthorizationPolicies.CanAddImage());
 });
 
 var app = builder.Build();

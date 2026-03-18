@@ -40,11 +40,11 @@ public static class Config
     public static IEnumerable<ApiResource> ApiResources =>
         new ApiResource[]
         {
-        new ApiResource("imagegalleryapi", "Image Gallery API")
-        {
-            Scopes = { "imagegalleryapi.fullaccess" },
-            UserClaims = { "given_name" , "role"}
-        }
+           new ApiResource("imagegalleryapi", "Image Gallery API")
+            {
+              Scopes = { "imagegalleryapi.fullaccess" },
+              UserClaims = { "given_name" , "role", "paese" }
+            }
     };
 
     // La sezione Clients definisce le applicazioni che possono usare questo

@@ -202,6 +202,33 @@ Scopo:
 - non limitarsi a validare il token;
 - richiedere realmente un token con lo scope corretto per accedere agli endpoint immagini.
 
+### 8.1 Correzione del runtime error sulla policy API
+
+File coinvolto:
+
+- `ImageGallery.API/Program.cs`
+
+Problema rilevato:
+
+- `ImagesController` usava `[Authorize(Policy = "ImageGalleryApiFullAccess")]`;
+- la policy `ImageGalleryApiFullAccess` era presente come esempio commentato ma non registrata realmente nei servizi.
+
+Effetto:
+
+- durante la richiesta a `GET /api/images` il middleware di autorizzazione non trovava la policy;
+- la chiamata dal client MVC terminava con errore HTTP 500 invece di una normale risposta autorizzata/non autorizzata.
+
+Correzione applicata:
+
+- registrata esplicitamente la policy `ImageGalleryApiFullAccess` dentro `builder.Services.AddAuthorization(...)`;
+- mantenuta anche la policy `UserCanAddImage` della libreria `ImageGallery.Authorization`.
+
+Impatto tecnico:
+
+- gli endpoint di `ImagesController` tornano a usare correttamente il controllo sul claim `scope = imagegalleryapi.fullaccess`;
+- il middleware di autorizzazione non va più in errore per policy mancante;
+- la creazione immagini continua a richiedere anche la policy aggiuntiva `UserCanAddImage`.
+
 ### 9. Inserimento di `UseAuthentication()` nella pipeline API
 
 File coinvolto:
