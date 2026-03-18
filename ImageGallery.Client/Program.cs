@@ -1,3 +1,4 @@
+using ImageGallery.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -83,11 +84,16 @@ builder.Services.AddAuthentication(options =>
           options.ClaimActions.DeleteClaim("sid");
           options.ClaimActions.DeleteClaim("idp");
           options.Scope.Add("imagegalleryapi.fullaccess");
+          options.Scope.Add("paese");  // voglio anche il paese ritorna da UserInfo
 
           // Richiede i ruoli dell'utente all'IdentityServer e mappa il campo JSON "role"
           // come claim locale, così il client può usarlo per autorizzazioni e controlli sui ruoli.
           options.Scope.Add("roles");
+          // Mappa i campi JSON restituiti dall'IdentityServer in claim locali:
+          // "role" serve per gestire autorizzazioni basate sui ruoli, mentre "paese"
+          // aggiunge all'utente autenticato il valore del paese recuperato dallo UserInfo endpoint.
           options.ClaimActions.MapJsonKey("role", "role");
+          options.ClaimActions.MapUniqueJsonKey("paese", "paese");
 
           options.TokenValidationParameters = new()
           {
@@ -96,6 +102,13 @@ builder.Services.AddAuthentication(options =>
           };
 
       });
+
+// per usare la policy che ho aggiunto in ImageGallery.Authorization library
+builder.Services.AddAuthorization(authorizationOptions =>
+{
+    authorizationOptions.AddPolicy("UserCanAddImage", AuthorizationPolicies.CanAddImage());
+});
+
 
 
 var app = builder.Build();

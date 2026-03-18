@@ -18,7 +18,8 @@ public static class Config
 
             // Definisce una IdentityResource chiamata "roles" che espone il claim "role",
             // così i client che richiedono questo scope possono ricevere i ruoli dell'utente autenticato.
-            new IdentityResource("roles", "Your role(s)", new []{"role"})
+            new IdentityResource("roles", "Your role(s)", new []{"role"}),
+            new IdentityResource("paese","The country you're living in",new List<string>(){"paese"})
         };
 
     // Gli ApiScope descrivono i permessi delegati verso API protette.
@@ -89,7 +90,8 @@ public static class Config
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
                     "roles",
-                    "imagegalleryapi.fullaccess"
+                    "imagegalleryapi.fullaccess",
+                    "paese"
                 },
                 ClientSecrets =
                 {
