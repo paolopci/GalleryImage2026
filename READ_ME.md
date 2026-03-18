@@ -419,6 +419,32 @@ Impatto:
 - dopo l'emissione di un nuovo access token, il testo mostrato per ogni immagine usa il nome profilo presente nei claim OIDC;
 - finché non viene ottenuto un nuovo token, la UI resta funzionante grazie al fallback senza eccezioni runtime.
 
+## Correzione applicata per preservare il titolo inserito nel form di aggiunta immagine
+
+File coinvolti:
+
+- `ImageGallery.Client/ViewModels/AddImageViewModel.cs`
+- `ImageGallery.Client/Controllers/GalleryController.cs`
+- `ImageGallery.API/Controllers/ImagesController.cs`
+
+Correzione applicata:
+
+- il campo `Title` del form MVC non è più obbligatorio lato view model;
+- durante il submit, il client usa il testo inserito nel campo `You image's title` se contiene un valore non vuoto;
+- se il campo resta vuoto, il client genera il fallback `An image by <given_name>` prima di inviare il DTO alla API;
+- la API, quando restituisce le immagini, mantiene il titolo salvato se presente e usa il fallback basato su `given_name` solo se il titolo risulta vuoto o mancante.
+
+Motivo tecnico:
+
+- in precedenza il titolo digitato dall'utente veniva inviato dal client ma poi sovrascritto sempre in lettura dalla API con `An image by <given_name>`;
+- inoltre il form MVC impediva di lasciare il titolo vuoto, rendendo impossibile il comportamento desiderato con fallback automatico.
+
+Impatto:
+
+- se l'utente inserisce un titolo personalizzato, quel titolo viene mostrato in galleria;
+- se l'utente lascia il campo vuoto, il comportamento resta coerente con il fallback precedente;
+- il comportamento è ora uniforme tra salvataggio lato client e resa finale lato API.
+
 ## Correzione applicata per limitare create, update e delete alle sole immagini del proprietario
 
 File coinvolto:

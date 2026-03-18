@@ -83,7 +83,9 @@ builder.Services.AddAuthentication(options =>
           options.ClaimActions.Remove("aud");
           options.ClaimActions.DeleteClaim("sid");
           options.ClaimActions.DeleteClaim("idp");
-          options.Scope.Add("imagegalleryapi.fullaccess");
+          //options.Scope.Add("imagegalleryapi.fullaccess");
+          options.Scope.Add("imagegalleryapi.read");
+          options.Scope.Add("imagegalleryapi.write");
           options.Scope.Add("paese");  // voglio anche il paese ritorna da UserInfo
 
           // Richiede i ruoli dell'utente all'IdentityServer e mappa il campo JSON "role"

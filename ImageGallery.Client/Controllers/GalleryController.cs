@@ -145,8 +145,9 @@ namespace ImageGallery.Client.Controllers
                 {
                     // Il file viene letto in memoria e inviato alla API come array di byte.
                     fileStream.CopyTo(ms);
+                    var title = ResolveImageTitle(addImageViewModel.Title);
                     imageForCreation = new ImageForCreation(
-                        addImageViewModel.Title, ms.ToArray());
+                        title, ms.ToArray());
                 }
             }
 
@@ -172,6 +173,19 @@ namespace ImageGallery.Client.Controllers
             response.EnsureSuccessStatusCode();
 
             return RedirectToAction("Index");
+        }
+
+        private string ResolveImageTitle(string? title)
+        {
+            if (!string.IsNullOrWhiteSpace(title))
+            {
+                return title.Trim();
+            }
+
+            var givenName = User.Claims.FirstOrDefault(c => c.Type == "given_name")?.Value;
+            var displayName = string.IsNullOrWhiteSpace(givenName) ? "the user" : givenName;
+
+            return $"An image by {displayName}";
         }
 
 

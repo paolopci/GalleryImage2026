@@ -31,7 +31,9 @@ public static class Config
             // Questo scope rappresenta un permesso applicativo più esplicito:
             // il client che lo richiede ottiene accesso completo alle operazioni
             // esposte dall'API Image Gallery.
-            new ApiScope("imagegalleryapi.fullaccess","Image Gallery API Full Access")
+            new ApiScope("imagegalleryapi.fullaccess","Image Gallery API Full Access"),
+            new ApiScope("imagegalleryapi.read","Image Gallery API Read"),
+            new ApiScope("imagegalleryapi.write","Image Gallery API Write"),
         };
 
     // Gli ApiResources rappresentano le API protette esposte dall'IdentityServer.
@@ -42,7 +44,11 @@ public static class Config
         {
            new ApiResource("imagegalleryapi", "Image Gallery API")
             {
-              Scopes = { "imagegalleryapi.fullaccess" },
+              Scopes = { "imagegalleryapi.fullaccess",
+                         "imagegalleryapi.read",
+                         "imagegalleryapi.write"
+                       },
+
               UserClaims = { "given_name" , "role", "paese" }
             }
     };
@@ -90,7 +96,10 @@ public static class Config
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
                     "roles",
-                    "imagegalleryapi.fullaccess",
+                   // "imagegalleryapi.fullaccess",
+                   "imagegalleryapi.read",
+                   "imagegalleryapi.write",
+
                     "paese"
                 },
                 ClientSecrets =

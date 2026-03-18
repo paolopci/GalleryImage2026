@@ -8,7 +8,7 @@ namespace ImageGallery.API.Controllers;
 
 // Tutte le azioni richiedono un access token con scope
 // "imagegalleryapi.fullaccess", definito nella policy configurata nell'API.
-[Authorize(Policy = "ImageGalleryApiFullAccess")]
+//[Authorize(Policy = "ImageGalleryApiFullAccess")]
 //[Authorize]
 [ApiController]
 [Route("api/[controller]")]
@@ -36,15 +36,12 @@ public class ImagesController : ControllerBase
     {
         var ownerId = GetOwnerId();
 
-        var givenName = User.Claims.FirstOrDefault(c => c.Type == "given_name")?.Value;
-        var displayName = string.IsNullOrWhiteSpace(givenName) ? "the user" : givenName;
-
         var imagesFromRepo = await _galleryRepository.GetImagesAsync(ownerId);
         // Il controller espone DTO del progetto Model, non direttamente le entity EF.
         var imagesToReturn = _mapper.Map<IEnumerable<Image>>(imagesFromRepo)
             .Select(image =>
             {
-                image.Title = $"An image by {displayName}";
+                image.Title = ResolveImageTitle(image.Title);
                 return image;
             });
 
@@ -62,6 +59,7 @@ public class ImagesController : ControllerBase
         }
 
         var imageToReturn = _mapper.Map<Image>(imageFromRepo);
+        imageToReturn.Title = ResolveImageTitle(imageToReturn.Title);
 
         return Ok(imageToReturn);
     }
@@ -69,6 +67,7 @@ public class ImagesController : ControllerBase
     [HttpPost]
     // [Authorize(Roles = "PayingUser")]
     [Authorize(Policy = "UserCanAddImage")]
+    [Authorize(Policy = "ClientApplicationCanWrite")]
     public async Task<ActionResult<Image>> CreateImage([FromBody] ImageForCreation imageForCreation)
     {
         var ownerId = GetOwnerId();
@@ -154,5 +153,18 @@ public class ImagesController : ControllerBase
         }
 
         return ownerId;
+    }
+
+    private string ResolveImageTitle(string? title)
+    {
+        if (!string.IsNullOrWhiteSpace(title))
+        {
+            return title.Trim();
+        }
+
+        var givenName = User.Claims.FirstOrDefault(c => c.Type == "given_name")?.Value;
+        var displayName = string.IsNullOrWhiteSpace(givenName) ? "the user" : givenName;
+
+        return $"An image by {displayName}";
     }
 }
