@@ -3,9 +3,9 @@
 <h2 class="leftMarginSmaller">Edit Image Title</h2>
 
 <form asp-action="EditImage" method="post" class="form-horizontal" role="form">
+    <input asp-for="Id" type="hidden" />
 
     <div class="form-horizontal leftMarginDefault">
-        
         <div class="form-group">
             <div>You image's title</div>
             <input asp-for="Title" class="form-control" />

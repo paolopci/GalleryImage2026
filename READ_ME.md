@@ -469,6 +469,30 @@ Impatto:
 - modifica e cancellazione sono consentite solo al proprietario dell'immagine;
 - il comportamento della API è ora coerente con la regola di ownership già applicata nella lettura della galleria.
 
+## Correzione applicata per rendere più robusto il controllo ownership in edit immagine
+
+File coinvolti:
+
+- `ImageGallery.API/Authorization/MustOwnImageHandler.cs`
+- `ImageGallery.Client/Views/Gallery/EditImage.cshtml`
+
+Correzione applicata:
+
+- l'handler `MustOwnImageHandler` recupera ora l'identificativo dell'immagine prima dal `AuthorizationFilterContext`, poi dal `HttpContext` e solo come fallback da `IHttpContextAccessor`;
+- la view `EditImage` invia esplicitamente l'`Id` dell'immagine tramite campo hidden nel postback del form MVC.
+
+Motivo tecnico:
+
+- il controllo di ownership dipende dal corretto recupero dell'`id` della risorsa richiesta durante l'autorizzazione;
+- affidarsi solo a `IHttpContextAccessor` rende il recupero del route value meno esplicito e più fragile rispetto al contesto reale della richiesta autorizzata;
+- nel flusso MVC di modifica immagine, l'`Id` deve essere preservato in modo esplicito tra GET e POST per evitare ambiguità nel `PUT` verso la API.
+
+Impatto:
+
+- la policy `MustOwnImage` usa ora una sorgente più affidabile per determinare la risorsa da autorizzare;
+- il form di modifica mantiene sempre l'identificativo corretto dell'immagine selezionata;
+- il flusso di edit risulta più coerente e più semplice da verificare quando si prova a manipolare manualmente l'URL o il postback.
+
 ## Correzione applicata dopo `401 Unauthorized` dovuto a chiamata HTTP verso la API
 
 Dopo i fix precedenti, dai log risultava che il client MVC chiamava:
