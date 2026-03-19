@@ -9,8 +9,7 @@ namespace ImageGallery.API.Controllers;
 
 // Tutte le azioni richiedono un access token con scope
 // "imagegalleryapi.fullaccess", definito nella policy configurata nell'API.
-//[Authorize(Policy = "ImageGalleryApiFullAccess")]
-//[Authorize]
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class ImagesController : ControllerBase
@@ -154,7 +153,7 @@ public class ImagesController : ControllerBase
         var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
         if (string.IsNullOrWhiteSpace(ownerId))
         {
-            throw new Exception("User identifier is missing from token.");
+            throw new InvalidOperationException("Authenticated user is missing the 'sub' claim.");
         }
 
         return ownerId;

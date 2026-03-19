@@ -569,6 +569,32 @@ Impatto:
 - tutte le chiamate fatte tramite `APIClient` usano la stessa strategia centralizzata di propagazione del token;
 - resta invariata la lettura dei token in `LoginIdentityInformation()` per logging locale e diagnostica in ambiente `Development`.
 
+## Correzione applicata dopo errore su claim `sub` mancante nella API
+
+File coinvolti:
+
+- `ImageGallery.API/Program.cs`
+- `ImageGallery.API/Controllers/ImagesController.cs`
+
+Correzione applicata:
+
+- rimossa la configurazione `AddOAuth2Introspection(...)` dalla API e ripristinata la validazione `AddJwtBearer(...)` contro l'IdentityServer locale;
+- configurata la validazione JWT con `Authority = https://localhost:5001` e `ValidAudience = imagegalleryapi`;
+- protetto l'intero `ImagesController` con `[Authorize]`, così gli endpoint non entrano più nel controller quando la richiesta è anonima;
+- reso più esplicito il messaggio di errore in `GetOwnerId()` quando un utente autenticato non contiene il claim `sub`.
+
+Motivo tecnico:
+
+- l'API stava tentando di validare il bearer token con introspection usando credenziali incoerenti rispetto alla configurazione attuale dell'IdentityServer;
+- inoltre gli endpoint che leggevano `sub` non erano protetti globalmente, quindi una richiesta anonima poteva arrivare fino a `GetOwnerId()` e fallire con eccezione applicativa invece che con una risposta `401`;
+- nel flusso corrente i token usati dal client MVC sono JWT destinati alla resource `imagegalleryapi`, quindi la validazione bearer JWT è l'allineamento più diretto con la configurazione del progetto.
+
+Impatto:
+
+- le richieste senza token valido vengono bloccate dal middleware di autenticazione/autorizzazione prima di entrare negli endpoint immagini;
+- quando la richiesta è autenticata correttamente, la API può leggere `sub` dal token e usarlo come identificativo del proprietario;
+- il flusso client MVC -> API torna coerente con l'access token JWT emesso dall'IdentityServer locale.
+
 ## Punti da verificare e allineare
 
 Va ricontrollato che in `AllowedScopes` del client siano coerenti:

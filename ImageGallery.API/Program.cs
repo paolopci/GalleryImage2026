@@ -32,25 +32,16 @@ JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        // L'API si fida dei token emessi dall'IdentityServer locale.
+        // L'API si fida dei token JWT emessi dall'IdentityServer locale.
         options.Authority = "https://localhost:5001";
 
         // L'audience deve corrispondere al nome della ApiResource definita nell'IDP.
-        // utile se in futuro vuoi aggiungere altre regole di validazione.
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateAudience = true,
-            // serve a verificare che il token sia destinato a questa API
             ValidAudience = "imagegalleryapi",
-
-            // Indica quale claim del token deve essere usato come nome dell'utente
-            // autenticato all'interno dell'applicazione.
             NameClaimType = "given_name",
-
-            // Indica quale claim del token contiene i ruoli dell'utente,
-            // così ASP.NET Core può usarli nelle autorizzazioni basate sui ruoli.
             RoleClaimType = "role"
-
         };
     });
 

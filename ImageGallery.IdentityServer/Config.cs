@@ -50,6 +50,7 @@ public static class Config
                     "imagegalleryapi.read",
                     "imagegalleryapi.write",
                 },
+                ApiSecrets={new Secret("secret".Sha256())},
 
                 UserClaims = { "given_name", "role", "paese" },
             },
@@ -74,6 +75,7 @@ public static class Config
                 // il browser viene reindirizzato all'IDP per il login,
                 // poi il client riceve un authorization code da scambiare con i token.
                 AllowedGrantTypes = GrantTypes.Code,
+                AccessTokenType=AccessTokenType.Reference,
                 // questo se voglio usare i refresh Token
                 AllowOfflineAccess = true,
                 // Se true, quando il client usa un refresh token l'IdentityServer
