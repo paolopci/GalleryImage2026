@@ -1,3 +1,4 @@
+using Duende.AccessTokenManagement.OpenIdConnect;
 using ImageGallery.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -30,14 +31,6 @@ In pratica:
 
 */
 JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
-
-// create an HttpClient used for accessing the API
-builder.Services.AddHttpClient("APIClient", client =>
-{
-    client.BaseAddress = new Uri(builder.Configuration["ImageGalleryAPIRoot"]!);
-    client.DefaultRequestHeaders.Clear();
-    client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
-});
 
 // configure authentication per usare OpenIDConnect
 builder.Services.AddAuthentication(options =>
@@ -87,6 +80,7 @@ builder.Services.AddAuthentication(options =>
           options.Scope.Add("imagegalleryapi.read");
           options.Scope.Add("imagegalleryapi.write");
           options.Scope.Add("paese");  // voglio anche il paese ritorna da UserInfo
+          options.Scope.Add("offline_access");// questo se voglio usare il Refresh Token
 
           // Richiede i ruoli dell'utente all'IdentityServer e mappa il campo JSON "role"
           // come claim locale, così il client può usarlo per autorizzazioni e controlli sui ruoli.
@@ -104,6 +98,18 @@ builder.Services.AddAuthentication(options =>
           };
 
       });
+
+// Registra la gestione automatica dei token OIDC dell'utente autenticato,
+// inclusi recupero, storage nella sessione e refresh dell'access token.
+builder.Services.AddOpenIdConnectAccessTokenManagement();
+
+// create an HttpClient used for accessing the API
+builder.Services.AddHttpClient("APIClient", client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["ImageGalleryAPIRoot"]!);
+    client.DefaultRequestHeaders.Clear();
+    client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
+}).AddUserAccessTokenHandler();
 
 // per usare la policy che ho aggiunto in ImageGallery.Authorization library
 builder.Services.AddAuthorization(authorizationOptions =>

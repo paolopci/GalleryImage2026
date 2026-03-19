@@ -519,6 +519,56 @@ Impatto:
 - si evita il rischio di perdere l'header `Authorization` durante il redirect;
 - il `401 Unauthorized` non dipende più dal protocollo usato verso la API.
 
+## Correzione applicata per risolvere `AddUserAccessTokenHandler()` non disponibile nel client MVC
+
+File coinvolti:
+
+- `ImageGallery.Client/ImageGallery.Client.csproj`
+- `ImageGallery.Client/Program.cs`
+
+Correzione applicata:
+
+- aggiunto il package `Duende.AccessTokenManagement.OpenIdConnect` al progetto MVC;
+- registrato `AddOpenIdConnectAccessTokenManagement()` dopo la configurazione di cookie + OpenID Connect;
+- mantenuta la registrazione dell'`HttpClient` `APIClient` con `.AddUserAccessTokenHandler()` per allegare automaticamente l'access token dell'utente corrente alle chiamate verso la API.
+
+Motivo tecnico:
+
+- `AddUserAccessTokenHandler()` non è esposto dal solo package `Microsoft.AspNetCore.Authentication.OpenIdConnect`;
+- il metodo appartiene all'integrazione di access token management per applicazioni web OIDC e richiede anche la registrazione dei servizi dedicati;
+- senza questa libreria il progetto compila con simbolo non risolto e il client non può delegare in modo automatico l'invio e il refresh del token utente.
+
+Impatto:
+
+- il progetto client ha ora la dipendenza corretta per usare l'handler automatico sui client HTTP;
+- le chiamate dell'`APIClient` possono usare il token dell'utente autenticato senza impostare manualmente l'header Bearer a ogni richiesta;
+- il flusso OIDC del client resta coerente con `SaveTokens = true` e con la richiesta dello scope `offline_access`.
+
+## Correzione applicata per rimuovere l'aggiunta manuale del Bearer token nel controller MVC
+
+File coinvolti:
+
+- `ImageGallery.Client/Controllers/GalleryController.cs`
+- `ImageGallery.Client/Program.cs`
+
+Correzione applicata:
+
+- rimosso dal controller il metodo privato che leggeva l'access token da `HttpContext` e impostava manualmente `Authorization: Bearer ...`;
+- eliminate le chiamate ridondanti a quel metodo prima delle richieste HTTP verso la API;
+- mantenuto l'uso del named client `APIClient`, già configurato in `Program.cs` con `.AddUserAccessTokenHandler()`.
+
+Motivo tecnico:
+
+- dopo l'introduzione di `Duende.AccessTokenManagement.OpenIdConnect`, il client HTTP è già in grado di allegare automaticamente l'access token dell'utente autenticato;
+- mantenere anche l'impostazione manuale dell'header nel controller crea una doppia responsabilità e rende più difficile capire quale componente stia propagando davvero il token;
+- centralizzare questo comportamento nella configurazione dell'`HttpClient` riduce il codice ripetuto e rende il flusso più coerente.
+
+Impatto:
+
+- il controller MVC resta focalizzato sulla logica applicativa e non sulla gestione del Bearer token;
+- tutte le chiamate fatte tramite `APIClient` usano la stessa strategia centralizzata di propagazione del token;
+- resta invariata la lettura dei token in `LoginIdentityInformation()` per logging locale e diagnostica in ambiente `Development`.
+
 ## Punti da verificare e allineare
 
 Va ricontrollato che in `AllowedScopes` del client siano coerenti:
