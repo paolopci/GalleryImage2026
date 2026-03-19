@@ -18,7 +18,8 @@ public static class Config
 
             // Definisce una IdentityResource chiamata "roles" che espone il claim "role",
             // così i client che richiedono questo scope possono ricevere i ruoli dell'utente autenticato.
-            new IdentityResource("roles", "Your role(s)", new []{"role"})
+            new IdentityResource("roles", "Your role(s)", new []{"role"}),
+            new IdentityResource("paese","The country you're living in",new List<string>(){"paese"})
         };
 
     // Gli ApiScope descrivono i permessi delegati verso API protette.
@@ -30,7 +31,9 @@ public static class Config
             // Questo scope rappresenta un permesso applicativo più esplicito:
             // il client che lo richiede ottiene accesso completo alle operazioni
             // esposte dall'API Image Gallery.
-            new ApiScope("imagegalleryapi.fullaccess","Image Gallery API Full Access")
+            new ApiScope("imagegalleryapi.fullaccess","Image Gallery API Full Access"),
+            new ApiScope("imagegalleryapi.read","Image Gallery API Read"),
+            new ApiScope("imagegalleryapi.write","Image Gallery API Write"),
         };
 
     // Gli ApiResources rappresentano le API protette esposte dall'IdentityServer.
@@ -39,11 +42,15 @@ public static class Config
     public static IEnumerable<ApiResource> ApiResources =>
         new ApiResource[]
         {
-        new ApiResource("imagegalleryapi", "Image Gallery API")
-        {
-            Scopes = { "imagegalleryapi.fullaccess" },
-            UserClaims = { "given_name" , "role"}
-        }
+           new ApiResource("imagegalleryapi", "Image Gallery API")
+            {
+              Scopes = { "imagegalleryapi.fullaccess",
+                         "imagegalleryapi.read",
+                         "imagegalleryapi.write"
+                       },
+
+              UserClaims = { "given_name" , "role", "paese" }
+            }
     };
 
     // La sezione Clients definisce le applicazioni che possono usare questo
@@ -89,7 +96,11 @@ public static class Config
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
                     "roles",
-                    "imagegalleryapi.fullaccess"
+                   // "imagegalleryapi.fullaccess",
+                   "imagegalleryapi.read",
+                   "imagegalleryapi.write",
+
+                    "paese"
                 },
                 ClientSecrets =
                 {

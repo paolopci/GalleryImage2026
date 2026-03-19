@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -24,7 +26,13 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Gallery" asp-action="Index">Home</a>
                         </li>
-                        @if(User.IsInRole("PayingUser")){
+                        @* @if(User.IsInRole("PayingUser")){
+                          <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Gallery" asp-action="AddImage">Add an Image</a>
+                        </li>   
+                        } *@
+                        @* utlizzo la policy!!!! se ok posso aggiungere una nuova immagine *@
+                        @if((await AuthorizationService.AuthorizeAsync(User,"UserCanAddImage")).Succeeded){
                           <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Gallery" asp-action="AddImage">Add an Image</a>
                         </li>   

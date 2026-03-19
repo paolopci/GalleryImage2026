@@ -21,6 +21,21 @@ body {
   margin-bottom: 60px;
 }
 
+.gallery-card {
+  overflow: hidden;
+}
+
+.gallery-card-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-card-body {
+  min-height: 120px;
+}
+
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
   color: var(--bs-secondary-color);
   text-align: end;

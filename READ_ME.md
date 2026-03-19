@@ -202,6 +202,33 @@ Scopo:
 - non limitarsi a validare il token;
 - richiedere realmente un token con lo scope corretto per accedere agli endpoint immagini.
 
+### 8.1 Correzione del runtime error sulla policy API
+
+File coinvolto:
+
+- `ImageGallery.API/Program.cs`
+
+Problema rilevato:
+
+- `ImagesController` usava `[Authorize(Policy = "ImageGalleryApiFullAccess")]`;
+- la policy `ImageGalleryApiFullAccess` era presente come esempio commentato ma non registrata realmente nei servizi.
+
+Effetto:
+
+- durante la richiesta a `GET /api/images` il middleware di autorizzazione non trovava la policy;
+- la chiamata dal client MVC terminava con errore HTTP 500 invece di una normale risposta autorizzata/non autorizzata.
+
+Correzione applicata:
+
+- registrata esplicitamente la policy `ImageGalleryApiFullAccess` dentro `builder.Services.AddAuthorization(...)`;
+- mantenuta anche la policy `UserCanAddImage` della libreria `ImageGallery.Authorization`.
+
+Impatto tecnico:
+
+- gli endpoint di `ImagesController` tornano a usare correttamente il controllo sul claim `scope = imagegalleryapi.fullaccess`;
+- il middleware di autorizzazione non va più in errore per policy mancante;
+- la creazione immagini continua a richiedere anche la policy aggiuntiva `UserCanAddImage`.
+
 ### 9. Inserimento di `UseAuthentication()` nella pipeline API
 
 File coinvolto:
@@ -392,6 +419,32 @@ Impatto:
 - dopo l'emissione di un nuovo access token, il testo mostrato per ogni immagine usa il nome profilo presente nei claim OIDC;
 - finché non viene ottenuto un nuovo token, la UI resta funzionante grazie al fallback senza eccezioni runtime.
 
+## Correzione applicata per preservare il titolo inserito nel form di aggiunta immagine
+
+File coinvolti:
+
+- `ImageGallery.Client/ViewModels/AddImageViewModel.cs`
+- `ImageGallery.Client/Controllers/GalleryController.cs`
+- `ImageGallery.API/Controllers/ImagesController.cs`
+
+Correzione applicata:
+
+- il campo `Title` del form MVC non è più obbligatorio lato view model;
+- durante il submit, il client usa il testo inserito nel campo `You image's title` se contiene un valore non vuoto;
+- se il campo resta vuoto, il client genera il fallback `An image by <given_name>` prima di inviare il DTO alla API;
+- la API, quando restituisce le immagini, mantiene il titolo salvato se presente e usa il fallback basato su `given_name` solo se il titolo risulta vuoto o mancante.
+
+Motivo tecnico:
+
+- in precedenza il titolo digitato dall'utente veniva inviato dal client ma poi sovrascritto sempre in lettura dalla API con `An image by <given_name>`;
+- inoltre il form MVC impediva di lasciare il titolo vuoto, rendendo impossibile il comportamento desiderato con fallback automatico.
+
+Impatto:
+
+- se l'utente inserisce un titolo personalizzato, quel titolo viene mostrato in galleria;
+- se l'utente lascia il campo vuoto, il comportamento resta coerente con il fallback precedente;
+- il comportamento è ora uniforme tra salvataggio lato client e resa finale lato API.
+
 ## Correzione applicata per limitare create, update e delete alle sole immagini del proprietario
 
 File coinvolto:
@@ -415,6 +468,30 @@ Impatto:
 - ogni nuova immagine viene salvata con un proprietario coerente con il claim `sub` del token;
 - modifica e cancellazione sono consentite solo al proprietario dell'immagine;
 - il comportamento della API è ora coerente con la regola di ownership già applicata nella lettura della galleria.
+
+## Correzione applicata per rendere più robusto il controllo ownership in edit immagine
+
+File coinvolti:
+
+- `ImageGallery.API/Authorization/MustOwnImageHandler.cs`
+- `ImageGallery.Client/Views/Gallery/EditImage.cshtml`
+
+Correzione applicata:
+
+- l'handler `MustOwnImageHandler` recupera ora l'identificativo dell'immagine prima dal `AuthorizationFilterContext`, poi dal `HttpContext` e solo come fallback da `IHttpContextAccessor`;
+- la view `EditImage` invia esplicitamente l'`Id` dell'immagine tramite campo hidden nel postback del form MVC.
+
+Motivo tecnico:
+
+- il controllo di ownership dipende dal corretto recupero dell'`id` della risorsa richiesta durante l'autorizzazione;
+- affidarsi solo a `IHttpContextAccessor` rende il recupero del route value meno esplicito e più fragile rispetto al contesto reale della richiesta autorizzata;
+- nel flusso MVC di modifica immagine, l'`Id` deve essere preservato in modo esplicito tra GET e POST per evitare ambiguità nel `PUT` verso la API.
+
+Impatto:
+
+- la policy `MustOwnImage` usa ora una sorgente più affidabile per determinare la risorsa da autorizzare;
+- il form di modifica mantiene sempre l'identificativo corretto dell'immagine selezionata;
+- il flusso di edit risulta più coerente e più semplice da verificare quando si prova a manipolare manualmente l'URL o il postback.
 
 ## Correzione applicata dopo `401 Unauthorized` dovuto a chiamata HTTP verso la API
 
