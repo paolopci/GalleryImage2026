@@ -74,6 +74,12 @@ public static class Config
                 // il browser viene reindirizzato all'IDP per il login,
                 // poi il client riceve un authorization code da scambiare con i token.
                 AllowedGrantTypes = GrantTypes.Code,
+                // questo se voglio usare i refresh Token
+                AllowOfflineAccess = true,
+                // Se true, quando il client usa un refresh token l'IdentityServer
+                // rigenera i claim dell'access token in base allo stato attuale dell'utente.
+                UpdateAccessTokenClaimsOnRefresh = true,
+                // AccessTokenLifetime =
                 // IdentityTokenLifetime =
                 // AuthorizationCodeLifetime =
                 AccessTokenLifetime = 120,
