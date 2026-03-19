@@ -108,6 +108,7 @@ public static class Config
                     // profile permette il rilascio di claim di profilo base.
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
+                    IdentityServerConstants.StandardScopes.OfflineAccess,
                     "roles",
                     // "imagegalleryapi.fullaccess",
                     "imagegalleryapi.read",

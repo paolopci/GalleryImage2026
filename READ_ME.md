@@ -595,6 +595,51 @@ Impatto:
 - le richieste senza token valido continuano a essere bloccate dal middleware prima di entrare negli endpoint immagini;
 - quando l'introspection ha esito positivo, la API può leggere `sub` dal principal autenticato e usarlo come identificativo del proprietario.
 
+## Allineamento finale del refresh token con `offline_access`
+
+File coinvolti:
+
+- `ImageGallery.IdentityServer/Config.cs`
+- `ImageGallery.Client/Program.cs`
+
+Correzione applicata:
+
+- mantenuta nel client MVC la richiesta dello scope `offline_access`;
+- aggiunto in modo esplicito `IdentityServerConstants.StandardScopes.OfflineAccess` agli `AllowedScopes` del client `imagegalleryclient`.
+
+Motivo tecnico:
+
+- il client MVC usa `SaveTokens = true` e `AddOpenIdConnectAccessTokenManagement()`, quindi il refresh automatico dell'access token dipende dalla presenza coerente del refresh token;
+- rendere esplicita l'autorizzazione allo scope `offline_access` lato IdentityServer elimina ambiguità nella configurazione del client e allinea in modo chiaro richiesta OIDC ed emissione del refresh token.
+
+Impatto:
+
+- il flusso `Reference Token` resta coerente anche quando l'access token scade;
+- il client MVC è configurato in modo esplicito per ottenere e usare il refresh token nelle chiamate alla API.
+
+## Chiarimento finale sull'autorizzazione di `ImagesController`
+
+File coinvolto:
+
+- `ImageGallery.API/Controllers/ImagesController.cs`
+
+Allineamento applicato:
+
+- confermata la protezione globale del controller con `[Authorize]`;
+- confermato l'uso di policy più restrittive solo sulle operazioni sensibili, come scrittura e ownership della risorsa;
+- corretto il commento introduttivo del controller per riflettere il comportamento reale del codice.
+
+Motivo tecnico:
+
+- nel modello corrente a `Reference Token`, il requisito minimo per tutte le azioni è avere un principal autenticato ottenuto via introspection;
+- imporre una policy di scope unica a livello controller sarebbe una scelta autorizzativa più restrittiva, ma non è un requisito tecnico necessario per far funzionare correttamente i `Reference Token`.
+
+Impatto:
+
+- il `GET` immagini continua a richiedere autenticazione valida;
+- le operazioni di modifica restano protette da policy dedicate come `UserCanAddImage`, `ClientApplicationCanWrite` e `MustOwnImage`;
+- la documentazione ora riflette il comportamento reale del controller.
+
 ## Punti da verificare e allineare
 
 Va ricontrollato che in `AllowedScopes` del client siano coerenti:

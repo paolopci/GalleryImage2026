@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ImageGallery.API.Controllers;
 
-// Tutte le azioni richiedono un access token con scope
-// "imagegalleryapi.fullaccess", definito nella policy configurata nell'API.
+// Tutte le azioni richiedono un utente autenticato.
+// Le operazioni più sensibili aggiungono policy dedicate su scope e ownership.
 [Authorize]
 [ApiController]
 [Route("api/[controller]")]
