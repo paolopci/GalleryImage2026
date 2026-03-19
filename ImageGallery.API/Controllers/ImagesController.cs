@@ -1,4 +1,5 @@
 using AutoMapper;
+using ImageGallery.API.Authorization;
 using ImageGallery.API.Services;
 using ImageGallery.Model;
 using Microsoft.AspNetCore.Authorization;
@@ -49,7 +50,8 @@ public class ImagesController : ControllerBase
     }
 
     [HttpGet("{id}", Name = "GetImage")]
-    [Authorize(Policy = "MustOwnImage")]
+    //[Authorize(Policy = "MustOwnImage")]
+    [MustOwnImage]
     public async Task<ActionResult<Image>> GetImage(Guid id)
     {
         var imageFromRepo = await _galleryRepository.GetImageAsync(id);
