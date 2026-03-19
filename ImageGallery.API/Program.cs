@@ -1,4 +1,5 @@
 using AutoMapper;
+using Duende.AspNetCore.Authentication.OAuth2Introspection;
 using ImageGallery.API.Authorization;
 using ImageGallery.API.DbContext;
 using ImageGallery.API.Services;
@@ -7,7 +8,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.JsonWebTokens;
-using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,19 +30,15 @@ JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
+    .AddOAuth2Introspection(options =>
     {
-        // L'API si fida dei token JWT emessi dall'IdentityServer locale.
+        // L'API valida i reference token chiedendo all'IdentityServer locale
+        // l'introspection del bearer token ricevuto.
         options.Authority = "https://localhost:5001";
-
-        // L'audience deve corrispondere al nome della ApiResource definita nell'IDP.
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateAudience = true,
-            ValidAudience = "imagegalleryapi",
-            NameClaimType = "given_name",
-            RoleClaimType = "role"
-        };
+        options.ClientId = "imagegalleryapi";
+        options.ClientSecret = "secret";
+        options.NameClaimType = "given_name";
+        options.RoleClaimType = "role";
     });
 
 // Registra sia la policy di accesso generale alla API, basata sullo scope OAuth2,

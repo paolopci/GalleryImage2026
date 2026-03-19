@@ -578,22 +578,22 @@ File coinvolti:
 
 Correzione applicata:
 
-- rimossa la configurazione `AddOAuth2Introspection(...)` dalla API e ripristinata la validazione `AddJwtBearer(...)` contro l'IdentityServer locale;
-- configurata la validazione JWT con `Authority = https://localhost:5001` e `ValidAudience = imagegalleryapi`;
-- protetto l'intero `ImagesController` con `[Authorize]`, così gli endpoint non entrano più nel controller quando la richiesta è anonima;
-- reso più esplicito il messaggio di errore in `GetOwnerId()` quando un utente autenticato non contiene il claim `sub`.
+- mantenuta la protezione globale di `ImagesController` con `[Authorize]`, così gli endpoint non entrano nel controller quando la richiesta è anonima;
+- reso più esplicito il messaggio di errore in `GetOwnerId()` quando un utente autenticato non contiene il claim `sub`;
+- riallineata la API a `AddOAuth2Introspection(...)` invece di `AddJwtBearer(...)`;
+- configurata l'introspection con `ClientId = imagegalleryapi` e `ClientSecret = secret`, coerenti con `ApiSecrets` della resource API in `Config.cs`.
 
 Motivo tecnico:
 
-- l'API stava tentando di validare il bearer token con introspection usando credenziali incoerenti rispetto alla configurazione attuale dell'IdentityServer;
-- inoltre gli endpoint che leggevano `sub` non erano protetti globalmente, quindi una richiesta anonima poteva arrivare fino a `GetOwnerId()` e fallire con eccezione applicativa invece che con una risposta `401`;
-- nel flusso corrente i token usati dal client MVC sono JWT destinati alla resource `imagegalleryapi`, quindi la validazione bearer JWT è l'allineamento più diretto con la configurazione del progetto.
+- il client MVC è configurato per ricevere `AccessTokenType = Reference`, quindi il bearer token inviato alla API non è un JWT validabile localmente;
+- per i Reference Token la API deve interrogare l'IdentityServer tramite introspection, usando credenziali della resource protetta;
+- senza questo allineamento la API risponde `401` perché tenta di interpretare come JWT un token opaco/reference.
 
 Impatto:
 
-- le richieste senza token valido vengono bloccate dal middleware di autenticazione/autorizzazione prima di entrare negli endpoint immagini;
-- quando la richiesta è autenticata correttamente, la API può leggere `sub` dal token e usarlo come identificativo del proprietario;
-- il flusso client MVC -> API torna coerente con l'access token JWT emesso dall'IdentityServer locale.
+- la API può validare correttamente i Reference Token emessi dall'IdentityServer locale;
+- le richieste senza token valido continuano a essere bloccate dal middleware prima di entrare negli endpoint immagini;
+- quando l'introspection ha esito positivo, la API può leggere `sub` dal principal autenticato e usarlo come identificativo del proprietario.
 
 ## Punti da verificare e allineare
 

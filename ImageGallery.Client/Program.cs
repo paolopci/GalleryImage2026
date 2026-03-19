@@ -59,7 +59,6 @@ builder.Services.AddAuthentication(options =>
           //  -->   "https://localhost:7065/signin-oidc"
           // anche questo è impostato di default dal middleware quindi lo commento
           // options.CallbackPath = new PathString("signin-oidc");
-1
           // permette di salvare i token ricevuti dal file provider identità IDP 
           // per poterli usare in seguito.
 
