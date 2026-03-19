@@ -1,5 +1,6 @@
 using Duende.AccessTokenManagement.OpenIdConnect;
 using ImageGallery.Authorization;
+using ImageGallery.Client.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -32,6 +33,10 @@ In pratica:
 */
 JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
+const string IdentityServerAuthority = "https://localhost:5001";
+const string ImageGalleryClientId = "imagegalleryclient";
+const string ImageGalleryClientSecret = "secret";
+
 // configure authentication per usare OpenIDConnect
 builder.Services.AddAuthentication(options =>
 {
@@ -44,9 +49,9 @@ builder.Services.AddAuthentication(options =>
       .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
       {
           options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-          options.Authority = "https://localhost:5001";
-          options.ClientId = "imagegalleryclient";
-          options.ClientSecret = "secret";
+          options.Authority = IdentityServerAuthority;
+          options.ClientId = ImageGalleryClientId;
+          options.ClientSecret = ImageGalleryClientSecret;
           options.ResponseType = "code";
 
           // questi sono gli ambiti che voglio richiedere, non serve aggiungerli sono
@@ -101,6 +106,13 @@ builder.Services.AddAuthentication(options =>
 // Registra la gestione automatica dei token OIDC dell'utente autenticato,
 // inclusi recupero, storage nella sessione e refresh dell'access token.
 builder.Services.AddOpenIdConnectAccessTokenManagement();
+
+builder.Services.AddHttpClient("TokenRevocationClient", client =>
+{
+    client.BaseAddress = new Uri(IdentityServerAuthority);
+});
+
+builder.Services.AddScoped<ITokenRevocationService, TokenRevocationService>();
 
 // create an HttpClient used for accessing the API
 builder.Services.AddHttpClient("APIClient", client =>

@@ -640,6 +640,60 @@ Impatto:
 - le operazioni di modifica restano protette da policy dedicate come `UserCanAddImage`, `ClientApplicationCanWrite` e `MustOwnImage`;
 - la documentazione ora riflette il comportamento reale del controller.
 
+## Introduzione del persisted grant store reale nell'IdentityServer
+
+File coinvolti:
+
+- `ImageGallery.IdentityServer/ImageGallery.IdentityServer.csproj`
+- `ImageGallery.IdentityServer/HostingExtensions.cs`
+- `ImageGallery.IdentityServer/Migrations/PersistedGrantDb/*`
+
+Correzione applicata:
+
+- aggiunto `Duende.IdentityServer.EntityFramework` al progetto IdentityServer;
+- configurato `AddOperationalStore(...)` con SQL Server per il `PersistedGrantDbContext`;
+- aggiunta una migration dedicata al persisted grant store;
+- configurata l'applicazione automatica delle migration all'avvio dell'IdentityServer.
+
+Motivo tecnico:
+
+- con `Reference Token`, refresh token e revocation, i persisted grants non devono restare solo in memoria;
+- lo store in-memory è utile per demo rapide, ma non è adatto a una revocation affidabile e non sopravvive ai riavvii del processo;
+- l'operational store persistente è la base corretta per conservare authorization code, reference token, refresh token e stato di revoca.
+
+Impatto:
+
+- il ciclo di vita dei token gestiti dall'IdentityServer è ora persistente su database;
+- la revocation non dipende più dalla vita del processo locale;
+- introspection e revocation lavorano contro uno stato token coerente e durevole.
+
+## Introduzione del logout coordinato con token revocation nel client MVC
+
+File coinvolti:
+
+- `ImageGallery.Client/Program.cs`
+- `ImageGallery.Client/Controllers/AuthenticationController.cs`
+- `ImageGallery.Client/Services/ITokenRevocationService.cs`
+- `ImageGallery.Client/Services/TokenRevocationService.cs`
+
+Correzione applicata:
+
+- registrato un client HTTP dedicato al revocation endpoint dell'IdentityServer;
+- introdotto il servizio `ITokenRevocationService` per centralizzare la revoca dei token dell'utente corrente;
+- aggiornato il logout MVC per revocare prima `refresh_token`, poi `access_token`, e solo dopo eseguire `SignOut(...)`.
+
+Motivo tecnico:
+
+- il client salva localmente i token OIDC dell'utente autenticato;
+- fare solo `SignOut(...)` chiude la sessione locale e quella OIDC, ma non revoca automaticamente i token già rilasciati;
+- con `Reference Token` e introspection è una best practice tentare la revoca esplicita, soprattutto del refresh token, così il token non può più essere riutilizzato dopo il logout.
+
+Impatto:
+
+- il logout utente ora include anche un tentativo esplicito di revocation;
+- l'implementazione è `fail-open`: se la revocation fallisce, il logout prosegue comunque e l'errore viene tracciato nei log;
+- il client MVC separa chiaramente le chiamate business verso la API dalle chiamate tecniche verso il revocation endpoint.
+
 ## Punti da verificare e allineare
 
 Va ricontrollato che in `AllowedScopes` del client siano coerenti:
