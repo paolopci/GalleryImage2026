@@ -35,10 +35,11 @@ Se il controllo dà esito negativo:
 
 ## 4. Struttura Del Progetto E Organizzazione Dei Moduli
 
-La soluzione è suddivisa in cinque progetti .NET 10:
+La soluzione è suddivisa in sei progetti .NET 10:
 
 - `ImageGallery.API/`: Web API ASP.NET Core (controller, avvio API, configurazione OpenAPI).
 - `ImageGallery.Authorization/`: libreria condivisa per policy e componenti di autorizzazione riusati dai progetti applicativi.
+- `ImageGallery.BFF/`: host Backend for Frontend ASP.NET Core con Duende.BFF per testare login OIDC server-side, sessione lato backend e proxy same-origin verso l'API.
 - `ImageGallery.Client/`: front end MVC ASP.NET Core (`Controllers/`, `Views/`, asset statici in `wwwroot/`).
 - `ImageGallery.IdentityServer/`: server di identità OAuth2/OpenID Connect (Duende IdentityServer) per autenticazione e rilascio token.
 - `ImageGallery.Model/`: classi DTO/modello condivise usate dal client e dall'API.
@@ -52,11 +53,19 @@ Esegui i comandi dalla radice del repository:
 - `dotnet restore ImageGallery.slnx`: ripristina i pacchetti NuGet per tutti i progetti.
 - `dotnet build ImageGallery.slnx -c Debug`: compila l'intera soluzione.
 - `dotnet run --project ImageGallery.API`: avvia localmente l'API.
+- `dotnet run --project ImageGallery.BFF`: avvia localmente l'host BFF.
 - `dotnet run --project ImageGallery.Client`: avvia localmente il client MVC.
 - `dotnet run --project ImageGallery.IdentityServer`: avvia localmente l'IdentityServer.
 - `dotnet watch run --project ImageGallery.API`: avvia l'API con hot reload durante lo sviluppo.
+- `dotnet watch run --project ImageGallery.BFF`: avvia il BFF con hot reload durante lo sviluppo.
 - `dotnet watch run --project ImageGallery.IdentityServer`: avvia l'IdentityServer con hot reload durante lo sviluppo.
 - `dotnet test`: esegue i test (attualmente non è presente un progetto di test dedicato; aggiungine uno prima di fare affidamento sui quality gate della CI).
+
+Regola operativa per build bloccate da processi locali:
+
+- se una build di qualunque progetto della solution deve essere rieseguita per validazione tecnica e un processo attivo o un file lock locale impedisce il riavvio della build, è consentito fermare il processo che mantiene il lock sul file o sulla porta del progetto da verificare;
+- dopo aver rilasciato il lock, riesegui subito la build necessaria per controllare errori e warning reali;
+- questa regola vale solo per permettere la validazione tecnica del progetto interessato e non autorizza a terminare processi non correlati al file lock o alla build da verificare.
 
 ## 6. Stile Del Codice E Convenzioni Di Naming
 
@@ -85,7 +94,7 @@ La cronologia Git non è disponibile in questa snapshot del workspace, quindi no
   - riepilogo chiaro delle modifiche e della motivazione,
   - ID dell'issue/task collegato,
   - evidenza dei test (output di `dotnet build`, `dotnet test`),
-  - screenshot per modifiche UI in `ImageGallery.Client`.
+  - screenshot per modifiche UI in `ImageGallery.Client` o `ImageGallery.BFF`.
 
 ## 9. Suggerimenti Su Sicurezza E Configurazione
 

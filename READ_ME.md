@@ -796,6 +796,108 @@ Nota sui token disponibili:
 - nella sequenza CRUD della collection, il test `04` crea un'immagine con il token write di Emma e salva `createdImageId`; i test `05`, `06`, `07`, `08` e `09` lavorano esplicitamente solo su quella stessa immagine, così i test manuali non toccano altre immagini dell'utente.
 - il test finale sulla risorsa eliminata verifica `403` e non `404`: nel codice attuale `MustOwnImageHandler` applica prima il controllo di ownership sulla route `id` e fallisce l'autorizzazione prima che `GetImage` possa arrivare al ramo `NotFound()`, quindi il comportamento effettivo osservabile dopo la delete e' `Forbid`.
 
+## Introduzione di `ImageGallery.BFF` come host Backend for Frontend
+
+File coinvolti:
+
+- `ImageGallery.BFF/ImageGallery.BFF.csproj`
+- `ImageGallery.BFF/Program.cs`
+- `ImageGallery.BFF/appsettings.json`
+- `ImageGallery.BFF/appsettings.Development.json`
+- `ImageGallery.BFF/Controllers/HomeController.cs`
+- `ImageGallery.BFF/Views/Home/Index.cshtml`
+- `ImageGallery.BFF/Views/Shared/_Layout.cshtml`
+- `ImageGallery.BFF/wwwroot/css/site.css`
+- `ImageGallery.IdentityServer/Config.cs`
+
+Correzione applicata:
+
+- aggiornato `ImageGallery.BFF` da template MVC `net8.0` a host `.NET 10`;
+- sostituiti i package iniziali con `Duende.BFF 4.1.2`, `Duende.BFF.Yarp 4.1.2` e `Microsoft.AspNetCore.Authentication.OpenIdConnect 10.0.5`;
+- configurato nel BFF il flusso `cookie + OpenID Connect` verso `https://localhost:5001` con `ClientId = imagegallerybff`, `ResponseType = code`, `SaveTokens = true`, PKCE e scope `openid`, `profile`, `offline_access`, `roles`, `paese`, `imagegalleryapi.read`, `imagegalleryapi.write`;
+- aggiunto il nuovo client `imagegallerybff` in `ImageGallery.IdentityServer/Config.cs` con `GrantTypes.Code`, `AccessTokenType.Reference`, refresh token abilitato e callback `https://localhost:7119/signin-oidc` / `https://localhost:7119/signout-callback-oidc`;
+- registrato `Duende.BFF` con sessioni server-side in memoria e proxy same-origin verso la API remota;
+- introdotto il path locale `/api` come endpoint BFF da cui inoltrare le richieste alla API su `https://localhost:7162`;
+- spostati in configurazione `appsettings*` i valori `Authority`, `ClientId`, `ClientSecret`, `ApiBaseUrl` e `ApiLocalPath`;
+- trasformata la home del BFF in una smoke page che mostra stato autenticazione, link tecnici a `/bff/login`, `/bff/logout`, `/bff/user`, `/api/images` e probe automatici same-origin.
+
+Motivo tecnico:
+
+- il corso richiede di testare l'approccio BFF come alternativa più sicura ai client JavaScript puri, spostando login OIDC, gestione token e inoltro verso API sul backend;
+- il nuovo host BFF consente di esercitare un pattern più vicino alle best practice per browser-based clients, evitando che il browser chiami direttamente l'Identity Provider o la API remota con token gestiti in JavaScript;
+- il proxy same-origin permette di mantenere il frontend sullo stesso host del BFF, con token e sessione gestiti lato server.
+
+Impatto:
+
+- la solution ha ora un secondo frontend server-side oltre al client MVC tradizionale;
+- `ImageGallery.BFF` può fare da host laboratorio per login, user endpoint e chiamate same-origin verso la API;
+- il login e il logout passano ora attraverso gli endpoint di management BFF (`/bff/login`, `/bff/logout`) invece di controller MVC custom;
+- il progetto BFF è pronto per testare il pattern BFF con `Reference Token`, mantenendo l'introspection lato API già presente nella solution.
+
+Esito dei test eseguiti:
+
+- `dotnet restore ImageGallery.slnx` -> completato con successo;
+- `dotnet build ImageGallery.slnx -c Debug` -> completato con `0` errori e `0` avvisi;
+- `dotnet build ImageGallery.BFF/ImageGallery.BFF.csproj -c Debug` -> completato con `0` errori e `0` avvisi;
+- apertura della home BFF su `https://localhost:7119` -> riuscita;
+- fetch anonima verso `/bff/user` -> `401`, coerente con sessione anonima;
+- fetch anonima verso `/api/images` via BFF -> `401`, coerente con assenza di autenticazione;
+- durante i test è stato corretto `ApiLocalPath`: con `Duende.BFF.Yarp` il path locale corretto è `/api`, non `/api/{**catch-all}`.
+
+Limiti ambientali rilevati nei test:
+
+- `ImageGallery.IdentityServer` non resta attivo nell'ambiente corrente perché fallisce all'avvio su SQL Server durante la fase di migration dell'operational store;
+- `ImageGallery.API` fallisce a sua volta all'avvio per timeout di connessione a SQL Server durante `EnsureCreatedAsync`;
+- di conseguenza il login BFF su `/bff/login` e il logout su `/bff/logout` restituiscono `500` perché il BFF non riesce a recuperare la OpenID configuration da `https://localhost:5001`;
+- per la stessa ragione non è stato possibile chiudere il test end-to-end con callback OIDC autenticata e proxy API con risposta `200`.
+
+## Correzione del warning Duende BFF su `MapBffManagementEndpoints`
+
+File coinvolti:
+
+- `ImageGallery.BFF/Program.cs`
+
+Correzione applicata:
+
+- rimossa la chiamata esplicita `app.MapBffManagementEndpoints();` dalla pipeline del BFF.
+
+Motivo tecnico:
+
+- nella configurazione corrente di `Duende.BFF 4.1.2` gli endpoint di management vengono gia registrati automaticamente;
+- la chiamata manuale aggiuntiva produceva il warning runtime `Management endpoints are automatically mapped, so the call to MapBffManagementEndpoints will be ignored`.
+
+Impatto:
+
+- il BFF continua a esporre gli endpoint `/bff/*` necessari a login, logout e user endpoint;
+- il log di avvio non segnala piu la doppia registrazione degli endpoint management;
+- resta invariato il messaggio relativo alla licenza Duende in trial mode, che non dipende da questo fix e richiede una licenza valida solo fuori dagli scenari di sviluppo/test.
+
+## Chiarimento UI sul comportamento di `/api/images` nel BFF
+
+File coinvolti:
+
+- `ImageGallery.BFF/Views/Home/Index.cshtml`
+- `ImageGallery.BFF/Views/Shared/_Layout.cshtml`
+- `ImageGallery.BFF/wwwroot/css/site.css`
+
+Correzione applicata:
+
+- rimosso dalla navbar il link navigabile diretto a `/api/images` e sostituito con un'etichetta descrittiva;
+- aggiornata la smoke page per spiegare che `/api/images` va testato tramite fetch same-origin e non tramite navigazione diretta;
+- aggiunto un pulsante `Riesegui test BFF` che rilancia i probe verso `/bff/user` e `/api/images`.
+
+Motivo tecnico:
+
+- `MapRemoteBffApiEndpoint` protegge il proxy same-origin con header anti-forgery `x-csrf`;
+- la fetch JavaScript della smoke page invia correttamente `x-csrf: 1`, mentre la navigazione diretta del browser non puo inviare quell'header;
+- per questo, con sessione autenticata, `fetch('/api/images')` restituisce `200` ma l'apertura diretta di `https://localhost:7119/api/images` restituisce `401`.
+
+Impatto:
+
+- la UI del BFF riflette ora il comportamento reale del proxy Duende;
+- si evita il falso sospetto che il login di Emma o il proxy `/api` siano guasti;
+- il test manuale corretto del remote endpoint passa dalla smoke page o da chiamate fetch/XHR same-origin.
+
 ## Punti da verificare e allineare
 
 Va ricontrollato che in `AllowedScopes` del client siano coerenti:
@@ -810,10 +912,11 @@ Questa sezione va aggiornata man mano che il lavoro prosegue.
 
 Passi probabili successivi:
 
-1. Verificare il comportamento completo con login, consenso, emissione token e chiamata API.
-2. Proteggere eventuali altri controller API con policy o attributi `[Authorize]`.
-3. Aggiungere test automatici per autenticazione e autorizzazione.
-4. Eventualmente ripristinare OpenAPI o Swagger se servirà per documentare/testare gli endpoint protetti.
+1. Ripristinare la disponibilità del SQL Server locale usato da `ImageGallery.IdentityServer` e `ImageGallery.API`, così da completare il test end-to-end del BFF.
+2. Verificare il comportamento completo con login, consenso, emissione token e chiamata API tramite `/api` del BFF.
+3. Proteggere eventuali altri controller API con policy o attributi `[Authorize]`.
+4. Aggiungere test automatici per autenticazione e autorizzazione.
+5. Eventualmente ripristinare OpenAPI o Swagger se servirà per documentare/testare gli endpoint protetti.
 
 ## Come aggiornare questo documento
 

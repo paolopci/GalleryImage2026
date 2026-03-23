@@ -1,71 +1,195 @@
-html {
-  font-size: 14px;
+:root {
+    --page-bg: linear-gradient(180deg, #f2efe8 0%, #fffdf9 42%, #edf4f7 100%);
+    --surface: rgba(255, 255, 255, 0.88);
+    --surface-strong: #ffffff;
+    --border: rgba(21, 53, 74, 0.12);
+    --text-main: #163447;
+    --text-soft: #5a7180;
+    --accent: #0d6c91;
+    --accent-dark: #084c66;
+    --ok: #17795f;
+    --idle: #7a5a1f;
+    --shadow: 0 20px 45px rgba(15, 42, 56, 0.10);
 }
 
-@media (min-width: 768px) {
-  html {
+html {
     font-size: 16px;
-  }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
-} 
-
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-main);
+    background: var(--page-bg);
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
-} 
-
-.defaultButton {
-    width: 100px;
-    height: 50px;
+.shell-nav {
+    background: linear-gradient(135deg, #12364d 0%, #0b5875 100%);
+    box-shadow: 0 10px 30px rgba(8, 30, 45, 0.18);
 }
 
-.bottomMarginDefault {
-    margin-bottom: 30px;
+.shell-nav__container {
+    min-height: 72px;
 }
 
-.bottomMarginSmall {
-    margin-bottom: 15px;
+.shell-nav__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
-.topMarginDefault {
-    margin-top: 30px;
+.shell-nav__hint {
+    opacity: 0.85;
+    font-size: 0.95rem;
 }
 
-.topMarginSmall {
-    margin-top: 15px;
+.app-shell {
+    flex: 1 0 auto;
+    padding-bottom: 4rem;
 }
 
-.rightMarginDefault {
-    margin-right: 30px;
+.hero-panel,
+.grid-panels {
+    display: grid;
+    gap: 1.5rem;
 }
 
-.leftMarginDefault {
-    margin-left: 30px;
+.hero-panel {
+    grid-template-columns: 1.7fr 1fr;
+    margin-bottom: 1.5rem;
 }
 
-.leftMarginSmaller {
-    margin-left: 15px;
+.hero-copy,
+.status-card,
+.panel-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
 }
 
-.thumbnailImage {
-    max-width: 400px;
-    width: 100%;
-    height: auto;
+.hero-copy,
+.status-card,
+.panel-card {
+    padding: 1.5rem;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(13, 108, 145, 0.10);
+    color: var(--accent-dark);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.hero-copy h1,
+.panel-card h2 {
+    margin-top: 0;
+}
+
+.hero-description {
+    max-width: 55ch;
+    color: var(--text-soft);
+    line-height: 1.6;
+}
+
+.status-label {
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-value {
+    margin: 0.75rem 0 1rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.status-badge {
+    display: inline-flex;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.status-ok {
+    background: rgba(23, 121, 95, 0.12);
+    color: var(--ok);
+}
+
+.status-idle {
+    background: rgba(122, 90, 31, 0.12);
+    color: var(--idle);
+}
+
+.grid-panels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.endpoint-list {
+    margin: 0 0 1.5rem;
+    padding-left: 1.2rem;
+}
+
+.endpoint-list li + li {
+    margin-top: 0.6rem;
+}
+
+.actions-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.endpoint-note {
+    margin: 0 0 1.5rem;
+    padding: 0.9rem 1rem;
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    background: rgba(13, 108, 145, 0.08);
+    color: var(--text-soft);
+    line-height: 1.55;
+}
+
+.probe-block + .probe-block {
+    margin-top: 1.25rem;
+}
+
+.probe-title {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.probe-output {
+    min-height: 150px;
+    margin: 0;
+    padding: 1rem;
+    overflow: auto;
+    border-radius: 18px;
+    background: #0f2230;
+    color: #dcf1f8;
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.footer {
+    flex-shrink: 0;
+    padding: 1rem 0 2rem;
+}
+
+@media (max-width: 991.98px) {
+    .hero-panel,
+    .grid-panels {
+        grid-template-columns: 1fr;
+    }
 }

@@ -129,6 +129,39 @@ public static class Config
             },
             new Client()
             {
+                ClientName = "Image Gallery BFF",
+                ClientId = "imagegallerybff",
+                AllowedGrantTypes = GrantTypes.Code,
+                AccessTokenType = AccessTokenType.Reference,
+                AllowOfflineAccess = true,
+                UpdateAccessTokenClaimsOnRefresh = true,
+                AccessTokenLifetime = 120,
+                RedirectUris =
+                {
+                    "https://localhost:7119/signin-oidc"
+                },
+                PostLogoutRedirectUris =
+                {
+                    "https://localhost:7119/signout-callback-oidc"
+                },
+                AllowedScopes =
+                {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    IdentityServerConstants.StandardScopes.OfflineAccess,
+                    "roles",
+                    "imagegalleryapi.read",
+                    "imagegalleryapi.write",
+                    "paese",
+                },
+                ClientSecrets =
+                {
+                    new Secret("secret".Sha256())
+                },
+                RequireConsent = true,
+            },
+            new Client()
+            {
                 ClientName = "Image Gallery Postman",
                 ClientId = "imagegallerypostman",
                 AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,

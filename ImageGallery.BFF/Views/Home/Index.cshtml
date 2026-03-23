@@ -1,12 +1,94 @@
-﻿<script>
-    fetch('theimagesendpointwehavetocreate');
-</script>
+@{
+    ViewData["Title"] = "BFF Smoke Test";
+    var isAuthenticated = (bool?)ViewData["IsAuthenticated"] ?? false;
+    var displayName = (string?)ViewData["DisplayName"] ?? "utente anonimo";
+}
 
-<div class="bottomMarginDefault">
-</div>
-
-<div class="container">
-    <div class="row">
- 
+<section class="hero-panel">
+    <div class="hero-copy">
+        <span class="eyebrow">ImageGallery.BFF</span>
+        <h1>Smoke page per validare login OIDC, sessione server-side e proxy API same-origin.</h1>
+        <p class="hero-description">
+            Questa pagina testa il percorso BFF reale: il browser chiama solo endpoint locali,
+            mentre autenticazione e inoltro token restano nel backend.
+        </p>
     </div>
-</div> 
+
+    <div class="status-card">
+        <div class="status-label">Utente corrente</div>
+        <div class="status-value">@(isAuthenticated ? displayName : "Non autenticato")</div>
+        <div class="status-badge @(isAuthenticated ? "status-ok" : "status-idle")">
+            @(isAuthenticated ? "Sessione attiva" : "Sessione assente")
+        </div>
+    </div>
+</section>
+
+<section class="grid-panels">
+    <article class="panel-card">
+        <h2>Endpoint BFF</h2>
+        <ul class="endpoint-list">
+            <li><code>/bff/login</code></li>
+            <li><code>/bff/logout</code></li>
+            <li><code>/bff/user</code></li>
+            <li><code>/api/images</code> tramite fetch same-origin con header <code>x-csrf: 1</code></li>
+        </ul>
+        <p class="endpoint-note">
+            <strong>Nota:</strong> il remote endpoint <code>/api/images</code> e protetto da anti-forgery BFF.
+            Se lo apri direttamente nella barra indirizzi il browser non invia l'header <code>x-csrf</code>,
+            quindi il risultato atteso e <code>401</code> anche con sessione autenticata.
+        </p>
+        <div class="actions-row">
+            <a class="btn btn-primary" href="/bff/login">Login</a>
+            <a class="btn btn-outline-secondary" href="/bff/logout">Logout</a>
+            <button id="refreshProbes" type="button" class="btn btn-outline-primary">Riesegui test BFF</button>
+        </div>
+    </article>
+
+    <article class="panel-card">
+        <h2>Esito fetch</h2>
+        <div class="probe-block">
+            <div class="probe-title">GET /bff/user</div>
+            <pre id="userProbe" class="probe-output">In attesa...</pre>
+        </div>
+        <div class="probe-block">
+            <div class="probe-title">GET /api/images</div>
+            <pre id="apiProbe" class="probe-output">In attesa...</pre>
+        </div>
+    </article>
+</section>
+
+@section Scripts {
+    <script>
+        async function fetchProbe(url, targetId) {
+            const target = document.getElementById(targetId);
+
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Accept': 'application/json',
+                        'x-csrf': '1'
+                    }
+                });
+
+                const body = await response.text();
+                target.textContent = `HTTP ${response.status}\n${body}`;
+            } catch (error) {
+                target.textContent = `Errore chiamata ${url}\n${error}`;
+            }
+        }
+
+        async function runProbes() {
+            await Promise.all([
+                fetchProbe('/bff/user', 'userProbe'),
+                fetchProbe('/api/images', 'apiProbe')
+            ]);
+        }
+
+        document.getElementById('refreshProbes')
+            .addEventListener('click', runProbes);
+
+        runProbes();
+    </script>
+}
