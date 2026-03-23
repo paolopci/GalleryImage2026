@@ -127,5 +127,29 @@ public static class Config
                 // prima di rilasciare i claim/scope richiesti dal client.
                 RequireConsent = true,
             },
+            new Client()
+            {
+                ClientName = "Image Gallery Postman",
+                ClientId = "imagegallerypostman",
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                AccessTokenType = AccessTokenType.Reference,
+                AccessTokenLifetime = 120,
+                AllowedScopes =
+                {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    "roles",
+                    "paese",
+                    "imagegalleryapi.read",
+                    "imagegalleryapi.write",
+                },
+                ClientSecrets =
+                {
+                    new Secret("secret".Sha256())
+                },
+
+                // Client dev-only usato dalla collection Postman con utenti seedati locali.
+                RequireConsent = false,
+            },
         };
 }

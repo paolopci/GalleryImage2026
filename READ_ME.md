@@ -755,6 +755,47 @@ Impatto:
 - l'ordine consigliato e' incorporato nel nome di ogni test;
 - restano da valorizzare manualmente solo `bearerTokenRead` e `bearerTokenWrite`, mentre gli ID dinamici vengono propagati automaticamente dai test precedenti.
 
+## Aggiornamento della collection Postman per token reali IdentityServer
+
+File coinvolti:
+
+- `ImageGallery.API.Postman.Collection.json`
+- `ImageGallery.IdentityServer/Config.cs`
+
+Correzione applicata:
+
+- sostituita la collection basata su `DevJwt` con una collection ordinata che ottiene i token direttamente dall'IdentityServer locale;
+- aggiunti come primi item `1.1` e `1.2` per ottenere rispettivamente il token read di `David` e il token write di `Emma`;
+- rinumerati i test successivi, così `02 - GET immagini con token read restituisce 200` parte subito dopo i login;
+- introdotto nell'IdentityServer un client dedicato `imagegallerypostman` con `ResourceOwnerPassword`, secret condiviso e `Reference Token`, pensato per i test manuali della collection;
+- configurate nella collection le variabili `identityServerUrl`, `postmanClientId`, `postmanClientSecret`, `bearerTokenRead` e `bearerTokenWrite`.
+
+Motivo tecnico:
+
+- la collection precedente richiedeva di incollare manualmente JWT `DevJwt`, quindi non esercitava il flusso reale dell'IDP della solution;
+- per test ripetibili da Postman serviva un modo semplice per ottenere token emessi davvero da Duende IdentityServer usando gli utenti seedati locali;
+- i test di lettura e scrittura richiedono token diversi perché la API controlla sia lo scope `imagegalleryapi.write` sia i claim utente necessari alle policy.
+
+Impatto:
+
+- la collection ora testa il percorso reale `IdentityServer -> token endpoint -> API con introspection`;
+- i token ottenuti ai primi due step vengono salvati automaticamente nelle collection variables e riusati da tutti i test successivi;
+- `David` resta il profilo read-only, mentre `Emma` resta il profilo write con i claim necessari a creare, aggiornare e cancellare immagini;
+- il client `imagegallerypostman` è pensato per sviluppo/test manuale e non sostituisce il client MVC in authorization code flow.
+- la sequenza della collection e' ora leggibile in due blocchi distinti: test iniziali `David read-only` per validare lettura e divieto di scrittura, seguiti dal blocco `Emma CRUD` che crea, aggiorna e cancella solo la propria immagine di test.
+
+Nota sui token disponibili:
+
+- la collection Postman attuale usa `grant_type=password` tramite il client `imagegallerypostman`, quindi salva e riusa operativamente il solo `access_token`;
+- questo comportamento è sufficiente per i test API perché la Web API usa il bearer token per autenticazione, scope e ownership delle immagini;
+- il client MVC della solution usa invece un flusso OpenID Connect `authorization code` con `SaveTokens = true` e scope `offline_access`, per questo può recuperare anche `identity_token` e `refresh_token`;
+- se si vuole vedere in collection anche `identity_token` e `refresh_token` come nel flusso MVC, non basta leggere campi aggiuntivi nella risposta: serve usare un flusso OIDC compatibile oppure esporre i token già ottenuti dal login reale del client MVC.
+- per ridurre i problemi in Postman, i test `1.1` e `1.2` salvano ora i token sia come collection variables sia come environment variables; se un request successivo mostra ancora `{{bearerTokenRead}}` o `{{bearerTokenWrite}}` in rosso, il caso più probabile è che il login non sia stato eseguito con successo oppure che l'IdentityServer non sia stato riavviato dopo l'introduzione del client `imagegallerypostman`.
+- per la stessa ragione, i test CRUD salvano anche `createdImageId`, `createdImageTitle`, `updatedImageTitle` e `deletedImageId` nelle environment variables oltre che nelle collection variables, così i request successivi risolvono in modo più robusto gli identificativi dinamici dell'immagine creata al test `04`.
+- i `POST` della collection usano ora `bytes` come stringa base64 di test, perché il modello `ImageForCreation.Bytes` è un `byte[]` e il binding JSON di ASP.NET Core è affidabile con payload base64, mentre l'array numerico usato in precedenza generava errori `400 Bad Request` sul body.
+- nella sequenza CRUD della collection, il test `04` crea un'immagine con il token write di Emma e salva `createdImageId`; i test `05`, `06`, `07`, `08` e `09` lavorano esplicitamente solo su quella stessa immagine, così i test manuali non toccano altre immagini dell'utente.
+- il test finale sulla risorsa eliminata verifica `403` e non `404`: nel codice attuale `MustOwnImageHandler` applica prima il controllo di ownership sulla route `id` e fallisce l'autorizzazione prima che `GetImage` possa arrivare al ramo `NotFound()`, quindi il comportamento effettivo osservabile dopo la delete e' `Forbid`.
+
 ## Punti da verificare e allineare
 
 Va ricontrollato che in `AllowedScopes` del client siano coerenti:

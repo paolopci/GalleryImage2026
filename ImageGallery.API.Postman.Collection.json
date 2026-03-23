@@ -1,13 +1,197 @@
 {
   "info": {
     "_postman_id": "4d3b84f3-7b6d-4f13-b346-6a9324e9e2f7",
-    "name": "ImageGallery API - DevJwt Ordered Tests",
-    "description": "Collection Postman per test manuali ordinati della ImageGallery API usando token DevJwt generati con dotnet user-jwts. L'ordine di esecuzione e' indicato dal prefisso numerico del nome richiesta. Le variabili create dai test precedenti vengono valorizzate automaticamente.",
+    "name": "ImageGallery API - IdentityServer Ordered Tests",
+    "description": "Collection Postman per test manuali ordinati della ImageGallery API usando reference token emessi dall'IdentityServer locale. Il blocco iniziale valida il profilo read-only di David, mentre il blocco CRUD successivo usa il token write di Emma e opera solo sull'immagine creata durante il test 04.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
     {
-      "name": "01 - GET immagini con token read restituisce 200",
+      "name": "1.1 - LOGIN David ottiene token read dall'IDP",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "pm.test(\"La risposta contiene access_token\", function () {",
+              "    pm.expect(json).to.have.property(\"access_token\");",
+              "});",
+              "",
+              "pm.collectionVariables.set(\"bearerTokenRead\", json.access_token);",
+              "pm.collectionVariables.set(\"bearerTokenReadScope\", json.scope || \"\");",
+              "pm.collectionVariables.set(\"bearerTokenReadType\", json.token_type || \"\");",
+              "if (pm.environment) {",
+              "    pm.environment.set(\"bearerTokenRead\", json.access_token);",
+              "    pm.environment.set(\"bearerTokenReadScope\", json.scope || \"\");",
+              "    pm.environment.set(\"bearerTokenReadType\", json.token_type || \"\");",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "client_id",
+              "value": "{{postmanClientId}}",
+              "type": "text"
+            },
+            {
+              "key": "client_secret",
+              "value": "{{postmanClientSecret}}",
+              "type": "text"
+            },
+            {
+              "key": "grant_type",
+              "value": "password",
+              "type": "text"
+            },
+            {
+              "key": "username",
+              "value": "David",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "Micene@65",
+              "type": "text"
+            },
+            {
+              "key": "scope",
+              "value": "openid profile roles paese imagegalleryapi.read",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{identityServerUrl}}/connect/token",
+          "host": [
+            "{{identityServerUrl}}"
+          ],
+          "path": [
+            "connect",
+            "token"
+          ]
+        },
+        "description": "Ottiene dall'IdentityServer il token read da riusare nei test successivi."
+      },
+      "response": []
+    },
+    {
+      "name": "1.2 - LOGIN Emma ottiene token write dall'IDP",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "pm.test(\"La risposta contiene access_token\", function () {",
+              "    pm.expect(json).to.have.property(\"access_token\");",
+              "});",
+              "",
+              "pm.collectionVariables.set(\"bearerTokenWrite\", json.access_token);",
+              "pm.collectionVariables.set(\"bearerTokenWriteScope\", json.scope || \"\");",
+              "pm.collectionVariables.set(\"bearerTokenWriteType\", json.token_type || \"\");",
+              "if (pm.environment) {",
+              "    pm.environment.set(\"bearerTokenWrite\", json.access_token);",
+              "    pm.environment.set(\"bearerTokenWriteScope\", json.scope || \"\");",
+              "    pm.environment.set(\"bearerTokenWriteType\", json.token_type || \"\");",
+              "}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "client_id",
+              "value": "{{postmanClientId}}",
+              "type": "text"
+            },
+            {
+              "key": "client_secret",
+              "value": "{{postmanClientSecret}}",
+              "type": "text"
+            },
+            {
+              "key": "grant_type",
+              "value": "password",
+              "type": "text"
+            },
+            {
+              "key": "username",
+              "value": "Emma",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "Micene@65",
+              "type": "text"
+            },
+            {
+              "key": "scope",
+              "value": "openid profile roles paese imagegalleryapi.write",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{identityServerUrl}}/connect/token",
+          "host": [
+            "{{identityServerUrl}}"
+          ],
+          "path": [
+            "connect",
+            "token"
+          ]
+        },
+        "description": "Ottiene dall'IdentityServer il token write da riusare nei test CRUD successivi."
+      },
+      "response": []
+    },
+    {
+      "name": "02 - GET immagini di David con token read restituisce 200",
       "event": [
         {
           "listen": "test",
@@ -52,12 +236,12 @@
             "images"
           ]
         },
-        "description": "Prerequisito: valorizzare bearerTokenRead con un token DevJwt avente scope imagegalleryapi.read."
+        "description": "Usa automaticamente il token read ottenuto al test 1.1 con l'utente David. Questo test appartiene al blocco read-only. Se la variabile resta vuota o in rosso in Postman, eseguire prima 1.1 e verificare che l'IdentityServer sia stato riavviato dopo l'introduzione del client imagegallerypostman."
       },
       "response": []
     },
     {
-      "name": "02 - POST immagine con token read restituisce 403",
+      "name": "03 - POST immagine con token read di David restituisce 403",
       "event": [
         {
           "listen": "test",
@@ -92,7 +276,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"Title\": \"Postman read should fail\",\n  \"Bytes\": [255, 216, 255, 217]\n}"
+          "raw": "{\n  \"title\": \"Postman read should fail\",\n  \"bytes\": \"AQIDBA==\"\n}"
         },
         "url": {
           "raw": "{{baseUrl}}/api/images",
@@ -104,12 +288,12 @@
             "images"
           ]
         },
-        "description": "Verifica che il token read non possa creare immagini."
+        "description": "Verifica che il token read ottenuto dal test 1.1 con l'utente David non possa creare immagini. Questo test conclude il blocco read-only. Il payload usa bytes in base64 per restare compatibile con il model binding di byte[]. Se la variabile resta vuota o in rosso in Postman, eseguire prima 1.1 e verificare che l'IdentityServer sia stato riavviato dopo l'introduzione del client imagegallerypostman."
       },
       "response": []
     },
     {
-      "name": "03 - POST immagine con token write crea la risorsa e salva createdImageId",
+      "name": "04 - POST immagine con token write di Emma crea la risorsa e salva createdImageId",
       "event": [
         {
           "listen": "test",
@@ -126,7 +310,11 @@
               "});",
               "",
               "pm.collectionVariables.set(\"createdImageId\", json.id);",
-              "pm.collectionVariables.set(\"createdImageTitle\", json.title || \"\");"
+              "pm.collectionVariables.set(\"createdImageTitle\", json.title || \"\");",
+              "if (pm.environment) {",
+              "    pm.environment.set(\"createdImageId\", json.id);",
+              "    pm.environment.set(\"createdImageTitle\", json.title || \"\");",
+              "}"
             ]
           }
         }
@@ -152,7 +340,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"Title\": \"{{newImageTitle}}\",\n  \"Bytes\": [255, 216, 255, 217]\n}"
+          "raw": "{\n  \"title\": \"{{newImageTitle}}\",\n  \"bytes\": \"AQIDBA==\"\n}"
         },
         "url": {
           "raw": "{{baseUrl}}/api/images",
@@ -164,12 +352,12 @@
             "images"
           ]
         },
-        "description": "Prerequisito: valorizzare bearerTokenWrite con un token DevJwt avente scope imagegalleryapi.write, role PayingUser e claim paese=be."
+        "description": "Usa automaticamente il token write ottenuto al test 1.2 con l'utente Emma. Il payload usa bytes in base64 per restare compatibile con il model binding di byte[]. Se la variabile resta vuota o in rosso in Postman, eseguire prima 1.2 e verificare che l'IdentityServer sia stato riavviato dopo l'introduzione del client imagegallerypostman."
       },
       "response": []
     },
     {
-      "name": "04 - GET immagine creata con token write usa createdImageId dal test precedente",
+      "name": "05 - GET immagine creata da Emma al test 04 usa createdImageId",
       "event": [
         {
           "listen": "test",
@@ -213,12 +401,12 @@
             "{{createdImageId}}"
           ]
         },
-        "description": "Usa automaticamente la variabile createdImageId impostata dal test 03."
+        "description": "Legge solo l'immagine creata da Emma al test 04 usando automaticamente la variabile createdImageId."
       },
       "response": []
     },
     {
-      "name": "05 - PUT immagine creata con token write aggiorna il titolo usando createdImageId",
+      "name": "06 - PUT immagine creata da Emma al test 04 aggiorna il titolo usando createdImageId",
       "event": [
         {
           "listen": "test",
@@ -228,7 +416,11 @@
               "pm.test(\"Status code 204\", function () {",
               "    pm.response.to.have.status(204);",
               "});",
-              "pm.collectionVariables.set(\"updatedImageTitle\", pm.collectionVariables.get(\"updatedImageTitle\") || \"Postman Updated Image Title\");"
+              "const updatedImageTitle = pm.collectionVariables.get(\"updatedImageTitle\") || \"Postman Updated Image Title\";",
+              "pm.collectionVariables.set(\"updatedImageTitle\", updatedImageTitle);",
+              "if (pm.environment) {",
+              "    pm.environment.set(\"updatedImageTitle\", updatedImageTitle);",
+              "}"
             ]
           }
         }
@@ -262,12 +454,12 @@
             "{{createdImageId}}"
           ]
         },
-        "description": "Aggiorna l'immagine creata al test 03."
+        "description": "Aggiorna solo l'immagine creata da Emma al test 04."
       },
       "response": []
     },
     {
-      "name": "06 - GET immagine aggiornata verifica il nuovo titolo usando createdImageId",
+      "name": "07 - GET immagine aggiornata di Emma verifica il nuovo titolo usando createdImageId",
       "event": [
         {
           "listen": "test",
@@ -310,12 +502,13 @@
             "images",
             "{{createdImageId}}"
           ]
-        }
+        },
+        "description": "Verifica il nuovo titolo solo sull'immagine creata da Emma al test 04 e aggiornata al test 06, usando createdImageId."
       },
       "response": []
     },
     {
-      "name": "07 - DELETE immagine creata con token write rimuove la risorsa usando createdImageId",
+      "name": "08 - DELETE immagine creata da Emma al test 04 rimuove la risorsa usando createdImageId",
       "event": [
         {
           "listen": "test",
@@ -325,7 +518,11 @@
               "pm.test(\"Status code 204\", function () {",
               "    pm.response.to.have.status(204);",
               "});",
-              "pm.collectionVariables.set(\"deletedImageId\", pm.collectionVariables.get(\"createdImageId\"));"
+              "const deletedImageId = pm.collectionVariables.get(\"createdImageId\") || (pm.environment ? pm.environment.get(\"createdImageId\") : \"\");",
+              "pm.collectionVariables.set(\"deletedImageId\", deletedImageId);",
+              "if (pm.environment) {",
+              "    pm.environment.set(\"deletedImageId\", deletedImageId);",
+              "}"
             ]
           }
         }
@@ -354,15 +551,15 @@
       "response": []
     },
     {
-      "name": "08 - GET immagine eliminata verifica 404 usando deletedImageId dal test precedente",
+      "name": "09 - GET immagine eliminata da Emma verifica 403 usando deletedImageId dal test precedente",
       "event": [
         {
           "listen": "test",
           "script": {
             "type": "text/javascript",
             "exec": [
-              "pm.test(\"Status code 404\", function () {",
-              "    pm.response.to.have.status(404);",
+              "pm.test(\"Status code 403\", function () {",
+              "    pm.response.to.have.status(403);",
               "});"
             ]
           }
@@ -393,7 +590,7 @@
             "{{deletedImageId}}"
           ]
         },
-        "description": "Usa automaticamente deletedImageId impostata dal test 07."
+        "description": "Verifica in 403 solo l'immagine creata da Emma al test 04 e cancellata al test 08, usando automaticamente deletedImageId. L'API applica prima il controllo di ownership tramite MustOwnImage, quindi su una risorsa non piu' posseduta/non piu' disponibile il comportamento osservabile e' Forbid."
       },
       "response": []
     }
@@ -406,12 +603,47 @@
       "type": "string"
     },
     {
+      "key": "identityServerUrl",
+      "value": "https://localhost:5001",
+      "type": "string"
+    },
+    {
+      "key": "postmanClientId",
+      "value": "imagegallerypostman",
+      "type": "string"
+    },
+    {
+      "key": "postmanClientSecret",
+      "value": "secret",
+      "type": "string"
+    },
+    {
       "key": "bearerTokenRead",
       "value": "",
       "type": "string"
     },
     {
+      "key": "bearerTokenReadScope",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "bearerTokenReadType",
+      "value": "",
+      "type": "string"
+    },
+    {
       "key": "bearerTokenWrite",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "bearerTokenWriteScope",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "bearerTokenWriteType",
       "value": "",
       "type": "string"
     },
@@ -427,6 +659,11 @@
     },
     {
       "key": "createdImageId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "createdImageTitle",
       "value": "",
       "type": "string"
     },
