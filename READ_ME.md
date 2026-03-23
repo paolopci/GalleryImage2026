@@ -694,6 +694,67 @@ Impatto:
 - l'implementazione è `fail-open`: se la revocation fallisce, il logout prosegue comunque e l'errore viene tracciato nei log;
 - il client MVC separa chiaramente le chiamate business verso la API dalle chiamate tecniche verso il revocation endpoint.
 
+## Introduzione di `dotnet user-jwts` come modalità dev-only per test manuali API
+
+File coinvolti:
+
+- `ImageGallery.API/Program.cs`
+- `ImageGallery.API/appsettings.Development.json`
+
+Correzione applicata:
+
+- mantenuto `AddOAuth2Introspection(...)` come percorso standard della solution;
+- aggiunto in `Development` uno schema `JwtBearer` secondario chiamato `DevJwt`;
+- aggiunto un `policy scheme` dinamico che instrada i bearer token JWT verso `DevJwt` e i token opachi/reference verso l'introspection;
+- abilitato `dotnet user-jwts` sul progetto API, così il tool aggiorna `appsettings.Development.json` con issuer e audience del ramo dev-only.
+
+Motivo tecnico:
+
+- `dotnet user-jwts` genera JWT locali pensati per `JwtBearer`, non `Reference Token` validati via introspection;
+- la API del progetto usa come flusso reale `IdentityServer + Reference Token + introspection`, quindi l'uso diretto di `user-jwts` avrebbe rotto la coerenza architetturale se usato come sostituto;
+- il doppio schema consente test manuali rapidi da CLI/Postman senza alterare il comportamento reale dell'applicazione.
+
+Impatto:
+
+- in ambiente `Development` la API accetta sia i token reali emessi dall'IdentityServer sia i JWT locali creati con `dotnet user-jwts`;
+- il flusso reale MVC/OIDC continua a passare da IdentityServer e introspection;
+- `user-jwts` resta confinato ai test manuali API e non sostituisce refresh token, revocation o logout OIDC.
+
+Esempi operativi verificati:
+
+- `dotnet user-jwts create --project ImageGallery.API --scheme DevJwt --name dev-jwt-read --role FreeUser --scope imagegalleryapi.read --claim given_name=DevJwtRead --claim paese=nl`
+- `dotnet user-jwts create --project ImageGallery.API --scheme DevJwt --name dev-jwt-write --role PayingUser --scope imagegalleryapi.write --claim given_name=DevJwtWrite --claim paese=be`
+
+Esito dei test:
+
+- `GET /api/images` con token `DevJwt` read -> `200`
+- `POST /api/images` con token `DevJwt` read -> `403`
+- `POST /api/images` con token `DevJwt` write e body non valido -> `400`, segnale che l'autorizzazione è passata e il rifiuto arriva dalla validazione del payload
+
+## Introduzione della collection Postman ordinata per test manuali API
+
+File coinvolti:
+
+- `ImageGallery.API.Postman.Collection.json`
+
+Correzione applicata:
+
+- aggiunta nella root della solution una collection Postman importabile;
+- i test hanno titoli numerati e descrittivi per indicare esplicitamente l'ordine di esecuzione;
+- le variabili operative usate dai test successivi vengono valorizzate automaticamente dai test precedenti, in particolare `createdImageId` e `deletedImageId`.
+
+Motivo tecnico:
+
+- per testare in modo ripetibile la API con Postman non basta elencare gli endpoint;
+- serve una sequenza stabile che distingua chiaramente i casi read-only, i controlli di autorizzazione e il CRUD minimo;
+- il caricamento automatico delle variabili evita di copiare a mano ID tra una request e la successiva e riduce gli errori manuali.
+
+Impatto:
+
+- la collection consente test ordinati di `GET`, `POST`, `PUT` e `DELETE` sugli endpoint immagini;
+- l'ordine consigliato e' incorporato nel nome di ogni test;
+- restano da valorizzare manualmente solo `bearerTokenRead` e `bearerTokenWrite`, mentre gli ID dinamici vengono propagati automaticamente dai test precedenti.
+
 ## Punti da verificare e allineare
 
 Va ricontrollato che in `AllowedScopes` del client siano coerenti:

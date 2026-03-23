@@ -1,0 +1,444 @@
+{
+  "info": {
+    "_postman_id": "4d3b84f3-7b6d-4f13-b346-6a9324e9e2f7",
+    "name": "ImageGallery API - DevJwt Ordered Tests",
+    "description": "Collection Postman per test manuali ordinati della ImageGallery API usando token DevJwt generati con dotnet user-jwts. L'ordine di esecuzione e' indicato dal prefisso numerico del nome richiesta. Le variabili create dai test precedenti vengono valorizzate automaticamente.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "01 - GET immagini con token read restituisce 200",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "pm.test(\"La risposta e' un array\", function () {",
+              "    pm.expect(Array.isArray(json)).to.eql(true);",
+              "});",
+              "",
+              "pm.collectionVariables.set(\"lastListCount\", Array.isArray(json) ? json.length.toString() : \"0\");"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearerTokenRead}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/images",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "images"
+          ]
+        },
+        "description": "Prerequisito: valorizzare bearerTokenRead con un token DevJwt avente scope imagegalleryapi.read."
+      },
+      "response": []
+    },
+    {
+      "name": "02 - POST immagine con token read restituisce 403",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code 403\", function () {",
+              "    pm.response.to.have.status(403);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearerTokenRead}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Title\": \"Postman read should fail\",\n  \"Bytes\": [255, 216, 255, 217]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/images",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "images"
+          ]
+        },
+        "description": "Verifica che il token read non possa creare immagini."
+      },
+      "response": []
+    },
+    {
+      "name": "03 - POST immagine con token write crea la risorsa e salva createdImageId",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code 201\", function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "pm.test(\"La risposta contiene l'id creato\", function () {",
+              "    pm.expect(json).to.have.property(\"id\");",
+              "});",
+              "",
+              "pm.collectionVariables.set(\"createdImageId\", json.id);",
+              "pm.collectionVariables.set(\"createdImageTitle\", json.title || \"\");"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearerTokenWrite}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Title\": \"{{newImageTitle}}\",\n  \"Bytes\": [255, 216, 255, 217]\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/images",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "images"
+          ]
+        },
+        "description": "Prerequisito: valorizzare bearerTokenWrite con un token DevJwt avente scope imagegalleryapi.write, role PayingUser e claim paese=be."
+      },
+      "response": []
+    },
+    {
+      "name": "04 - GET immagine creata con token write usa createdImageId dal test precedente",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "pm.test(\"L'immagine letta corrisponde all'id creato\", function () {",
+              "    pm.expect(json.id).to.eql(pm.collectionVariables.get(\"createdImageId\"));",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearerTokenWrite}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/images/{{createdImageId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "images",
+            "{{createdImageId}}"
+          ]
+        },
+        "description": "Usa automaticamente la variabile createdImageId impostata dal test 03."
+      },
+      "response": []
+    },
+    {
+      "name": "05 - PUT immagine creata con token write aggiorna il titolo usando createdImageId",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code 204\", function () {",
+              "    pm.response.to.have.status(204);",
+              "});",
+              "pm.collectionVariables.set(\"updatedImageTitle\", pm.collectionVariables.get(\"updatedImageTitle\") || \"Postman Updated Image Title\");"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearerTokenWrite}}",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"Title\": \"{{updatedImageTitle}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/images/{{createdImageId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "images",
+            "{{createdImageId}}"
+          ]
+        },
+        "description": "Aggiorna l'immagine creata al test 03."
+      },
+      "response": []
+    },
+    {
+      "name": "06 - GET immagine aggiornata verifica il nuovo titolo usando createdImageId",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const json = pm.response.json();",
+              "pm.test(\"Il titolo aggiornato e' quello atteso\", function () {",
+              "    pm.expect(json.title).to.eql(pm.collectionVariables.get(\"updatedImageTitle\"));",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearerTokenWrite}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/images/{{createdImageId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "images",
+            "{{createdImageId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "07 - DELETE immagine creata con token write rimuove la risorsa usando createdImageId",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code 204\", function () {",
+              "    pm.response.to.have.status(204);",
+              "});",
+              "pm.collectionVariables.set(\"deletedImageId\", pm.collectionVariables.get(\"createdImageId\"));"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearerTokenWrite}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/images/{{createdImageId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "images",
+            "{{createdImageId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "08 - GET immagine eliminata verifica 404 usando deletedImageId dal test precedente",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code 404\", function () {",
+              "    pm.response.to.have.status(404);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{bearerTokenWrite}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/images/{{deletedImageId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "images",
+            "{{deletedImageId}}"
+          ]
+        },
+        "description": "Usa automaticamente deletedImageId impostata dal test 07."
+      },
+      "response": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://localhost:7162",
+      "type": "string"
+    },
+    {
+      "key": "bearerTokenRead",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "bearerTokenWrite",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "newImageTitle",
+      "value": "Postman Created Image Title",
+      "type": "string"
+    },
+    {
+      "key": "updatedImageTitle",
+      "value": "Postman Updated Image Title",
+      "type": "string"
+    },
+    {
+      "key": "createdImageId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "deletedImageId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "lastListCount",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

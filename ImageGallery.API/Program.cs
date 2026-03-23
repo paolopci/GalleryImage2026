@@ -4,6 +4,7 @@ using ImageGallery.API.Authorization;
 using ImageGallery.API.DbContext;
 using ImageGallery.API.Services;
 using ImageGallery.Authorization;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -28,9 +29,38 @@ builder.Services.AddHttpContextAccessor();
 // restano con i nomi originali presenti nel token.
 JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
+const string DynamicBearerScheme = "DynamicBearer";
+const string IntrospectionScheme = "Introspection";
+const string DevJwtScheme = "DevJwt";
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddOAuth2Introspection(options =>
+var authenticationBuilder = builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = DynamicBearerScheme;
+    options.DefaultChallengeScheme = DynamicBearerScheme;
+    options.DefaultScheme = DynamicBearerScheme;
+})
+    .AddPolicyScheme(DynamicBearerScheme, "Selezione dinamica bearer", options =>
+    {
+        options.ForwardDefaultSelector = context =>
+        {
+            var authorizationHeader = context.Request.Headers.Authorization.ToString();
+            const string bearerPrefix = "Bearer ";
+
+            if (builder.Environment.IsDevelopment()
+                && authorizationHeader.StartsWith(bearerPrefix, StringComparison.OrdinalIgnoreCase))
+            {
+                var token = authorizationHeader[bearerPrefix.Length..].Trim();
+                if (token.Count(c => c == '.') == 2)
+                {
+                    return DevJwtScheme;
+                }
+            }
+
+            return IntrospectionScheme;
+        };
+    });
+
+authenticationBuilder.AddOAuth2Introspection(IntrospectionScheme, options =>
     {
         // L'API valida i reference token chiedendo all'IdentityServer locale
         // l'introspection del bearer token ricevuto.
@@ -40,6 +70,23 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.NameClaimType = "given_name";
         options.RoleClaimType = "role";
     });
+
+if (builder.Environment.IsDevelopment())
+{
+    authenticationBuilder.AddJwtBearer(DevJwtScheme, options =>
+    {
+        var devJwtSection = builder.Configuration.GetSection($"Authentication:Schemes:{DevJwtScheme}");
+        if (devJwtSection.Exists())
+        {
+            devJwtSection.Bind(options);
+        }
+
+        options.MapInboundClaims = false;
+        options.TokenValidationParameters ??= new();
+        options.TokenValidationParameters.NameClaimType = "given_name";
+        options.TokenValidationParameters.RoleClaimType = "role";
+    });
+}
 
 // Registra sia la policy di accesso generale alla API, basata sullo scope OAuth2,
 // sia la policy più restrittiva riusata per l'upload immagini.

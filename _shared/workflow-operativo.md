@@ -9,6 +9,13 @@ Se `AGENTS.md` non è stato letto nella richiesta corrente:
 - non usare tool;
 - non eseguire attività operative.
 
+Se il task richiede o può beneficiare di server MCP:
+- verifica dopo la lettura di `AGENTS.md` se i server MCP rilevanti sono configurati correttamente per il repository, la solution o l'ambiente corrente;
+- applica il controllo minimo definito dal repository in `AGENTS.md` e, in assenza di istruzioni specifiche, verifica almeno disponibilità del server richiesto e compatibilità con path, root, credenziali o servizi necessari;
+- se la configurazione MCP non è adeguata, dichiara in modo esplicito quale server manca o è configurato in modo non adatto;
+- non correggere automaticamente la configurazione MCP;
+- chiedi prima all'utente l'autorizzazione a eseguire la correzione.
+
 ## Pianificazione a step
 
 Dopo la lettura iniziale di `AGENTS.md`:
