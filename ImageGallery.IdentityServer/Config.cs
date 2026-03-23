@@ -18,8 +18,8 @@ public static class Config
 
             // Definisce una IdentityResource chiamata "roles" che espone il claim "role",
             // così i client che richiedono questo scope possono ricevere i ruoli dell'utente autenticato.
-            new IdentityResource("roles", "Your role(s)", new []{"role"}),
-            new IdentityResource("paese","The country you're living in",new List<string>(){"paese"})
+            new IdentityResource("roles", "Your role(s)", new[] { "role" }),
+            new IdentityResource("paese", "The country you're living in", new List<string> { "paese" }),
         };
 
     // Gli ApiScope descrivono i permessi delegati verso API protette.
@@ -31,9 +31,9 @@ public static class Config
             // Questo scope rappresenta un permesso applicativo più esplicito:
             // il client che lo richiede ottiene accesso completo alle operazioni
             // esposte dall'API Image Gallery.
-            new ApiScope("imagegalleryapi.fullaccess","Image Gallery API Full Access"),
-            new ApiScope("imagegalleryapi.read","Image Gallery API Read"),
-            new ApiScope("imagegalleryapi.write","Image Gallery API Write"),
+            new ApiScope("imagegalleryapi.fullaccess", "Image Gallery API Full Access"),
+            new ApiScope("imagegalleryapi.read", "Image Gallery API Read"),
+            new ApiScope("imagegalleryapi.write", "Image Gallery API Write"),
         };
 
     // Gli ApiResources rappresentano le API protette esposte dall'IdentityServer.
@@ -42,16 +42,19 @@ public static class Config
     public static IEnumerable<ApiResource> ApiResources =>
         new ApiResource[]
         {
-           new ApiResource("imagegalleryapi", "Image Gallery API")
+            new ApiResource("imagegalleryapi", "Image Gallery API")
             {
-              Scopes = { "imagegalleryapi.fullaccess",
-                         "imagegalleryapi.read",
-                         "imagegalleryapi.write"
-                       },
+                Scopes =
+                {
+                    "imagegalleryapi.fullaccess",
+                    "imagegalleryapi.read",
+                    "imagegalleryapi.write",
+                },
+                ApiSecrets={new Secret("secret".Sha256())},
 
-              UserClaims = { "given_name" , "role", "paese" }
-            }
-    };
+                UserClaims = { "given_name", "role", "paese" },
+            },
+        };
 
     // La sezione Clients definisce le applicazioni che possono usare questo
     // IdentityServer come Identity Provider (IDP).
@@ -63,15 +66,25 @@ public static class Config
             // che delega il login all'IDP invece di autenticare l'utente localmente.
             new Client()
             {
-                ClientName="Image Gallery",
+                ClientName = "Image Gallery",
                 // Manteniamo lo stesso ClientId usato dal client MVC,
                 // così l'IdentityServer riconosce correttamente il chiamante.
-                ClientId="imagegalleryclient",
+                ClientId = "imagegalleryclient",
 
                 // Authorization Code Flow:
                 // il browser viene reindirizzato all'IDP per il login,
                 // poi il client riceve un authorization code da scambiare con i token.
-                AllowedGrantTypes=GrantTypes.Code,
+                AllowedGrantTypes = GrantTypes.Code,
+                AccessTokenType=AccessTokenType.Reference,
+                // questo se voglio usare i refresh Token
+                AllowOfflineAccess = true,
+                // Se true, quando il client usa un refresh token l'IdentityServer
+                // rigenera i claim dell'access token in base allo stato attuale dell'utente.
+                UpdateAccessTokenClaimsOnRefresh = true,
+                // AccessTokenLifetime =
+                // IdentityTokenLifetime =
+                // AuthorizationCodeLifetime =
+                AccessTokenLifetime = 120,
                 RedirectUris =
                 {
                     // Endpoint di callback del client MVC.
@@ -95,12 +108,13 @@ public static class Config
                     // profile permette il rilascio di claim di profilo base.
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
+                    IdentityServerConstants.StandardScopes.OfflineAccess,
                     "roles",
-                   // "imagegalleryapi.fullaccess",
-                   "imagegalleryapi.read",
-                   "imagegalleryapi.write",
+                    // "imagegalleryapi.fullaccess",
+                    "imagegalleryapi.read",
+                    "imagegalleryapi.write",
 
-                    "paese"
+                    "paese",
                 },
                 ClientSecrets =
                 {
@@ -111,8 +125,31 @@ public static class Config
 
                 // Se true, l'IDP mostra all'utente una schermata di consenso
                 // prima di rilasciare i claim/scope richiesti dal client.
-                RequireConsent=true
+                RequireConsent = true,
+            },
+            new Client()
+            {
+                ClientName = "Image Gallery Postman",
+                ClientId = "imagegallerypostman",
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                AccessTokenType = AccessTokenType.Reference,
+                AccessTokenLifetime = 120,
+                AllowedScopes =
+                {
+                    IdentityServerConstants.StandardScopes.OpenId,
+                    IdentityServerConstants.StandardScopes.Profile,
+                    "roles",
+                    "paese",
+                    "imagegalleryapi.read",
+                    "imagegalleryapi.write",
+                },
+                ClientSecrets =
+                {
+                    new Secret("secret".Sha256())
+                },
 
-            }
+                // Client dev-only usato dalla collection Postman con utenti seedati locali.
+                RequireConsent = false,
+            },
         };
 }

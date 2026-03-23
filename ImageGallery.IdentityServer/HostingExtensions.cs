@@ -1,4 +1,6 @@
 using System.Globalization;
+using Duende.IdentityServer.EntityFramework.DbContexts;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Serilog.Filters;
 
@@ -45,11 +47,22 @@ internal static class HostingExtensions
         // uncomment if you want to add a UI
         builder.Services.AddRazorPages();
 
+        var persistedGrantConnectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+            ?? throw new InvalidOperationException("Missing connection string 'DefaultConnection' for IdentityServer operational store.");
+
         builder.Services.AddIdentityServer()
             .AddInMemoryIdentityResources(Config.IdentityResources)
             .AddInMemoryApiResources(Config.ApiResources)
             .AddInMemoryApiScopes(Config.ApiScopes)
             .AddInMemoryClients(Config.Clients)
+            .AddOperationalStore(options =>
+            {
+                options.ConfigureDbContext = dbContextBuilder =>
+                    dbContextBuilder.UseSqlServer(
+                        persistedGrantConnectionString,
+                        sqlServerOptions =>
+                            sqlServerOptions.MigrationsAssembly(typeof(HostingExtensions).Assembly.GetName().Name));
+            })
             .AddTestUsers(TestUsers.Users)
             .AddLicenseSummary();
 
@@ -63,6 +76,12 @@ internal static class HostingExtensions
         if (app.Environment.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
+        }
+
+        using (var scope = app.Services.CreateScope())
+        {
+            var persistedGrantDbContext = scope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>();
+            persistedGrantDbContext.Database.Migrate();
         }
 
         // uncomment if you want to add a UI

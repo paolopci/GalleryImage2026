@@ -519,6 +519,283 @@ Impatto:
 - si evita il rischio di perdere l'header `Authorization` durante il redirect;
 - il `401 Unauthorized` non dipende più dal protocollo usato verso la API.
 
+## Correzione applicata per risolvere `AddUserAccessTokenHandler()` non disponibile nel client MVC
+
+File coinvolti:
+
+- `ImageGallery.Client/ImageGallery.Client.csproj`
+- `ImageGallery.Client/Program.cs`
+
+Correzione applicata:
+
+- aggiunto il package `Duende.AccessTokenManagement.OpenIdConnect` al progetto MVC;
+- registrato `AddOpenIdConnectAccessTokenManagement()` dopo la configurazione di cookie + OpenID Connect;
+- mantenuta la registrazione dell'`HttpClient` `APIClient` con `.AddUserAccessTokenHandler()` per allegare automaticamente l'access token dell'utente corrente alle chiamate verso la API.
+
+Motivo tecnico:
+
+- `AddUserAccessTokenHandler()` non è esposto dal solo package `Microsoft.AspNetCore.Authentication.OpenIdConnect`;
+- il metodo appartiene all'integrazione di access token management per applicazioni web OIDC e richiede anche la registrazione dei servizi dedicati;
+- senza questa libreria il progetto compila con simbolo non risolto e il client non può delegare in modo automatico l'invio e il refresh del token utente.
+
+Impatto:
+
+- il progetto client ha ora la dipendenza corretta per usare l'handler automatico sui client HTTP;
+- le chiamate dell'`APIClient` possono usare il token dell'utente autenticato senza impostare manualmente l'header Bearer a ogni richiesta;
+- il flusso OIDC del client resta coerente con `SaveTokens = true` e con la richiesta dello scope `offline_access`.
+
+## Correzione applicata per rimuovere l'aggiunta manuale del Bearer token nel controller MVC
+
+File coinvolti:
+
+- `ImageGallery.Client/Controllers/GalleryController.cs`
+- `ImageGallery.Client/Program.cs`
+
+Correzione applicata:
+
+- rimosso dal controller il metodo privato che leggeva l'access token da `HttpContext` e impostava manualmente `Authorization: Bearer ...`;
+- eliminate le chiamate ridondanti a quel metodo prima delle richieste HTTP verso la API;
+- mantenuto l'uso del named client `APIClient`, già configurato in `Program.cs` con `.AddUserAccessTokenHandler()`.
+
+Motivo tecnico:
+
+- dopo l'introduzione di `Duende.AccessTokenManagement.OpenIdConnect`, il client HTTP è già in grado di allegare automaticamente l'access token dell'utente autenticato;
+- mantenere anche l'impostazione manuale dell'header nel controller crea una doppia responsabilità e rende più difficile capire quale componente stia propagando davvero il token;
+- centralizzare questo comportamento nella configurazione dell'`HttpClient` riduce il codice ripetuto e rende il flusso più coerente.
+
+Impatto:
+
+- il controller MVC resta focalizzato sulla logica applicativa e non sulla gestione del Bearer token;
+- tutte le chiamate fatte tramite `APIClient` usano la stessa strategia centralizzata di propagazione del token;
+- resta invariata la lettura dei token in `LoginIdentityInformation()` per logging locale e diagnostica in ambiente `Development`.
+
+## Correzione applicata dopo errore su claim `sub` mancante nella API
+
+File coinvolti:
+
+- `ImageGallery.API/Program.cs`
+- `ImageGallery.API/Controllers/ImagesController.cs`
+
+Correzione applicata:
+
+- mantenuta la protezione globale di `ImagesController` con `[Authorize]`, così gli endpoint non entrano nel controller quando la richiesta è anonima;
+- reso più esplicito il messaggio di errore in `GetOwnerId()` quando un utente autenticato non contiene il claim `sub`;
+- riallineata la API a `AddOAuth2Introspection(...)` invece di `AddJwtBearer(...)`;
+- configurata l'introspection con `ClientId = imagegalleryapi` e `ClientSecret = secret`, coerenti con `ApiSecrets` della resource API in `Config.cs`.
+
+Motivo tecnico:
+
+- il client MVC è configurato per ricevere `AccessTokenType = Reference`, quindi il bearer token inviato alla API non è un JWT validabile localmente;
+- per i Reference Token la API deve interrogare l'IdentityServer tramite introspection, usando credenziali della resource protetta;
+- senza questo allineamento la API risponde `401` perché tenta di interpretare come JWT un token opaco/reference.
+
+Impatto:
+
+- la API può validare correttamente i Reference Token emessi dall'IdentityServer locale;
+- le richieste senza token valido continuano a essere bloccate dal middleware prima di entrare negli endpoint immagini;
+- quando l'introspection ha esito positivo, la API può leggere `sub` dal principal autenticato e usarlo come identificativo del proprietario.
+
+## Allineamento finale del refresh token con `offline_access`
+
+File coinvolti:
+
+- `ImageGallery.IdentityServer/Config.cs`
+- `ImageGallery.Client/Program.cs`
+
+Correzione applicata:
+
+- mantenuta nel client MVC la richiesta dello scope `offline_access`;
+- aggiunto in modo esplicito `IdentityServerConstants.StandardScopes.OfflineAccess` agli `AllowedScopes` del client `imagegalleryclient`.
+
+Motivo tecnico:
+
+- il client MVC usa `SaveTokens = true` e `AddOpenIdConnectAccessTokenManagement()`, quindi il refresh automatico dell'access token dipende dalla presenza coerente del refresh token;
+- rendere esplicita l'autorizzazione allo scope `offline_access` lato IdentityServer elimina ambiguità nella configurazione del client e allinea in modo chiaro richiesta OIDC ed emissione del refresh token.
+
+Impatto:
+
+- il flusso `Reference Token` resta coerente anche quando l'access token scade;
+- il client MVC è configurato in modo esplicito per ottenere e usare il refresh token nelle chiamate alla API.
+
+## Chiarimento finale sull'autorizzazione di `ImagesController`
+
+File coinvolto:
+
+- `ImageGallery.API/Controllers/ImagesController.cs`
+
+Allineamento applicato:
+
+- confermata la protezione globale del controller con `[Authorize]`;
+- confermato l'uso di policy più restrittive solo sulle operazioni sensibili, come scrittura e ownership della risorsa;
+- corretto il commento introduttivo del controller per riflettere il comportamento reale del codice.
+
+Motivo tecnico:
+
+- nel modello corrente a `Reference Token`, il requisito minimo per tutte le azioni è avere un principal autenticato ottenuto via introspection;
+- imporre una policy di scope unica a livello controller sarebbe una scelta autorizzativa più restrittiva, ma non è un requisito tecnico necessario per far funzionare correttamente i `Reference Token`.
+
+Impatto:
+
+- il `GET` immagini continua a richiedere autenticazione valida;
+- le operazioni di modifica restano protette da policy dedicate come `UserCanAddImage`, `ClientApplicationCanWrite` e `MustOwnImage`;
+- la documentazione ora riflette il comportamento reale del controller.
+
+## Introduzione del persisted grant store reale nell'IdentityServer
+
+File coinvolti:
+
+- `ImageGallery.IdentityServer/ImageGallery.IdentityServer.csproj`
+- `ImageGallery.IdentityServer/HostingExtensions.cs`
+- `ImageGallery.IdentityServer/Migrations/PersistedGrantDb/*`
+
+Correzione applicata:
+
+- aggiunto `Duende.IdentityServer.EntityFramework` al progetto IdentityServer;
+- configurato `AddOperationalStore(...)` con SQL Server per il `PersistedGrantDbContext`;
+- aggiunta una migration dedicata al persisted grant store;
+- configurata l'applicazione automatica delle migration all'avvio dell'IdentityServer.
+
+Motivo tecnico:
+
+- con `Reference Token`, refresh token e revocation, i persisted grants non devono restare solo in memoria;
+- lo store in-memory è utile per demo rapide, ma non è adatto a una revocation affidabile e non sopravvive ai riavvii del processo;
+- l'operational store persistente è la base corretta per conservare authorization code, reference token, refresh token e stato di revoca.
+
+Impatto:
+
+- il ciclo di vita dei token gestiti dall'IdentityServer è ora persistente su database;
+- la revocation non dipende più dalla vita del processo locale;
+- introspection e revocation lavorano contro uno stato token coerente e durevole.
+
+## Introduzione del logout coordinato con token revocation nel client MVC
+
+File coinvolti:
+
+- `ImageGallery.Client/Program.cs`
+- `ImageGallery.Client/Controllers/AuthenticationController.cs`
+- `ImageGallery.Client/Services/ITokenRevocationService.cs`
+- `ImageGallery.Client/Services/TokenRevocationService.cs`
+
+Correzione applicata:
+
+- registrato un client HTTP dedicato al revocation endpoint dell'IdentityServer;
+- introdotto il servizio `ITokenRevocationService` per centralizzare la revoca dei token dell'utente corrente;
+- aggiornato il logout MVC per revocare prima `refresh_token`, poi `access_token`, e solo dopo eseguire `SignOut(...)`.
+
+Motivo tecnico:
+
+- il client salva localmente i token OIDC dell'utente autenticato;
+- fare solo `SignOut(...)` chiude la sessione locale e quella OIDC, ma non revoca automaticamente i token già rilasciati;
+- con `Reference Token` e introspection è una best practice tentare la revoca esplicita, soprattutto del refresh token, così il token non può più essere riutilizzato dopo il logout.
+
+Impatto:
+
+- il logout utente ora include anche un tentativo esplicito di revocation;
+- l'implementazione è `fail-open`: se la revocation fallisce, il logout prosegue comunque e l'errore viene tracciato nei log;
+- il client MVC separa chiaramente le chiamate business verso la API dalle chiamate tecniche verso il revocation endpoint.
+
+## Introduzione di `dotnet user-jwts` come modalità dev-only per test manuali API
+
+File coinvolti:
+
+- `ImageGallery.API/Program.cs`
+- `ImageGallery.API/appsettings.Development.json`
+
+Correzione applicata:
+
+- mantenuto `AddOAuth2Introspection(...)` come percorso standard della solution;
+- aggiunto in `Development` uno schema `JwtBearer` secondario chiamato `DevJwt`;
+- aggiunto un `policy scheme` dinamico che instrada i bearer token JWT verso `DevJwt` e i token opachi/reference verso l'introspection;
+- abilitato `dotnet user-jwts` sul progetto API, così il tool aggiorna `appsettings.Development.json` con issuer e audience del ramo dev-only.
+
+Motivo tecnico:
+
+- `dotnet user-jwts` genera JWT locali pensati per `JwtBearer`, non `Reference Token` validati via introspection;
+- la API del progetto usa come flusso reale `IdentityServer + Reference Token + introspection`, quindi l'uso diretto di `user-jwts` avrebbe rotto la coerenza architetturale se usato come sostituto;
+- il doppio schema consente test manuali rapidi da CLI/Postman senza alterare il comportamento reale dell'applicazione.
+
+Impatto:
+
+- in ambiente `Development` la API accetta sia i token reali emessi dall'IdentityServer sia i JWT locali creati con `dotnet user-jwts`;
+- il flusso reale MVC/OIDC continua a passare da IdentityServer e introspection;
+- `user-jwts` resta confinato ai test manuali API e non sostituisce refresh token, revocation o logout OIDC.
+
+Esempi operativi verificati:
+
+- `dotnet user-jwts create --project ImageGallery.API --scheme DevJwt --name dev-jwt-read --role FreeUser --scope imagegalleryapi.read --claim given_name=DevJwtRead --claim paese=nl`
+- `dotnet user-jwts create --project ImageGallery.API --scheme DevJwt --name dev-jwt-write --role PayingUser --scope imagegalleryapi.write --claim given_name=DevJwtWrite --claim paese=be`
+
+Esito dei test:
+
+- `GET /api/images` con token `DevJwt` read -> `200`
+- `POST /api/images` con token `DevJwt` read -> `403`
+- `POST /api/images` con token `DevJwt` write e body non valido -> `400`, segnale che l'autorizzazione è passata e il rifiuto arriva dalla validazione del payload
+
+## Introduzione della collection Postman ordinata per test manuali API
+
+File coinvolti:
+
+- `ImageGallery.API.Postman.Collection.json`
+
+Correzione applicata:
+
+- aggiunta nella root della solution una collection Postman importabile;
+- i test hanno titoli numerati e descrittivi per indicare esplicitamente l'ordine di esecuzione;
+- le variabili operative usate dai test successivi vengono valorizzate automaticamente dai test precedenti, in particolare `createdImageId` e `deletedImageId`.
+
+Motivo tecnico:
+
+- per testare in modo ripetibile la API con Postman non basta elencare gli endpoint;
+- serve una sequenza stabile che distingua chiaramente i casi read-only, i controlli di autorizzazione e il CRUD minimo;
+- il caricamento automatico delle variabili evita di copiare a mano ID tra una request e la successiva e riduce gli errori manuali.
+
+Impatto:
+
+- la collection consente test ordinati di `GET`, `POST`, `PUT` e `DELETE` sugli endpoint immagini;
+- l'ordine consigliato e' incorporato nel nome di ogni test;
+- restano da valorizzare manualmente solo `bearerTokenRead` e `bearerTokenWrite`, mentre gli ID dinamici vengono propagati automaticamente dai test precedenti.
+
+## Aggiornamento della collection Postman per token reali IdentityServer
+
+File coinvolti:
+
+- `ImageGallery.API.Postman.Collection.json`
+- `ImageGallery.IdentityServer/Config.cs`
+
+Correzione applicata:
+
+- sostituita la collection basata su `DevJwt` con una collection ordinata che ottiene i token direttamente dall'IdentityServer locale;
+- aggiunti come primi item `1.1` e `1.2` per ottenere rispettivamente il token read di `David` e il token write di `Emma`;
+- rinumerati i test successivi, così `02 - GET immagini con token read restituisce 200` parte subito dopo i login;
+- introdotto nell'IdentityServer un client dedicato `imagegallerypostman` con `ResourceOwnerPassword`, secret condiviso e `Reference Token`, pensato per i test manuali della collection;
+- configurate nella collection le variabili `identityServerUrl`, `postmanClientId`, `postmanClientSecret`, `bearerTokenRead` e `bearerTokenWrite`.
+
+Motivo tecnico:
+
+- la collection precedente richiedeva di incollare manualmente JWT `DevJwt`, quindi non esercitava il flusso reale dell'IDP della solution;
+- per test ripetibili da Postman serviva un modo semplice per ottenere token emessi davvero da Duende IdentityServer usando gli utenti seedati locali;
+- i test di lettura e scrittura richiedono token diversi perché la API controlla sia lo scope `imagegalleryapi.write` sia i claim utente necessari alle policy.
+
+Impatto:
+
+- la collection ora testa il percorso reale `IdentityServer -> token endpoint -> API con introspection`;
+- i token ottenuti ai primi due step vengono salvati automaticamente nelle collection variables e riusati da tutti i test successivi;
+- `David` resta il profilo read-only, mentre `Emma` resta il profilo write con i claim necessari a creare, aggiornare e cancellare immagini;
+- il client `imagegallerypostman` è pensato per sviluppo/test manuale e non sostituisce il client MVC in authorization code flow.
+- la sequenza della collection e' ora leggibile in due blocchi distinti: test iniziali `David read-only` per validare lettura e divieto di scrittura, seguiti dal blocco `Emma CRUD` che crea, aggiorna e cancella solo la propria immagine di test.
+
+Nota sui token disponibili:
+
+- la collection Postman attuale usa `grant_type=password` tramite il client `imagegallerypostman`, quindi salva e riusa operativamente il solo `access_token`;
+- questo comportamento è sufficiente per i test API perché la Web API usa il bearer token per autenticazione, scope e ownership delle immagini;
+- il client MVC della solution usa invece un flusso OpenID Connect `authorization code` con `SaveTokens = true` e scope `offline_access`, per questo può recuperare anche `identity_token` e `refresh_token`;
+- se si vuole vedere in collection anche `identity_token` e `refresh_token` come nel flusso MVC, non basta leggere campi aggiuntivi nella risposta: serve usare un flusso OIDC compatibile oppure esporre i token già ottenuti dal login reale del client MVC.
+- per ridurre i problemi in Postman, i test `1.1` e `1.2` salvano ora i token sia come collection variables sia come environment variables; se un request successivo mostra ancora `{{bearerTokenRead}}` o `{{bearerTokenWrite}}` in rosso, il caso più probabile è che il login non sia stato eseguito con successo oppure che l'IdentityServer non sia stato riavviato dopo l'introduzione del client `imagegallerypostman`.
+- per la stessa ragione, i test CRUD salvano anche `createdImageId`, `createdImageTitle`, `updatedImageTitle` e `deletedImageId` nelle environment variables oltre che nelle collection variables, così i request successivi risolvono in modo più robusto gli identificativi dinamici dell'immagine creata al test `04`.
+- i `POST` della collection usano ora `bytes` come stringa base64 di test, perché il modello `ImageForCreation.Bytes` è un `byte[]` e il binding JSON di ASP.NET Core è affidabile con payload base64, mentre l'array numerico usato in precedenza generava errori `400 Bad Request` sul body.
+- nella sequenza CRUD della collection, il test `04` crea un'immagine con il token write di Emma e salva `createdImageId`; i test `05`, `06`, `07`, `08` e `09` lavorano esplicitamente solo su quella stessa immagine, così i test manuali non toccano altre immagini dell'utente.
+- il test finale sulla risorsa eliminata verifica `403` e non `404`: nel codice attuale `MustOwnImageHandler` applica prima il controllo di ownership sulla route `id` e fallisce l'autorizzazione prima che `GetImage` possa arrivare al ramo `NotFound()`, quindi il comportamento effettivo osservabile dopo la delete e' `Forbid`.
+
 ## Punti da verificare e allineare
 
 Va ricontrollato che in `AllowedScopes` del client siano coerenti:

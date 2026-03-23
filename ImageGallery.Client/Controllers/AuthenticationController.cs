@@ -3,11 +3,23 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ImageGallery.Client.Services;
 
 namespace ImageGallery.Client.Controllers
 {
     public class AuthenticationController : Controller
     {
+        private readonly ITokenRevocationService _tokenRevocationService;
+        private readonly ILogger<AuthenticationController> _logger;
+
+        public AuthenticationController(
+            ITokenRevocationService tokenRevocationService,
+            ILogger<AuthenticationController> logger)
+        {
+            _tokenRevocationService = tokenRevocationService ?? throw new ArgumentNullException(nameof(tokenRevocationService));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        }
+
         // Endpoint opzionale di appoggio per viste o redirect legati all'autenticazione.
         public IActionResult Index()
         {
@@ -33,10 +45,19 @@ namespace ImageGallery.Client.Controllers
         }
 
         [Authorize]
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
             // Dopo il logout completo, l'utente torna alla home pubblica del client.
             var callbackUrl = Url.Action("Index", "Home");
+
+            try
+            {
+                await _tokenRevocationService.RevokeCurrentUserTokensAsync(HttpContext, HttpContext.RequestAborted);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Token revocation failed during logout. Continuing with sign-out.");
+            }
 
             // SignOut esegue due operazioni coordinate:
             // 1. chiude il cookie locale del client MVC, cioè la sessione applicativa;

@@ -1,13 +1,14 @@
 using AutoMapper;
+using Duende.AspNetCore.Authentication.OAuth2Introspection;
 using ImageGallery.API.Authorization;
 using ImageGallery.API.DbContext;
 using ImageGallery.API.Services;
 using ImageGallery.Authorization;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.JsonWebTokens;
-using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,31 +29,64 @@ builder.Services.AddHttpContextAccessor();
 // restano con i nomi originali presenti nel token.
 JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
+const string DynamicBearerScheme = "DynamicBearer";
+const string IntrospectionScheme = "Introspection";
+const string DevJwtScheme = "DevJwt";
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
+var authenticationBuilder = builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = DynamicBearerScheme;
+    options.DefaultChallengeScheme = DynamicBearerScheme;
+    options.DefaultScheme = DynamicBearerScheme;
+})
+    .AddPolicyScheme(DynamicBearerScheme, "Selezione dinamica bearer", options =>
     {
-        // L'API si fida dei token emessi dall'IdentityServer locale.
-        options.Authority = "https://localhost:5001";
-
-        // L'audience deve corrispondere al nome della ApiResource definita nell'IDP.
-        // utile se in futuro vuoi aggiungere altre regole di validazione.
-        options.TokenValidationParameters = new TokenValidationParameters
+        options.ForwardDefaultSelector = context =>
         {
-            ValidateAudience = true,
-            // serve a verificare che il token sia destinato a questa API
-            ValidAudience = "imagegalleryapi",
+            var authorizationHeader = context.Request.Headers.Authorization.ToString();
+            const string bearerPrefix = "Bearer ";
 
-            // Indica quale claim del token deve essere usato come nome dell'utente
-            // autenticato all'interno dell'applicazione.
-            NameClaimType = "given_name",
+            if (builder.Environment.IsDevelopment()
+                && authorizationHeader.StartsWith(bearerPrefix, StringComparison.OrdinalIgnoreCase))
+            {
+                var token = authorizationHeader[bearerPrefix.Length..].Trim();
+                if (token.Count(c => c == '.') == 2)
+                {
+                    return DevJwtScheme;
+                }
+            }
 
-            // Indica quale claim del token contiene i ruoli dell'utente,
-            // così ASP.NET Core può usarli nelle autorizzazioni basate sui ruoli.
-            RoleClaimType = "role"
-
+            return IntrospectionScheme;
         };
     });
+
+authenticationBuilder.AddOAuth2Introspection(IntrospectionScheme, options =>
+    {
+        // L'API valida i reference token chiedendo all'IdentityServer locale
+        // l'introspection del bearer token ricevuto.
+        options.Authority = "https://localhost:5001";
+        options.ClientId = "imagegalleryapi";
+        options.ClientSecret = "secret";
+        options.NameClaimType = "given_name";
+        options.RoleClaimType = "role";
+    });
+
+if (builder.Environment.IsDevelopment())
+{
+    authenticationBuilder.AddJwtBearer(DevJwtScheme, options =>
+    {
+        var devJwtSection = builder.Configuration.GetSection($"Authentication:Schemes:{DevJwtScheme}");
+        if (devJwtSection.Exists())
+        {
+            devJwtSection.Bind(options);
+        }
+
+        options.MapInboundClaims = false;
+        options.TokenValidationParameters ??= new();
+        options.TokenValidationParameters.NameClaimType = "given_name";
+        options.TokenValidationParameters.RoleClaimType = "role";
+    });
+}
 
 // Registra sia la policy di accesso generale alla API, basata sullo scope OAuth2,
 // sia la policy più restrittiva riusata per l'upload immagini.

@@ -1,4 +1,6 @@
+using Duende.AccessTokenManagement.OpenIdConnect;
 using ImageGallery.Authorization;
+using ImageGallery.Client.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -31,13 +33,9 @@ In pratica:
 */
 JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
-// create an HttpClient used for accessing the API
-builder.Services.AddHttpClient("APIClient", client =>
-{
-    client.BaseAddress = new Uri(builder.Configuration["ImageGalleryAPIRoot"]!);
-    client.DefaultRequestHeaders.Clear();
-    client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
-});
+const string IdentityServerAuthority = "https://localhost:5001";
+const string ImageGalleryClientId = "imagegalleryclient";
+const string ImageGalleryClientSecret = "secret";
 
 // configure authentication per usare OpenIDConnect
 builder.Services.AddAuthentication(options =>
@@ -51,9 +49,9 @@ builder.Services.AddAuthentication(options =>
       .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
       {
           options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-          options.Authority = "https://localhost:5001";
-          options.ClientId = "imagegalleryclient";
-          options.ClientSecret = "secret";
+          options.Authority = IdentityServerAuthority;
+          options.ClientId = ImageGalleryClientId;
+          options.ClientSecret = ImageGalleryClientSecret;
           options.ResponseType = "code";
 
           // questi sono gli ambiti che voglio richiedere, non serve aggiungerli sono
@@ -66,7 +64,6 @@ builder.Services.AddAuthentication(options =>
           //  -->   "https://localhost:7065/signin-oidc"
           // anche questo è impostato di default dal middleware quindi lo commento
           // options.CallbackPath = new PathString("signin-oidc");
-
           // permette di salvare i token ricevuti dal file provider identità IDP 
           // per poterli usare in seguito.
 
@@ -87,6 +84,7 @@ builder.Services.AddAuthentication(options =>
           options.Scope.Add("imagegalleryapi.read");
           options.Scope.Add("imagegalleryapi.write");
           options.Scope.Add("paese");  // voglio anche il paese ritorna da UserInfo
+          options.Scope.Add("offline_access");// questo se voglio usare il Refresh Token
 
           // Richiede i ruoli dell'utente all'IdentityServer e mappa il campo JSON "role"
           // come claim locale, così il client può usarlo per autorizzazioni e controlli sui ruoli.
@@ -104,6 +102,25 @@ builder.Services.AddAuthentication(options =>
           };
 
       });
+
+// Registra la gestione automatica dei token OIDC dell'utente autenticato,
+// inclusi recupero, storage nella sessione e refresh dell'access token.
+builder.Services.AddOpenIdConnectAccessTokenManagement();
+
+builder.Services.AddHttpClient("TokenRevocationClient", client =>
+{
+    client.BaseAddress = new Uri(IdentityServerAuthority);
+});
+
+builder.Services.AddScoped<ITokenRevocationService, TokenRevocationService>();
+
+// create an HttpClient used for accessing the API
+builder.Services.AddHttpClient("APIClient", client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["ImageGalleryAPIRoot"]!);
+    client.DefaultRequestHeaders.Clear();
+    client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
+}).AddUserAccessTokenHandler();
 
 // per usare la policy che ho aggiunto in ImageGallery.Authorization library
 builder.Services.AddAuthorization(authorizationOptions =>

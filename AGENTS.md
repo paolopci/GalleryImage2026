@@ -19,11 +19,26 @@ Questo repository adotta integralmente quel modulo come riferimento vincolante p
 
 Regola esplicita di avvio: alla prima interazione su questo progetto bisogna leggere sempre `AGENTS.md` come prima azione, prima di analisi, piano, uso tool o modifiche.
 
+Regola MCP per il repository: dopo la lettura iniziale di `AGENTS.md` e prima di proporre o usare tool dipendenti da MCP, verificare se i server MCP rilevanti per questa solution sono configurati correttamente per poter essere usati sul repository corrente. Per `ImageGallery` il controllo minimo deve includere:
+
+- disponibilità del server `csharp_custom`;
+- disponibilità del server `filesystem` con accesso alla root della solution;
+- disponibilità dei server `playwright` e/o `chrome_devtools` quando il task coinvolge UI, browser o pagine MVC/Blazor;
+- disponibilità di `microsoft-learn` quando servono documentazione o riferimenti Microsoft aggiornati;
+- eventuale configurazione di server dipendenti dall'ambiente o dal progetto, come database o altri servizi esterni, solo se richiesti dal task.
+
+Se il controllo dà esito negativo:
+
+- dichiarare in modo esplicito quale server manca o è configurato in modo non adatto alla solution;
+- non procedere con correzioni automatiche;
+- chiedere prima all'utente l'autorizzazione a eseguire la correzione della configurazione MCP.
+
 ## 4. Struttura Del Progetto E Organizzazione Dei Moduli
 
-La soluzione è suddivisa in quattro progetti .NET 10:
+La soluzione è suddivisa in cinque progetti .NET 10:
 
 - `ImageGallery.API/`: Web API ASP.NET Core (controller, avvio API, configurazione OpenAPI).
+- `ImageGallery.Authorization/`: libreria condivisa per policy e componenti di autorizzazione riusati dai progetti applicativi.
 - `ImageGallery.Client/`: front end MVC ASP.NET Core (`Controllers/`, `Views/`, asset statici in `wwwroot/`).
 - `ImageGallery.IdentityServer/`: server di identità OAuth2/OpenID Connect (Duende IdentityServer) per autenticazione e rilascio token.
 - `ImageGallery.Model/`: classi DTO/modello condivise usate dal client e dall'API.
