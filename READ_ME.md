@@ -720,6 +720,28 @@ Impatto:
 - il flusso reale MVC/OIDC continua a passare da IdentityServer e introspection;
 - `user-jwts` resta confinato ai test manuali API e non sostituisce refresh token, revocation o logout OIDC.
 
+## Correzione del `401` dovuto a redirect HTTP->HTTPS dell'API in sviluppo
+
+File coinvolti:
+
+- `ImageGallery.API/Program.cs`
+
+Correzione applicata:
+
+- `UseHttpsRedirection()` viene applicato solo fuori da `Development`.
+
+Motivo tecnico:
+
+- il client MVC usa `HttpClient` server-side verso `http://localhost:5212/api/images/`;
+- quando l'API in sviluppo viene avviata anche sul profilo HTTPS, il middleware di redirect può spostare la richiesta verso `https://localhost:7162`;
+- nel passaggio di redirect il bearer token non risulta più valido per la richiesta finale e l'API risponde `401`, mostrando solo `AuthenticationScheme: Introspection was challenged`.
+
+Impatto:
+
+- in sviluppo il canale tra client MVC e API resta stabile su `http://localhost:5212`;
+- la richiesta Bearer arriva direttamente all'endpoint API senza redirect intermedio;
+- il flusso OIDC locale risulta coerente sia quando i progetti vengono avviati da CLI sia quando vengono avviati da Visual Studio.
+
 Esempi operativi verificati:
 
 - `dotnet user-jwts create --project ImageGallery.API --scheme DevJwt --name dev-jwt-read --role FreeUser --scope imagegalleryapi.read --claim given_name=DevJwtRead --claim paese=nl`
@@ -855,6 +877,154 @@ Impatto:
 
 - i login locali di `David` e `Emma` su `Marvin.IDP` dipendono ora dalla configurazione sicura locale;
 - eventuali ricreazioni future del database non reintroducono password esplicite nel codice o nelle migration.
+
+## Correzione applicata dopo errore `invalid_redirect_uri` con `Marvin.IDP`
+
+File coinvolti:
+
+- `Marvin.IDP/Config.cs`
+- `ImageGallery.Client/Program.cs`
+
+Correzione applicata:
+
+- riallineata in `Marvin.IDP` la `RedirectUri` del client MVC a `https://localhost:7065/signin-oidc`;
+- riallineata in `Marvin.IDP` la `PostLogoutRedirectUri` del client MVC a `https://localhost:7065/signout-callback-oidc`;
+- corretto nel client MVC lo scope richiesto da `paese` a `country`;
+- corretta anche la mappatura claim locale del client da `paese` a `country`.
+
+Motivo tecnico:
+
+- `ImageGallery.Client` gira oggi sul profilo HTTPS `https://localhost:7065`, mentre `Marvin.IDP` accettava ancora solo il vecchio redirect `https://localhost:7184/signin-oidc`;
+- la richiesta OIDC falliva quindi già sul pushed authorization request endpoint con `invalid_redirect_uri`;
+- anche dopo quella correzione il login avrebbe avuto un secondo disallineamento, perché `Marvin.IDP` espone il claim/scope `country` mentre il client chiedeva ancora `paese`.
+
+Impatto:
+
+- il login OIDC del client MVC verso `Marvin.IDP` usa ora callback e post logout coerenti con il profilo di avvio reale del progetto;
+- il client richiede ora uno scope effettivamente definito dal nuovo IDP;
+- si elimina la causa del `400` su `/connect/par` e si evita un successivo `invalid_scope`.
+
+## Correzione applicata dopo `401 Unauthorized` della API con `Marvin.IDP`
+
+File coinvolti:
+
+- `Marvin.IDP/Config.cs`
+
+Correzione applicata:
+
+- aggiunto in `Marvin.IDP` un client tecnico confidenziale con `ClientId = imagegalleryapi`;
+- il client usa il secret già associato all'API (`IdentityServer:ApiResources:ImageGalleryApi:ApiSecret`);
+- il client è destinato all'autenticazione della Web API verso l'endpoint `/connect/introspect`.
+
+Motivo tecnico:
+
+- `ImageGallery.API` valida i bearer token opachi tramite OAuth2 introspection;
+- durante l'introspection l'API si autentica con `client_id = imagegalleryapi`;
+- `Marvin.IDP` esponeva la `ApiResource` `imagegalleryapi`, ma non un `Client` con lo stesso id, quindi l'endpoint di introspection rispondeva `401` con `no client with id 'imagegalleryapi' found`.
+
+Impatto:
+
+- l'API può di nuovo autenticarsi correttamente verso l'endpoint di introspection di `Marvin.IDP`;
+- i reference token emessi al client MVC possono essere validati dall'API;
+- il `401 Unauthorized` osservato dopo il login di `Emma` non dipende più dall'assenza del client tecnico nell'IDP.
+
+## Allineamento ai profili di avvio locali `http` e `https`
+
+File coinvolti:
+
+- `Marvin.IDP/Config.cs`
+- `ImageGallery.Client/appsettings.json`
+
+Correzione applicata:
+
+- aggiunta in `Marvin.IDP` anche la callback `http://localhost:5253/signin-oidc`;
+- aggiunta in `Marvin.IDP` anche la post logout callback `http://localhost:5253/signout-callback-oidc`;
+- riallineato `ImageGallery.Client` a `ImageGalleryAPIRoot = http://localhost:5212/`.
+
+Motivo tecnico:
+
+- con `dotnet run` il client MVC usa di default il profilo `http`, quindi il middleware OIDC genera `redirect_uri` su `http://localhost:5253/...`;
+- con lo stesso avvio, la Web API ascolta sicuramente su `http://localhost:5212`, mentre l'URL HTTPS `https://localhost:7162` non è sempre disponibile;
+- senza questo allineamento, il flusso locale fallisce in modo diverso a seconda del profilo selezionato in Visual Studio o CLI.
+
+Impatto:
+
+- il login locale del client MVC verso `Marvin.IDP` funziona sia con profilo `http` sia con profilo `https`;
+- il client MVC chiama un endpoint API disponibile in modo coerente anche quando la solution parte con i profili di default;
+- si riducono i falsi errori di ambiente dovuti solo al launch profile scelto.
+
+## Riallineamento del secret di introspection tra API e `Marvin.IDP`
+
+File coinvolti:
+
+- `ImageGallery.API` user secrets
+- `Marvin.IDP` user secrets
+
+Correzione applicata:
+
+- riallineato `Authentication:Introspection:ClientSecret` dell'API al valore `apisecret`;
+- confermato che `Marvin.IDP` espone `IdentityServer:ApiResources:ImageGalleryApi:ApiSecret = apisecret`.
+
+Motivo tecnico:
+
+- dopo il fix del `ClientId = imagegalleryapi`, l'API riusciva a chiamare `/connect/introspect` ma veniva ancora rifiutata con `401`;
+- i log di `Marvin.IDP` mostravano chiaramente `Client secret validation failed for client: imagegalleryapi`;
+- il secret locale dell'API era ancora `secret`, mentre il nuovo IDP usava `apisecret`.
+
+Impatto:
+
+- la Web API autentica correttamente la chiamata di introspection verso `Marvin.IDP`;
+- i reference token emessi al client MVC vengono validati con successo;
+- `GET /api/images` del client MVC torna a rispondere `200`.
+
+## Introduzione del persisted grant store SQL Server anche in `Marvin.IDP`
+
+File coinvolti:
+
+- `Marvin.IDP/Marvin.IDP.csproj`
+- `Marvin.IDP/HostingExtensions.cs`
+- `Marvin.IDP/Migrations/PersistedGrantDb/*`
+
+Correzione applicata:
+
+- aggiunto il package `Duende.IdentityServer.EntityFramework`;
+- configurato `AddOperationalStore(...)` di `Marvin.IDP` sullo stesso database SQL Server `MarvinIdp`;
+- aggiornato il bootstrap applicativo per applicare a startup sia le migration di `IdentityDbContext` sia quelle di `PersistedGrantDbContext`;
+- generata una migration dedicata del persisted grant store sotto `Marvin.IDP/Migrations/PersistedGrantDb`.
+
+Motivo tecnico:
+
+- `Marvin.IDP` emette `reference token` e `refresh token`, ma fino a questo allineamento li conservava solo in memoria;
+- dopo ogni riavvio del processo, i token salvati nel browser del client MVC non esistevano più lato IDP;
+- il sintomo osservato era `refresh_token ... not found in store`, seguito da `401 Unauthorized` sulla gallery.
+
+Impatto:
+
+- `Marvin.IDP` conserva ora persisted grants, refresh token e reference token in SQL Server;
+- i riavvii del progetto non invalidano più automaticamente i refresh token già rilasciati;
+- il comportamento del nuovo IDP è ora coerente con quello già adottato in `ImageGallery.IdentityServer`.
+
+## Riallineamento dei subject di `Emma` e `David` tra `Marvin.IDP` e `ImageGallery`
+
+File coinvolti:
+
+- `Marvin.IDP/HostingExtensions.cs`
+
+Correzione applicata:
+
+- il seed dei local users di `Marvin.IDP` è stato aggiornato per usare i `SubjectId` storici del vecchio `ImageGallery.IdentityServer`;
+- `Emma` usa ora `0C3F7AAF-EC7E-407E-A60C-3529F7CE0AEF`;
+- `David` usa ora `66928CB3-2E0F-4372-A430-4BECAB0BEB59`.
+
+Motivo tecnico:
+
+- la Web API filtra le immagini per `OwnerId`, che nel database `ImageGallery` contiene i subject storici emessi dal vecchio identity provider;
+- il nuovo `Marvin.IDP` era stato inizialmente popolato con subject diversi, quindi l'autenticazione riusciva ma `Emma` e `David` non vedevano più le immagini già presenti.
+
+Impatto:
+
+- dopo il riallineamento, i token emessi da `Marvin.IDP` riportano gli stessi `sub` attesi dalla tabella `ImageGallery.dbo.Images`;
+- `Emma` e `David` tornano a vedere le immagini già associate ai loro account storici, senza dover riscrivere i dati nel database immagini.
 
 ## Punti da verificare e allineare
 

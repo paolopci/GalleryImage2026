@@ -1,3 +1,4 @@
+using Duende.IdentityServer.EntityFramework.DbContexts;
 using Marvin.IDP.DbContexts;
 using Marvin.IDP.Entities;
 using Marvin.IDP.Services;
@@ -19,11 +20,11 @@ internal static class HostingExtensions
 
         builder.Services.AddScoped<ILocalUserService, LocalUserService>();
 
+        var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+            ?? throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
+
         builder.Services.AddDbContext<IdentityDbContext>(options =>
         {
-            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
-                ?? throw new InvalidOperationException("Connection string 'DefaultConnection' is not configured.");
-
             options.UseSqlServer(connectionString);
         });
 
@@ -36,7 +37,15 @@ internal static class HostingExtensions
             .AddInMemoryIdentityResources(Config.IdentityResources)
             .AddInMemoryApiScopes(Config.ApiScopes)
             .AddInMemoryApiResources(Config.ApiResources(builder.Configuration))
-            .AddInMemoryClients(Config.Clients(builder.Configuration));
+            .AddInMemoryClients(Config.Clients(builder.Configuration))
+            .AddOperationalStore(options =>
+            {
+                options.ConfigureDbContext = dbContextBuilder =>
+                    dbContextBuilder.UseSqlServer(
+                        connectionString,
+                        sqlServerOptions =>
+                            sqlServerOptions.MigrationsAssembly(typeof(HostingExtensions).Assembly.GetName().Name));
+            });
 
         return builder.Build();
     }
@@ -88,20 +97,27 @@ internal static class HostingExtensions
         command.Parameters.AddWithValue("@databaseName", targetDatabaseName);
 
         var databaseExists = (bool?)await command.ExecuteScalarAsync() ?? false;
+        await using var scope = app.Services.CreateAsyncScope();
+        var identityDbContext = scope.ServiceProvider.GetRequiredService<IdentityDbContext>();
+        var persistedGrantDbContext = scope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>();
+
         if (databaseExists)
         {
-            Log.Warning(
-                "The SQL Server database {DatabaseName} already exists. Automatic migrations were skipped to avoid overwriting an existing database.",
+            Log.Information(
+                "The SQL Server database {DatabaseName} already exists. Applying pending Marvin.IDP migrations without recreating the database.",
                 targetDatabaseName);
-            return;
+        }
+        else
+        {
+            Log.Information(
+                "The SQL Server database {DatabaseName} was not found. Creating the database and applying Marvin.IDP migrations.",
+                targetDatabaseName);
         }
 
-        await using var scope = app.Services.CreateAsyncScope();
-        var dbContext = scope.ServiceProvider.GetRequiredService<IdentityDbContext>();
+        await identityDbContext.Database.MigrateAsync();
+        await persistedGrantDbContext.Database.MigrateAsync();
 
-        Log.Information("The SQL Server database {DatabaseName} was not found. Applying Marvin.IDP migrations.", targetDatabaseName);
-        await dbContext.Database.MigrateAsync();
-        Log.Information("The SQL Server database {DatabaseName} has been created and migrated.", targetDatabaseName);
+        Log.Information("The SQL Server database {DatabaseName} has been migrated for both local users and persisted grants.", targetDatabaseName);
     }
 
     public static async Task SeedLocalUsersAsync(this WebApplication app)
@@ -152,7 +168,7 @@ internal static class HostingExtensions
         {
             Id = new Guid("13229d33-99e0-41b3-b18d-4f72127e3971"),
             Password = GetRequiredConfiguration(configuration, Config.DavidPasswordConfigurationKey),
-            Subject = "d860efca-22d9-47fd-8249-791ba61b07c7",
+            Subject = "66928CB3-2E0F-4372-A430-4BECAB0BEB59",
             UserName = "David",
             Active = true,
             ConcurrencyStamp = "ac7a96e5-1a77-4fd5-8c70-7b98958522dd"
@@ -161,7 +177,7 @@ internal static class HostingExtensions
         {
             Id = new Guid("96053525-f4a5-47ee-855e-0ea77fa6c55a"),
             Password = GetRequiredConfiguration(configuration, Config.EmmaPasswordConfigurationKey),
-            Subject = "b7539694-97e7-4dfe-84da-b4256e1ff5c7",
+            Subject = "0C3F7AAF-EC7E-407E-A60C-3529F7CE0AEF",
             UserName = "Emma",
             Active = true,
             ConcurrencyStamp = "af0346be-1962-4a5f-802d-b06abffa4dbc"

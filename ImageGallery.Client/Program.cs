@@ -87,17 +87,17 @@ builder.Services.AddAuthentication(options =>
           //options.Scope.Add("imagegalleryapi.fullaccess");
           options.Scope.Add("imagegalleryapi.read");
           options.Scope.Add("imagegalleryapi.write");
-          options.Scope.Add("paese");  // voglio anche il paese ritorna da UserInfo
+          options.Scope.Add("country");  // voglio anche il paese ritorna da UserInfo
           options.Scope.Add("offline_access");// questo se voglio usare il Refresh Token
 
           // Richiede i ruoli dell'utente all'IdentityServer e mappa il campo JSON "role"
           // come claim locale, così il client può usarlo per autorizzazioni e controlli sui ruoli.
           options.Scope.Add("roles");
           // Mappa i campi JSON restituiti dall'IdentityServer in claim locali:
-          // "role" serve per gestire autorizzazioni basate sui ruoli, mentre "paese"
+          // "role" serve per gestire autorizzazioni basate sui ruoli, mentre "country"
           // aggiunge all'utente autenticato il valore del paese recuperato dallo UserInfo endpoint.
           options.ClaimActions.MapJsonKey("role", "role");
-          options.ClaimActions.MapUniqueJsonKey("paese", "paese");
+          options.ClaimActions.MapUniqueJsonKey("country", "country");
 
           options.TokenValidationParameters = new()
           {

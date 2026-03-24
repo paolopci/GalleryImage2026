@@ -53,6 +53,7 @@ public static class Config
  
     public static IEnumerable<Client> Clients(IConfiguration configuration)
     {
+        var apiSecret = GetRequiredConfiguration(configuration, ApiSecretConfigurationKey);
         var clientSecret = GetRequiredConfiguration(configuration, ClientSecretConfigurationKey);
 
         return
@@ -71,11 +72,13 @@ public static class Config
                     // IdentityTokenLifetime = ...
                     RedirectUris =
                     {
-                        "https://localhost:7184/signin-oidc"
+                        "http://localhost:5253/signin-oidc",
+                        "https://localhost:7065/signin-oidc"
                     },
                     PostLogoutRedirectUris =
                     {
-                        "https://localhost:7184/signout-callback-oidc"
+                        "http://localhost:5253/signout-callback-oidc",
+                        "https://localhost:7065/signout-callback-oidc"
                     },
                     AllowedScopes =
                     {
@@ -92,6 +95,18 @@ public static class Config
                         new Secret(clientSecret.Sha256())
                     }, 
                     RequireConsent = true
+                },
+                new Client()
+                {
+                    // Client tecnico usato dalla Web API per autenticarsi
+                    // all'endpoint di introspection quando valida i reference token.
+                    ClientName = "Image Gallery API Introspection",
+                    ClientId = "imagegalleryapi",
+                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    ClientSecrets =
+                    {
+                        new Secret(apiSecret.Sha256())
+                    }
                 }
             };
     }
