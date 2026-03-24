@@ -35,7 +35,11 @@ JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
 const string IdentityServerAuthority = "https://localhost:5001";
 const string ImageGalleryClientId = "imagegalleryclient";
-const string ImageGalleryClientSecret = "secret";
+const string OpenIdConnectClientSecretConfigurationKey = "Authentication:OpenIdConnect:ClientSecret";
+
+var imageGalleryClientSecret = builder.Configuration[OpenIdConnectClientSecretConfigurationKey]
+    ?? throw new InvalidOperationException(
+        $"Configuration value '{OpenIdConnectClientSecretConfigurationKey}' is not configured.");
 
 // configure authentication per usare OpenIDConnect
 builder.Services.AddAuthentication(options =>
@@ -51,7 +55,7 @@ builder.Services.AddAuthentication(options =>
           options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
           options.Authority = IdentityServerAuthority;
           options.ClientId = ImageGalleryClientId;
-          options.ClientSecret = ImageGalleryClientSecret;
+          options.ClientSecret = imageGalleryClientSecret;
           options.ResponseType = "code";
 
           // questi sono gli ambiti che voglio richiedere, non serve aggiungerli sono

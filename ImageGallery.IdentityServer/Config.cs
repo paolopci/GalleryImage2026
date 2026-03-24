@@ -1,10 +1,15 @@
 using Duende.IdentityServer;
 using Duende.IdentityServer.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace ImageGallery.IdentityServer;
 
 public static class Config
 {
+    public const string ApiSecretConfigurationKey = "IdentityServer:ApiResources:ImageGalleryApi:ApiSecret";
+    public const string ImageGalleryClientSecretConfigurationKey = "IdentityServer:Clients:ImageGalleryClient:ClientSecret";
+    public const string ImageGalleryPostmanClientSecretConfigurationKey = "IdentityServer:Clients:ImageGalleryPostman:ClientSecret";
+
     // Le IdentityResources rappresentano le informazioni identitarie
     // che l'IDP può rilasciare al client autenticato.
     // In questo esempio il client chiede:
@@ -39,7 +44,11 @@ public static class Config
     // Gli ApiResources rappresentano le API protette esposte dall'IdentityServer.
     // In questo caso definiamo la risorsa "imagegalleryapi" a cui i client possono
     // richiedere accesso tramite lo scope omonimo.
-    public static IEnumerable<ApiResource> ApiResources =>
+    public static IEnumerable<ApiResource> ApiResources(IConfiguration configuration)
+    {
+        var apiSecret = GetRequiredConfiguration(configuration, ApiSecretConfigurationKey);
+
+        return
         new ApiResource[]
         {
             new ApiResource("imagegalleryapi", "Image Gallery API")
@@ -50,16 +59,22 @@ public static class Config
                     "imagegalleryapi.read",
                     "imagegalleryapi.write",
                 },
-                ApiSecrets={new Secret("secret".Sha256())},
+                ApiSecrets={new Secret(apiSecret.Sha256())},
 
                 UserClaims = { "given_name", "role", "paese" },
             },
         };
+    }
 
     // La sezione Clients definisce le applicazioni che possono usare questo
     // IdentityServer come Identity Provider (IDP).
     // Ogni client ha credenziali, grant type consentiti, redirect URI e scope autorizzati.
-    public static IEnumerable<Client> Clients =>
+    public static IEnumerable<Client> Clients(IConfiguration configuration)
+    {
+        var imageGalleryClientSecret = GetRequiredConfiguration(configuration, ImageGalleryClientSecretConfigurationKey);
+        var imageGalleryPostmanClientSecret = GetRequiredConfiguration(configuration, ImageGalleryPostmanClientSecretConfigurationKey);
+
+        return
         new Client[]
         {
             // Questo client rappresenta ImageGallery.Client, cioè l'app MVC
@@ -120,7 +135,7 @@ public static class Config
                 {
                     // Segreto condiviso usato dal client confidenziale
                     // quando scambia l'authorization code con i token.
-                    new Secret("secret".Sha256())
+                    new Secret(imageGalleryClientSecret.Sha256())
                 },
 
                 // Se true, l'IDP mostra all'utente una schermata di consenso
@@ -145,11 +160,22 @@ public static class Config
                 },
                 ClientSecrets =
                 {
-                    new Secret("secret".Sha256())
+                    new Secret(imageGalleryPostmanClientSecret.Sha256())
                 },
 
                 // Client dev-only usato dalla collection Postman con utenti seedati locali.
                 RequireConsent = false,
             },
         };
+    }
+
+    public static void ValidateRequiredConfiguration(IConfiguration configuration)
+    {
+        _ = GetRequiredConfiguration(configuration, ApiSecretConfigurationKey);
+        _ = GetRequiredConfiguration(configuration, ImageGalleryClientSecretConfigurationKey);
+        _ = GetRequiredConfiguration(configuration, ImageGalleryPostmanClientSecretConfigurationKey);
+    }
+
+    private static string GetRequiredConfiguration(IConfiguration configuration, string key) =>
+        configuration[key] ?? throw new InvalidOperationException($"Configuration value '{key}' is not configured.");
 }

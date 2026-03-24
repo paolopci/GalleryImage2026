@@ -32,6 +32,11 @@ JsonWebTokenHandler.DefaultInboundClaimTypeMap.Clear();
 const string DynamicBearerScheme = "DynamicBearer";
 const string IntrospectionScheme = "Introspection";
 const string DevJwtScheme = "DevJwt";
+const string IntrospectionClientSecretConfigurationKey = "Authentication:Introspection:ClientSecret";
+
+var introspectionClientSecret = builder.Configuration[IntrospectionClientSecretConfigurationKey]
+    ?? throw new InvalidOperationException(
+        $"Configuration value '{IntrospectionClientSecretConfigurationKey}' is not configured.");
 
 var authenticationBuilder = builder.Services.AddAuthentication(options =>
 {
@@ -66,7 +71,7 @@ authenticationBuilder.AddOAuth2Introspection(IntrospectionScheme, options =>
         // l'introspection del bearer token ricevuto.
         options.Authority = "https://localhost:5001";
         options.ClientId = "imagegalleryapi";
-        options.ClientSecret = "secret";
+        options.ClientSecret = introspectionClientSecret;
         options.NameClaimType = "given_name";
         options.RoleClaimType = "role";
     });

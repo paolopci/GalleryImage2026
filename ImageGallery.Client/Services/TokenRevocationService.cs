@@ -9,15 +9,18 @@ namespace ImageGallery.Client.Services;
 public sealed class TokenRevocationService : ITokenRevocationService
 {
     private const string ClientId = "imagegalleryclient";
-    private const string ClientSecret = "secret";
+    private const string OpenIdConnectClientSecretConfigurationKey = "Authentication:OpenIdConnect:ClientSecret";
     private readonly IHttpClientFactory _httpClientFactory;
+    private readonly IConfiguration _configuration;
     private readonly ILogger<TokenRevocationService> _logger;
 
     public TokenRevocationService(
         IHttpClientFactory httpClientFactory,
+        IConfiguration configuration,
         ILogger<TokenRevocationService> logger)
     {
         _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
+        _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
@@ -44,6 +47,10 @@ public sealed class TokenRevocationService : ITokenRevocationService
         string tokenTypeHint,
         CancellationToken cancellationToken)
     {
+        var clientSecret = _configuration[OpenIdConnectClientSecretConfigurationKey]
+            ?? throw new InvalidOperationException(
+                $"Configuration value '{OpenIdConnectClientSecretConfigurationKey}' is not configured.");
+
         if (string.IsNullOrWhiteSpace(token))
         {
             _logger.LogInformation("Revocation skipped: no {TokenTypeHint} available in the current session.", tokenTypeHint);
@@ -58,7 +65,7 @@ public sealed class TokenRevocationService : ITokenRevocationService
             using var request = new HttpRequestMessage(HttpMethod.Post, "/connect/revocation");
             request.Headers.Authorization = new AuthenticationHeaderValue(
                 "Basic",
-                Convert.ToBase64String(Encoding.ASCII.GetBytes($"{ClientId}:{ClientSecret}")));
+                Convert.ToBase64String(Encoding.ASCII.GetBytes($"{ClientId}:{clientSecret}")));
             request.Content = new FormUrlEncodedContent(new Dictionary<string, string>
             {
                 ["token"] = token,

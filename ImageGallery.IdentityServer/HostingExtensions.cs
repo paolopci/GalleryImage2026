@@ -47,14 +47,17 @@ internal static class HostingExtensions
         // uncomment if you want to add a UI
         builder.Services.AddRazorPages();
 
+        Config.ValidateRequiredConfiguration(builder.Configuration);
+        TestUsers.ValidateRequiredConfiguration(builder.Configuration);
+
         var persistedGrantConnectionString = builder.Configuration.GetConnectionString("DefaultConnection")
             ?? throw new InvalidOperationException("Missing connection string 'DefaultConnection' for IdentityServer operational store.");
 
         builder.Services.AddIdentityServer()
             .AddInMemoryIdentityResources(Config.IdentityResources)
-            .AddInMemoryApiResources(Config.ApiResources)
+            .AddInMemoryApiResources(Config.ApiResources(builder.Configuration))
             .AddInMemoryApiScopes(Config.ApiScopes)
-            .AddInMemoryClients(Config.Clients)
+            .AddInMemoryClients(Config.Clients(builder.Configuration))
             .AddOperationalStore(options =>
             {
                 options.ConfigureDbContext = dbContextBuilder =>
@@ -63,7 +66,7 @@ internal static class HostingExtensions
                         sqlServerOptions =>
                             sqlServerOptions.MigrationsAssembly(typeof(HostingExtensions).Assembly.GetName().Name));
             })
-            .AddTestUsers(TestUsers.Users)
+            .AddTestUsers(TestUsers.Users(builder.Configuration))
             .AddLicenseSummary();
 
         return builder.Build();

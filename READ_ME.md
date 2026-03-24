@@ -581,7 +581,7 @@ Correzione applicata:
 - mantenuta la protezione globale di `ImagesController` con `[Authorize]`, così gli endpoint non entrano nel controller quando la richiesta è anonima;
 - reso più esplicito il messaggio di errore in `GetOwnerId()` quando un utente autenticato non contiene il claim `sub`;
 - riallineata la API a `AddOAuth2Introspection(...)` invece di `AddJwtBearer(...)`;
-- configurata l'introspection con `ClientId = imagegalleryapi` e `ClientSecret = secret`, coerenti con `ApiSecrets` della resource API in `Config.cs`.
+- configurata l'introspection con `ClientId = imagegalleryapi` e secret applicativo letto da configurazione sicura, coerente con la resource API dell'IdentityServer.
 
 Motivo tecnico:
 
@@ -795,6 +795,66 @@ Nota sui token disponibili:
 - i `POST` della collection usano ora `bytes` come stringa base64 di test, perché il modello `ImageForCreation.Bytes` è un `byte[]` e il binding JSON di ASP.NET Core è affidabile con payload base64, mentre l'array numerico usato in precedenza generava errori `400 Bad Request` sul body.
 - nella sequenza CRUD della collection, il test `04` crea un'immagine con il token write di Emma e salva `createdImageId`; i test `05`, `06`, `07`, `08` e `09` lavorano esplicitamente solo su quella stessa immagine, così i test manuali non toccano altre immagini dell'utente.
 - il test finale sulla risorsa eliminata verifica `403` e non `404`: nel codice attuale `MustOwnImageHandler` applica prima il controllo di ownership sulla route `id` e fallisce l'autorizzazione prima che `GetImage` possa arrivare al ramo `NotFound()`, quindi il comportamento effettivo osservabile dopo la delete e' `Forbid`.
+
+## Allineamento di `Marvin.IDP` a .NET 10 con SQL Server e user secrets dedicati
+
+File coinvolti:
+
+- `Marvin.IDP/Marvin.IDP.csproj`
+- `Marvin.IDP/HostingExtensions.cs`
+- `Marvin.IDP/Program.cs`
+- `Marvin.IDP/Config.cs`
+- `Marvin.IDP/DbContexts/IdentityDbContext.cs`
+- `Marvin.IDP/DbContexts/IdentityDbContextFactory.cs`
+- `Marvin.IDP/Migrations/*`
+- `.gitignore`
+
+Correzione applicata:
+
+- aggiornato `Marvin.IDP` da `net8.0` a `net10.0`;
+- sostituito EF Core SQLite con EF Core SQL Server `10.0.3`;
+- aggiunto `UserSecretsId` dedicato per il progetto;
+- spostata la connection string verso `ConnectionStrings:DefaultConnection` in user secrets, derivata dall'istanza SQL Server Docker della solution ma con database dedicato `MarvinIdp`;
+- rimossi dal codice i valori sensibili hardcoded di `ApiSecrets` e `ClientSecrets`, ora letti da configurazione sicura;
+- rigenerate le migration EF per SQL Server con seed deterministico;
+- introdotto un bootstrap difensivo che controlla se `MarvinIdp` esiste già e, in quel caso, salta le migration automatiche per evitare sovrascritture;
+- aggiunta una `IDesignTimeDbContextFactory` per evitare side effect del bootstrap durante i comandi `dotnet ef`;
+- neutralizzato l'uso operativo del vecchio file SQLite locale e aggiunta l'esclusione `*.db` in `.gitignore`.
+
+Motivo tecnico:
+
+- `Marvin.IDP` era l'unico progetto rimasto fuori standard rispetto alla solution .NET 10;
+- il provider SQLite e le migration generate su EF 8 non erano coerenti con il target tecnico attuale;
+- la soluzione usa già SQL Server locale su Docker, quindi il nuovo IDP doveva allinearsi alla stessa infrastruttura mantenendo però un database separato;
+- connection string e segreti OAuth2/OIDC non devono restare nel repository.
+
+Impatto:
+
+- `Marvin.IDP` è ora coerente con il resto della solution dal punto di vista di framework, provider EF e gestione configurazione sensibile;
+- il database atteso per il progetto è `MarvinIdp` sull'istanza SQL Server locale;
+- il bootstrap non crea o migra nulla se trova già un database con quel nome;
+- le prossime operazioni EF sul progetto lavorano sul provider SQL Server e non più su SQLite.
+
+## Riallineamento password seed di `David` e `Emma` in `Marvin.IDP`
+
+File coinvolti:
+
+- `Marvin.IDP/DbContexts/IdentityDbContext.cs`
+- `Marvin.IDP/Migrations/*`
+
+Correzione applicata:
+
+- rimossa dal codice la password esplicita degli utenti locali `David` e `Emma`;
+- spostata la credenziale locale su configurazione sicura, evitando che il valore finisca in seed, migration e snapshot versionati.
+
+Motivo tecnico:
+
+- dopo la creazione di `MarvinIdp`, i due utenti locali del progetto non erano coerenti con la password usata nel resto dell'ambiente locale.
+
+Impatto:
+
+- i login locali di `David` e `Emma` su `Marvin.IDP` dipendono ora dalla configurazione sicura locale;
+- eventuali ricreazioni future del database non reintroducono password esplicite nel codice o nelle migration.
 
 ## Punti da verificare e allineare
 

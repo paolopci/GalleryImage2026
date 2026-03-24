@@ -74,7 +74,7 @@
             },
             {
               "key": "password",
-              "value": "Micene@65",
+              "value": "{{davidPassword}}",
               "type": "text"
             },
             {
@@ -166,7 +166,7 @@
             },
             {
               "key": "password",
-              "value": "Micene@65",
+              "value": "{{emmaPassword}}",
               "type": "text"
             },
             {
@@ -614,7 +614,17 @@
     },
     {
       "key": "postmanClientSecret",
-      "value": "secret",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "davidPassword",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "emmaPassword",
+      "value": "",
       "type": "string"
     },
     {
